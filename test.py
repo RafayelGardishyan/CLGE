@@ -43,9 +43,11 @@ class Player:
             if self.power < player.power:
                 self.xpos = screen.field_width + 100
                 self.ypos = screen.field_height + 100
-            else:
+            elif self.power > player.power:
                 player.xpos = screen.field_width + 100
                 player.ypos = screen.field_height + 100
+            else:
+                pass
 
     def __str__(self):
         return self.name
