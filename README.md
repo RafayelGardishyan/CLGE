@@ -137,7 +137,7 @@ while True:
   screen_object.clear_screen()
 ```
 This will result in:
-//////////////////////
+```//////////////////////
 /                    /
 /                    /
 /                    /
@@ -159,5 +159,6 @@ This will result in:
 /                    /
 /                    /
 //////////////////////
+```
 
 screen_object.add_polygon(5, 5, 10, 10, "%") will result in a rectangle(5 by 5) out of %'s on cordinates x:10 y:10
