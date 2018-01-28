@@ -162,6 +162,8 @@ This will result in:
 //////////////////////
 ```
 
+screen_object.set_timeout(5) will set screen timeout to 5 seconds
+screen_object.do_timeout() will do timeout
 screen_object.add_polygon(5, 5, 10, 10, "%") will result in a rectangle(5 by 5) out of %'s on cordinates x:10 y:10
 
 ### KeyDetector
@@ -195,7 +197,7 @@ Output: You pressed a
 This functions converts a 1 character string into a charcter code
 Usage:
 ```python 
-from engine impoer convert_to_code
+from engine importconvert_to_code
 
 print(convert_to_code("a"))
 ```
@@ -203,7 +205,7 @@ print(convert_to_code("a"))
 This functions converts a character code into a charcter string
 Usage:
 ```python 
-from engine impoer convert_to_char
+from engine import convert_to_char
 
 print(convert_to_char(36))
 ```

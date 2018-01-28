@@ -17,7 +17,7 @@ class Screen:
         self.timeout = timeout
         self.auto_clear_objects_list = auto_clear_objects_list
         self.auto_timeout = auto_timeout
-        
+
     def clear_screen(self):
         print('\n' * 100)
 
@@ -30,12 +30,16 @@ class Screen:
     def clear_objects_list(self):
         self.objectsList = []
 
-
     def add_polygon(self, width, height, x, y, symbol=default_symbol):
         for i in range(height):
             for j in range(width):
                 self.add_object(x + j, y + i, symbol)
 
+    def do_timeout(self):
+        time.sleep(self.timeout)
+
+    def set_timeout(self, seconds):
+        self.timeout = seconds
 
     def draw(self, objects):
         print(self.default_symbol * (self.field_width + 2))
@@ -57,10 +61,10 @@ class Screen:
             draw += self.default_symbol
             print(draw)
         print(self.default_symbol * (self.field_width + 2))
-        if self.auto_clear_objects_list:
-            self.clear_objects_list()
-        if self.auto_timeout:
-            time.sleep(self.timeout)
 
     def render(self):
         self.draw(self.objectsList)
+        if self.auto_timeout:
+            self.do_timeout()
+        if self.auto_clear_objects_list:
+            self.clear_objects_list()
