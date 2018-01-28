@@ -10,6 +10,7 @@ class Player:
     power = 0
     name = 'UnnamedPlayer'
     direction = None
+    alive = True
 
     def __init__(self, x, y, speed, power, name, start_direction):
         self.xpos = x
@@ -56,6 +57,7 @@ class Player:
                 self.xpos = screen.field_width + 100
                 self.ypos = screen.field_height + 100
                 bullet = None
+                self.alive = False
             else:
                 pass
 
@@ -63,9 +65,11 @@ class Player:
             if self.power < player.power:
                 self.xpos = screen.field_width + 100
                 self.ypos = screen.field_height + 100
+                self.alive = False
             elif self.power > player.power:
                 player.xpos = screen.field_width + 100
                 player.ypos = screen.field_height + 100
+                player.alive = False
             else:
                 pass
 
@@ -101,10 +105,12 @@ while True:
         screenObj.add_object(3, 5, "S")
         screenObj.add_object(2, 5, "A")
         screenObj.add_object(4, 5, "D")
+        screenObj.add_object(6, 5, "Z")
         screenObj.add_object(10, 5, "<")
         screenObj.add_object(12, 5, ">")
         screenObj.add_object(11, 4, "^")
         screenObj.add_object(11, 5, ".")
+        screenObj.add_object(14, 5, "L")
         screenObj.add_object(2, 6, "a")
         screenObj.add_object(3, 6, "t")
         screenObj.add_object(10, 6, "s")
@@ -116,29 +122,29 @@ while True:
         screenObj.render()
         screenObj.clear_screen()
         screenObj.timeout = 0.05
-    if pshoot.detect():
+    if pshoot.detect() and p.alive:
         p.shoot()
-    if gshoot.detect():
+    if gshoot.detect() and p.alive:
         g.shoot()
-    if pup.detect():
+    if pup.detect() and p.alive:
         for i in range(11):
             p.jump()
-            if pshoot.detect():
+            if pshoot.detect() and p.alive:
                 p.shoot()
-            if gshoot.detect():
+            if gshoot.detect() and g.alive:
                 g.shoot()
-            if pdown.detect():
+            if pdown.detect() and p.alive:
                 p.down()
                 break
-            if gdown.detect():
+            if gdown.detect() and g.alive:
                 g.down()
-            if pleft.detect():
+            if pleft.detect() and p.alive:
                 p.left()
-            if pright.detect():
+            if pright.detect() and p.alive:
                 p.right()
-            if gleft.detect():
+            if gleft.detect() and g.alive:
                 g.left()
-            if gright.detect():
+            if gright.detect() and g.alive:
                 g.right()
             for bullet in bullets:
                 try:
@@ -157,31 +163,31 @@ while True:
             screenObj.add_object(g.xpos, g.ypos, '*')
             screenObj.render()
             screenObj.clear_screen()
-    if pdown.detect():
+    if pdown.detect() and p.alive:
         p.down()
-    if pleft.detect():
+    if pleft.detect() and p.alive:
         p.left()
-    if pright.detect():
+    if pright.detect() and p.alive:
         p.right()
-    if gup.detect():
+    if gup.detect() and g.alive:
         for i in range(11):
             g.jump()
-            if pshoot.detect():
+            if pshoot.detect() and p.alive:
                 p.shoot()
-            if gshoot.detect():
+            if gshoot.detect() and g.alive:
                 g.shoot()
-            if gdown.detect():
+            if gdown.detect() and g.alive:
                 g.down()
                 break
-            if pdown.detect():
+            if pdown.detect() and p.alive:
                 p.down()
-            if pleft.detect():
+            if pleft.detect() and p.alive:
                 p.left()
-            if pright.detect():
+            if pright.detect() and p.alive:
                 p.right()
-            if gleft.detect():
+            if gleft.detect() and g.alive:
                 g.left()
-            if gright.detect():
+            if gright.detect() and g.alive:
                 g.right()
             for bullet in bullets:
                 try:
@@ -200,11 +206,11 @@ while True:
             screenObj.add_object(g.xpos, g.ypos, '*')
             screenObj.render()
             screenObj.clear_screen()
-    if gleft.detect():
+    if gleft.detect() and g.alive:
         g.left()
-    if gdown.detect():
+    if gdown.detect() and g.alive:
         g.down()
-    if gright.detect():
+    if gright.detect() and g.alive:
         g.right()
     p.check_collision(g, screenObj)
     g.check_collision(p, screenObj)

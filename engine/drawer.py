@@ -25,7 +25,7 @@ class Screen:
         if not len(symbol) > 1:
             self.objectsList.append([x, y, symbol])
         else:
-            self.objectsList.append([x, y, self.default_symbol])
+            self.objectsList.append([x, y, symbol[:1]])
 
     def clear_objects_list(self):
         self.objectsList = []
