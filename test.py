@@ -1,4 +1,4 @@
-from engine import Screen
+from engine import Screen, KeyDetector
 
 screenObj = Screen(40, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
 
@@ -52,75 +52,31 @@ class Player:
     def __str__(self):
         return self.name
 
-p = Player(9, 19, 2, 1, "At")
+p = Player(0, 19, 2, 1, "At")
 g = Player(10, 19, 1, 5, "Star")
-text = "Welcome to CLGE Testing Sandbox"
+w = KeyDetector("w")
+a = KeyDetector("a")
+d = KeyDetector("d")
+
 
 while True:
+    if w.detect():
+        for i in range(11):
+            p.jump()
+            g.jump()
+            screenObj.add_object(p.xpos, p.ypos, '@')
+            screenObj.add_object(g.xpos, g.ypos, '*')
+            screenObj.render()
+            screenObj.clear_screen()
+    if a.detect():
+        p.left()
+        g.left()
+    if d.detect():
+        p.right()
+        g.right()
     p.check_collision(g, screenObj)
     screenObj.add_object(p.xpos, p.ypos, '@')
     screenObj.add_object(g.xpos, g.ypos, '*')
     screenObj.render()
-    if text:
-        print(text)
-        text = False
-    c = input("Command: ")
-    c = c.split()
-    for command in c:
-        if command == "jump":
-            for i in range(11):
-                screenObj.clear_screen()
-                screenObj.add_object(p.xpos, p.ypos, '@')
-                screenObj.add_object(g.xpos, g.ypos, '*')
-                p.jump()
-                g.jump()
-                screenObj.render()
-                text = "{} and {} were jumping".format(p, g)
-                print(text)
-        elif command == "jumpp":
-            for i in range(11):
-                screenObj.clear_screen()
-                screenObj.add_object(p.xpos, p.ypos, '@')
-                screenObj.add_object(g.xpos, g.ypos, '*')
-                text = "{} was jumping".format(p)
-                p.jump()
-                screenObj.render()
-                print(text)
-        elif command == "jumpg":
-            for i in range(11):
-                screenObj.clear_screen()
-                screenObj.add_object(g.xpos, g.ypos, '*')
-                screenObj.add_object(p.xpos, p.ypos, '@')
-                text = "{} was jumping".format(g)
-                g.jump()
-                screenObj.render()
-                print(text)
-        elif command == "right":
-            p.right()
-            g.right()
-            text = "{} and {} are moving to right".format(p, g)
-        elif command == "left":
-            p.left()
-            g.left()
-            text = "{} and {} are moving to left".format(p, g)
-        elif command == "rightp":
-            p.right()
-            text = "{} is moving to right".format(p)
-        elif command == "leftp":
-            p.left()
-            text = "{} is moving to left".format(p)
-        elif command == "rightg":
-            g.right()
-            text = "{} is moving to right".format(g)
-        elif command == "leftg":
-            g.left()
-            text = "{} is moving to left".format(g)
-        elif command == "quit":
-            raise SystemExit
-        elif command == "help":
-            text = "Help text:\nCommands:\n\t{}:\n\t\tjumpp = JUMP\n\t\trightp or leftp = GO LEFT OR GO RIGHT\n\t{}:\n\t\tjumpg = JUMP\n\t\trightg or leftg = Go LEFT OR GO RIGHT".format(p, g)
-        else:
-            text = "For help input \"help\""
-
     screenObj.clear_screen()
 
