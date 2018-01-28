@@ -137,7 +137,8 @@ while True:
   screen_object.clear_screen()
 ```
 This will result in:
-```//////////////////////
+```
+//////////////////////
 /                    /
 /                    /
 /                    /
