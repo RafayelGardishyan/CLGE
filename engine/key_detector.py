@@ -26,3 +26,10 @@ class KeyDetector:
                 return False
         else:
             print("No keyboard detection, please install keyboard package by \"pip install keyboard\"")
+
+
+def convert_to_code(char):
+    return ord(char)
+
+def convert_to_char(code):
+    return chr(code)

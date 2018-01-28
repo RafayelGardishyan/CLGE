@@ -1,4 +1,4 @@
-from engine import Screen, KeyDetector
+from engine import Screen, KeyDetector, convert_to_char
 
 screenObj = Screen(40, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
 
@@ -54,25 +54,52 @@ class Player:
 
 p = Player(0, 19, 2, 1, "At")
 g = Player(10, 19, 1, 5, "Star")
-w = KeyDetector("w")
-a = KeyDetector("a")
-d = KeyDetector("d")
+pup = KeyDetector("w")
+pleft = KeyDetector("a")
+pright = KeyDetector("d")
+gup = KeyDetector("up")
+gleft = KeyDetector("left")
+gright = KeyDetector("right")
 
 
 while True:
-    if w.detect():
+    if pup.detect():
         for i in range(11):
             p.jump()
-            g.jump()
+            if pleft.detect():
+                p.left()
+            if pright.detect():
+                p.right()
+            if gleft.detect():
+                g.left()
+            if gright.detect():
+                g.right()
             screenObj.add_object(p.xpos, p.ypos, '@')
             screenObj.add_object(g.xpos, g.ypos, '*')
             screenObj.render()
             screenObj.clear_screen()
-    if a.detect():
+    if pleft.detect():
         p.left()
-        g.left()
-    if d.detect():
+    if pright.detect():
         p.right()
+    if gup.detect():
+        for i in range(11):
+            g.jump()
+            if pleft.detect():
+                p.left()
+            if pright.detect():
+                p.right()
+            if gleft.detect():
+                g.left()
+            if gright.detect():
+                g.right()
+            screenObj.add_object(p.xpos, p.ypos, '@')
+            screenObj.add_object(g.xpos, g.ypos, '*')
+            screenObj.render()
+            screenObj.clear_screen()
+    if gleft.detect():
+        g.left()
+    if gright.detect():
         g.right()
     p.check_collision(g, screenObj)
     screenObj.add_object(p.xpos, p.ypos, '@')
