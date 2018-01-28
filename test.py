@@ -1,6 +1,7 @@
 from engine import Screen, KeyDetector
 
 screenObj = Screen(60, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
+bullets = []
 
 class Player:
     xpos = 0
@@ -8,13 +9,15 @@ class Player:
     speed = 1
     power = 0
     name = 'UnnamedPlayer'
+    direction = None
 
-    def __init__(self, x, y, speed, power, name):
+    def __init__(self, x, y, speed, power, name, start_direction):
         self.xpos = x
         self.ypos = y
         self.speed = speed
         self.power = power
         self.name = name
+        self.direction = start_direction
 
     bufferx = xpos
     buffery = ypos
@@ -33,16 +36,29 @@ class Player:
     def right(self):
         self.xpos += self.speed
         self.bufferx = self.xpos
+        self.direction = "right"
 
     def left(self):
         self.xpos -= self.speed
         self.bufferx = self.xpos
+        self.direction = "left"
+
+    def shoot(self):
+        bullets.append([self.xpos, self.ypos, self.direction, self.name])
 
     def down(self):
         self.ypos = self.buffery
         self.buffery = self.ypos
 
     def check_collision(self, player, screen):
+        for bullet in bullets:
+            if bullet[0] == self.xpos and bullet[1] == self.ypos and bullet[3] != self.name:
+                self.xpos = screen.field_width + 100
+                self.ypos = screen.field_height + 100
+                bullet = None
+            else:
+                pass
+
         if self.xpos == player.xpos and self.ypos == player.ypos:
             if self.power < player.power:
                 self.xpos = screen.field_width + 100
@@ -56,16 +72,18 @@ class Player:
     def __str__(self):
         return self.name
 
-p = Player(0, 19, 2, 1, "At")
-g = Player(59, 19, 1, 5, "Star")
+p = Player(0, 19, 2, 1, "At", "right")
+g = Player(59, 19, 1, 5, "Star", "left")
 pup = KeyDetector("w")
 pdown = KeyDetector("s")
 pleft = KeyDetector("a")
 pright = KeyDetector("d")
+pshoot = KeyDetector("z")
 gup = KeyDetector("up")
 gdown = KeyDetector("down")
 gleft = KeyDetector("left")
 gright = KeyDetector("right")
+gshoot = KeyDetector("l")
 help = KeyDetector("h")
 
 
@@ -98,9 +116,17 @@ while True:
         screenObj.render()
         screenObj.clear_screen()
         screenObj.timeout = 0.05
+    if pshoot.detect():
+        p.shoot()
+    if gshoot.detect():
+        g.shoot()
     if pup.detect():
         for i in range(11):
             p.jump()
+            if pshoot.detect():
+                p.shoot()
+            if gshoot.detect():
+                g.shoot()
             if pdown.detect():
                 p.down()
                 break
@@ -114,6 +140,19 @@ while True:
                 g.left()
             if gright.detect():
                 g.right()
+            for bullet in bullets:
+                try:
+                    if bullet[2] == "right":
+                        bullet[0] += 1
+                    elif bullet[2] == "left":
+                        bullet[0] -= 1
+                    screenObj.add_object(bullet[0], bullet[1], "O")
+                    if bullet[0] < 0 or bullet[0] > screenObj.field_width:
+                        bullet = None
+                except:
+                    pass
+            p.check_collision(g, screenObj)
+            g.check_collision(p, screenObj)
             screenObj.add_object(p.xpos, p.ypos, '@')
             screenObj.add_object(g.xpos, g.ypos, '*')
             screenObj.render()
@@ -127,6 +166,10 @@ while True:
     if gup.detect():
         for i in range(11):
             g.jump()
+            if pshoot.detect():
+                p.shoot()
+            if gshoot.detect():
+                g.shoot()
             if gdown.detect():
                 g.down()
                 break
@@ -140,6 +183,19 @@ while True:
                 g.left()
             if gright.detect():
                 g.right()
+            for bullet in bullets:
+                try:
+                    if bullet[2] == "right":
+                        bullet[0] += 1
+                    elif bullet[2] == "left":
+                        bullet[0] -= 1
+                    screenObj.add_object(bullet[0], bullet[1], "O")
+                    if bullet[0] < 0 or bullet[0] > screenObj.field_width:
+                        bullet = None
+                except:
+                    pass
+            p.check_collision(g, screenObj)
+            g.check_collision(p, screenObj)
             screenObj.add_object(p.xpos, p.ypos, '@')
             screenObj.add_object(g.xpos, g.ypos, '*')
             screenObj.render()
@@ -151,6 +207,20 @@ while True:
     if gright.detect():
         g.right()
     p.check_collision(g, screenObj)
+    g.check_collision(p, screenObj)
+    for bullet in bullets:
+        try:
+            if bullet[2] == "right":
+                bullet[0] += 1
+            elif bullet[2] == "left":
+                bullet[0] -= 1
+            screenObj.add_object(bullet[0], bullet[1], "O")
+            if bullet[0] < 0 or bullet[0] > screenObj.field_width:
+                bullet = None
+        except:
+            pass
+
+
     screenObj.add_object(p.xpos, p.ypos, '@')
     screenObj.add_object(g.xpos, g.ypos, '*')
     screenObj.render()
