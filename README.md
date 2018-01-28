@@ -120,6 +120,7 @@ while True:
 ## API reference
 ### Content
 * Screen
+* AudioPlayer
 * KeyDetector
 * convert_to_code (For KeyDetector)
 * convert_to_char (For KeyDetector)
@@ -165,6 +166,22 @@ This will result in:
 screen_object.set_timeout(5) will set screen timeout to 5 seconds
 screen_object.do_timeout() will do timeout
 screen_object.add_polygon(5, 5, 10, 10, "%") will result in a rectangle(5 by 5) out of %'s on cordinates x:10 y:10
+
+### AudioPlayer
+To play audio you can use the AudioPlayer
+
+Usage:
+
+To play a sound create AudioPlayer object and then when you want to play the sound use audioplayer_object.play()
+
+Example:
+```python
+from engine import AudioPlayer
+
+audioplayer_object = AudioPlayer("C:/Users/Example/Documents/Sound.mp3", async=True)
+audioplayer_object.play()
+```
+This will play the sound located at C:/Users/Example/Documents/Sound.mp3
 
 ### KeyDetector
 To use a key detector you have to create an object of a KeyDetector and every time you want to chech is a key is pressed you have to use the detect function.

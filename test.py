@@ -1,4 +1,4 @@
-from engine import Screen, KeyDetector
+from engine import Screen, KeyDetector, setup
 
 screenObj = Screen(60, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
 bullets = []
