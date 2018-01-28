@@ -163,3 +163,47 @@ This will result in:
 ```
 
 screen_object.add_polygon(5, 5, 10, 10, "%") will result in a rectangle(5 by 5) out of %'s on cordinates x:10 y:10
+
+### KeyDetector
+To use a key detector you have to create an object of a KeyDetector and every time you want to chech is a key is pressed you have to use the detect function.
+Example:
+```python
+from engine import KeyDetector
+
+detector_object = KeyDetector("a")
+
+while True:
+    if detector_object.detect():
+        print("Output: You pressed a")
+    else:
+        print("Output: You don't press a")
+```
+
+This will result in: 
+(1-5 time: I don't press a)
+(6 time: I press a)
+```
+Output: You don't press a
+Output: You don't press a
+Output: You don't press a
+Output: You don't press a
+Output: You don't press a
+Output: You pressed a
+```
+
+### convert_to_code
+This functions converts a 1 character string into a charcter code
+Usage:
+```python 
+from engine impoer convert_to_code
+
+print(convert_to_code("a"))
+```
+### convert_to_char
+This functions converts a character code into a charcter string
+Usage:
+```python 
+from engine impoer convert_to_char
+
+print(convert_to_char(36))
+```
