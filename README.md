@@ -4,10 +4,11 @@
 
 ### Installation
 To install CLGE download the engine folder and copy it to your project directory. Also if you want to user KeyDetector install python keyboard module by "pip/pip3 install keyboard"
+First time you use The CLGE from engine import setup to install the requiered packages. 
 
 ### Example
 ```python
-from engine import Screen, KeyDetector
+from engine import Screen, KeyDetector, setup
 
 screenObj = Screen(60, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
 

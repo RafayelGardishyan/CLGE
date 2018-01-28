@@ -33,3 +33,9 @@ def convert_to_code(char):
 
 def convert_to_char(code):
     return chr(code)
+
+def generate_keymap(keys):
+    keymap = {}
+    for key, value in keys.items():
+        keymap[key] = KeyDetector(value)
+    return keymap
