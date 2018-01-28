@@ -197,7 +197,7 @@ Output: You pressed a
 This functions converts a 1 character string into a charcter code
 Usage:
 ```python 
-from engine importconvert_to_code
+from engine import convert_to_code
 
 print(convert_to_code("a"))
 ```
