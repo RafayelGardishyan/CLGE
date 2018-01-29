@@ -4,6 +4,7 @@
 
 ### Installation
 To install CLGE download the engine folder and copy it to your project directory. Also if you want to user KeyDetector install python keyboard module by "pip/pip3 install keyboard"
+
 First time you use The CLGE from engine import setup to install the requiered packages. 
 
 ### Example
@@ -123,6 +124,7 @@ while True:
 * Screen
 * AudioPlayer
 * KeyDetector
+* generate_keymap (For KeyDetector)
 * convert_to_code (For KeyDetector)
 * convert_to_char (For KeyDetector)
 
@@ -165,7 +167,9 @@ This will result in:
 ```
 
 screen_object.set_timeout(5) will set screen timeout to 5 seconds
+
 screen_object.do_timeout() will do timeout
+
 screen_object.add_polygon(5, 5, 10, 10, "%") will result in a rectangle(5 by 5) out of %'s on cordinates x:10 y:10
 
 ### AudioPlayer
@@ -209,6 +213,37 @@ Output: You don't press a
 Output: You don't press a
 Output: You don't press a
 Output: You pressed a
+```
+
+### generate_keymap
+This is a function that generates KeyDetectors for your game.
+Example:
+```python
+from engine import generate_keymap
+
+keys = generate_keymap({
+    'up': 'w',
+    'down': 's',
+    'right': 'd',
+    'left': 'a'
+})
+
+for key in keys:
+    print("{}: {}".format(key, keys[key]))
+```
+
+This will result in:
+```
+up: <engine.key_detector.KeyDetector object at 0x000002C454B7A400>
+down: <engine.key_detector.KeyDetector object at 0x000002C454B7A4A8>
+right: <engine.key_detector.KeyDetector object at 0x000002C4566BD2B0>
+left: <engine.key_detector.KeyDetector object at 0x000002C4566BD358>
+```
+
+You can use that KeyDetector objects by:
+```python
+if keys['up'].detector():
+    print("You pressed w")
 ```
 
 ### convert_to_code
