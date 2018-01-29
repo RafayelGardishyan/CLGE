@@ -86,6 +86,8 @@ def check_fruit_collision():
         else:
             values['buffer'] += 1
 
+def set_speed():
+    scr.timeout = (.5 / (values['level'] * 0.5))
 
 def tailor():
     prevX = tailX[0]
@@ -103,6 +105,7 @@ def tailor():
         prevY = prev2Y
 
 while True:
+    set_speed()
     scr.add_object(snake['x'], snake['y'], "O")
     scr.add_object(fruit['x'], fruit['y'], "F")
     scr.render()
