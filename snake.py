@@ -63,11 +63,17 @@ def move():
     if snake['dir'] == "left":
         snake['x'] -= 1
 
+    if snake['x'] < 0:
+        snake['x'] = scr.field_width - 1
+    elif snake['x'] > scr.field_width:
+        snake['x'] = 0
+    elif snake['y'] < 0:
+        snake['y'] = scr.field_height - 1
+    elif snake['y'] > scr.field_height:
+        snake['y'] = 0
+
 
 def check_collision():
-    if snake['x'] < 0 or snake['x'] > scr.field_width or snake['y'] < 0 or snake['y'] > scr.field_height:
-        return True
-
     for i in range(snake['length']):
         if snake['x'] == tailX[i] and snake['y'] == tailY[i]:
             return True
