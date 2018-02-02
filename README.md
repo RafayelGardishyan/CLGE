@@ -127,6 +127,7 @@ while True:
 * generate_keymap (For KeyDetector)
 * convert_to_code (For KeyDetector)
 * convert_to_char (For KeyDetector)
+* DefaultAssets
 
 ### Screen
 Example:
@@ -262,3 +263,6 @@ from engine import convert_to_char
 
 print(convert_to_char(36))
 ```
+
+### DefaultAssets
+More about the default assets is coming soon
