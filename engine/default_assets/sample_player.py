@@ -42,3 +42,9 @@ class SamplePlayer:
             self.move_down()
         else:
             self.jump = True
+
+    def check_if_on_tile(self, tile):
+        if self.xpos == tile.xpos and self.ypos == tile.ypos - 1:
+            return True
+        else:
+            return False
