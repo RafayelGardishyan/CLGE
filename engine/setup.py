@@ -1,4 +1,11 @@
 packages_list = ['keyboard', 'playsound']
+
+def packages_list_string():
+    output = ""
+    for package in packages_list:
+        output += package + " "
+    return output
+
 try:
     import pip
     for package in packages_list:
@@ -8,5 +15,7 @@ try:
             print("Unable to install {}".format(package))
             raise SystemExit
 except ImportError:
-    print("No pip module. Can't do setup")
+    print("Error: No pip module. Can't do setup")
+    print("Info: Please install the packages manually")
+    print("Info: Package List: {}".format(packages_list_string()))
     raise SystemExit

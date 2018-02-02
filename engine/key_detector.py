@@ -5,7 +5,7 @@ try:
     keyboardIsImported = True
 except ImportError:
     keyboardIsImported = False
-    print("No keyboard detection, please install keyboard package by \"pip install keyboard\"")
+    print("Error: No keyboard detection, please install keyboard package by \"pip install keyboard\"")
     raise SystemExit
 
 
@@ -25,7 +25,7 @@ class KeyDetector:
             except:
                 return False
         else:
-            print("No keyboard detection, please install keyboard package by \"pip install keyboard\"")
+            print("Info: No keyboard detection, please install keyboard package by \"pip install keyboard\"")
 
 
 def convert_to_code(char):
