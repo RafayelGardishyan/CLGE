@@ -1,4 +1,4 @@
-from engine import Screen, KeyDetector, generate_keymap
+from clge import Screen, KeyDetector, generate_keymap
 import random
 
 scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False)

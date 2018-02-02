@@ -1,15 +1,15 @@
 # CLGE
 
-## Command Line Game Engine
+## Command Line Game clge
 
 ### Installation
-To install CLGE download the engine folder and copy it to your project directory. Also if you want to user KeyDetector install python keyboard module by "pip/pip3 install keyboard"
+To install CLGE download the clge folder and copy it to your project directory. Also if you want to user KeyDetector install python keyboard module by "pip/pip3 install keyboard"
 
-First time you use The CLGE from engine import setup to install the requiered packages. 
+First time you use The CLGE from clge import setup to install the requiered packages. 
 
 ### Example
 ```python
-from engine import Screen, KeyDetector, setup
+from clge import Screen, KeyDetector, setup
 
 screenObj = Screen(60, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
 
@@ -132,7 +132,7 @@ while True:
 ### Screen
 Example:
 ```python
-from engine import Screen
+from clge import Screen
 
 screen_object = Screen(20, 20, symbol="/", timeout=0.5, auto_clear_objects_list=True, auto_timeout=True)
 
@@ -182,7 +182,7 @@ To play a sound create AudioPlayer object and then when you want to play the sou
 
 Example:
 ```python
-from engine import AudioPlayer
+from clge import AudioPlayer
 
 audioplayer_object = AudioPlayer("C:/Users/Example/Documents/Sound.mp3", async=True)
 audioplayer_object.play()
@@ -193,7 +193,7 @@ This will play the sound located at C:/Users/Example/Documents/Sound.mp3
 To use a key detector you have to create an object of a KeyDetector and every time you want to chech is a key is pressed you have to use the detect function.
 Example:
 ```python
-from engine import KeyDetector
+from clge import KeyDetector
 
 detector_object = KeyDetector("a")
 
@@ -220,7 +220,7 @@ Output: You pressed a
 This is a function that generates KeyDetectors for your game.
 Example:
 ```python
-from engine import generate_keymap
+from clge import generate_keymap
 
 keys = generate_keymap({
     'up': 'w',
@@ -235,10 +235,10 @@ for key in keys:
 
 This will result in:
 ```
-up: <engine.key_detector.KeyDetector object at 0x000002C454B7A400>
-down: <engine.key_detector.KeyDetector object at 0x000002C454B7A4A8>
-right: <engine.key_detector.KeyDetector object at 0x000002C4566BD2B0>
-left: <engine.key_detector.KeyDetector object at 0x000002C4566BD358>
+up: <clge.key_detector.KeyDetector object at 0x000002C454B7A400>
+down: <clge.key_detector.KeyDetector object at 0x000002C454B7A4A8>
+right: <clge.key_detector.KeyDetector object at 0x000002C4566BD2B0>
+left: <clge.key_detector.KeyDetector object at 0x000002C4566BD358>
 ```
 
 You can use that KeyDetector objects by:
@@ -251,7 +251,7 @@ if keys['up'].detector():
 This functions converts a 1 character string into a charcter code
 Usage:
 ```python 
-from engine import convert_to_code
+from clge import convert_to_code
 
 print(convert_to_code("a"))
 ```
@@ -259,7 +259,7 @@ print(convert_to_code("a"))
 This functions converts a character code into a charcter string
 Usage:
 ```python 
-from engine import convert_to_char
+from clge import convert_to_char
 
 print(convert_to_char(36))
 ```
