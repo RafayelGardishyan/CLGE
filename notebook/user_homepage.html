@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+  <title>Նոթատետր</title>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <table>
+      <tr>
+        <th><h1>{{ user.email }}, Բարի գալուստ</h1></th>
+        <th>
+          <button type="button" class="btn-lg button view" onclick="location.href='/add';" id="plusavat"><i class="fas fa-plus"></i></button>
+          <button type="button" class=" btn-lg button delete" onclick="location.href='/logout';">Դուրս գալ <i class="fas fa-sign-out-alt"></i></button></th>
+      </tr>
+    </table>
+  </div>
+  <div class="content">  
+    {% if notes %}
+    <table class="table table-striped">
+      {% for note in notes %}
+      <tr>
+        <th >
+          {{ note.content|safe|truncatechars:80 }}
+        </th>
+        <th style="text-align: center;">
+          <button type="button" class="button view" onclick="location.href='/note/{{ note.slug }}';"><i class="fas fa-eye"></i> Դիտել</button>
+          <button type="button" class="button edit" onclick="location.href='/note/edit/{{ note.slug }}';"><i class="fas fa-pencil-alt"></i> Ուղղել</button>
+          <button type="button" class="button delete" onclick="location.href='/note/delete/{{ note.slug }}';"><i class="fas fa-trash-alt"></i> Ջնջել</button>
+        </th>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <h3>Չկան նոթեր</h3>
+    {% endif %}
+  </div><br><br><br><br>
+  <div class="add_on_user_page content gray">
+    <form action="/add" method="post">{% csrf_token %}
+      <table>
+       <tr>
+         <th>
+          <textarea name="content" id="add_on_user_page_textarea" cols="136" rows="1"></textarea>
+         </th>
+         <th>  
+          <button type="submit" id="add_on_user_page_button" class="button view btn-lg"><i class="fas fa-plus"></i></button>
+         </th> 
+       </tr>
+      </table>
+   </form>
+  </div>
+</div>
+</body>
+</html>

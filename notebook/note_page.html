@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
+  <link rel="stylesheet" href="{% static "css/style.css" %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+  <title>Նոթատետր</title>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <table>
+      <tr>
+        <th><button type="button" class="button view btn-lg" onclick="location.href='/';"><i class="fas fa-chevron-circle-left"></i> Տուն</button></th>
+        <th><h1>{{ note.slug }} | {{ note.user.email }}</h1></th>
+      </tr>
+    </table>    
+  </div>
+  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a74769b2fd34b00134b0e6b&product=sticky-share-buttons"></script>
+  <div class="card">
+  <div class="card-body">
+  {{ note.content|safe|linebreaks  }}</div>
+</div>
+</div>
+</body>
+</html>

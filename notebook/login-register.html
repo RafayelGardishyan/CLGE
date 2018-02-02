@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Նոթատետր</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.css">
+{% load static %}
+	<link rel="shortcut icon" type="image/png" href="{% static "img/favicon.png" %}"/>
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<div class="container">
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'Login')" id="login">Մտնել</button>
+  <button class="tablinks" onclick="openCity(event, 'Register')" id="register">Գրանցվել</button>
+</div>
+
+<div id="Login" class="tabcontent">
+  {% if error %}
+  <h4 style="color:red;">{{ error }}</h4>
+  {% endif %}
+  <form action="/login" method="post" class="form-horizontal">{% csrf_token %}
+    <input type="email" name="email" placeholder="Էլ․ փոստ" class="form-control form-control-lg"><br>
+    <input type="password" name="password" placeholder="Գաղտնաբառ" class="form-control form-control-lg"><br>
+    <input type="submit" value="Մտնել" class="button view submitbutton btn-lg">
+  </form>
+</div>
+
+<div id="Register" class="tabcontent">
+	{% if regerror %}
+  <h4 style="color:red;">{{ regerror }}</h4>
+  {% endif %}
+  <form action="/register" method="post" class="form-horizontal">{% csrf_token %}
+    <input type="email" name="email" placeholder="Էլ․ փոստ" class="form-control form-control-lg" required><br>
+    <input type="password" name="password" placeholder="Գաղտնաբառ" class="form-control form-control-lg" id="password" required><br>
+    <input type="password" name="password-confirm" placeholder="Հաստատել գաղտնաբառը" class="form-control form-control-lg" id="confirm_password" oninput="check(this)" required><br>
+    <input type="submit" value="Գրանցվել" class="button view submitbutton btn-lg">
+  </form>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+window.onload = function () {
+	document.getElementById("password").onchange = validatePassword;
+	document.getElementById("confirm_password").onchange = validatePassword;
+}
+function validatePassword(){
+var pass2=document.getElementById("confirm_password").value;
+var pass1=document.getElementById("password").value;
+if(pass1!=pass2){
+	document.getElementById("confirm_password").setCustomValidity("Գաղտնաբառերը չեն համընկնում");
+}else{
+	document.getElementById("confirm_password").setCustomValidity('');
+//empty string means no validation error
+}
+}
+
+openCity('login', '{{ tab }}')
+</script>
+</div>
+</body>
+</html>
