@@ -2,7 +2,7 @@
 
 ## Command Line Game clge
 
-##### Warning: Now colors only work on linux, macOS. To use them on windows use Windows Powershell or install cmder
+##### Warning: Now colors only work on linux, macOS. To use them on windows use Windows Virtualbox or install cmder
 ##### Please note: Documentation is not complete!
 
 ### Installation
