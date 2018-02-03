@@ -1,7 +1,7 @@
-from clge import Screen, KeyDetector, generate_keymap
+from clge import Screen, generate_keymap, paint_text
 import random
 
-scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False)
+scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
 game_over = """   _____                         ____                 
   / ____|                       / __ \                
  | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ 
@@ -110,21 +110,22 @@ def tailor():
         prevX = prev2X
         prevY = prev2Y
 
+
 while True:
     set_speed()
-    scr.add_object(snake['x'], snake['y'], "O")
-    scr.add_object(fruit['x'], fruit['y'], "F")
+    scr.add_object(snake['x'], snake['y'], "O", 214)
+    scr.add_object(fruit['x'], fruit['y'], "F", 202)
     scr.render()
-    print("Score: {} Level: {}".format(values['score'], values['level']))
+    print("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
     scr.do_timeout()
     scr.clear_screen()
     detect()
     tailor()
     for i in range(snake['length']):
-        scr.add_object(tailX[i], tailY[i], "o")
+        scr.add_object(tailX[i], tailY[i], symbol="o", color=114)
     move()
     check_fruit_collision()
     if check_collision():
-        print(game_over)
-        print("You reached {} level and your score was {}".format(values['level'], values['score']))
+        print(paint_text(game_over, 23, 0, True))
+        print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
         raise SystemExit

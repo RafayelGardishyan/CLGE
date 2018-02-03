@@ -1,4 +1,4 @@
-packages_list = ['keyboard', 'playsound']
+packages_list = ['keyboard', 'playsound', 'colored']
 
 def packages_list_string():
     output = ""
