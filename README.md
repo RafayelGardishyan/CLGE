@@ -2,7 +2,7 @@
 
 ## Command Line Game clge
 
-##### Warning: Now the engine only works on linux, macOS. To use it on windows use Windows Powershell or install cmder
+##### Warning: Now the engine only works on linux, macOS. To use it on windows use Virtualbox or install cmder
 ##### Please note: Documentation is not complete!
 
 ### Installation
