@@ -1,5 +1,6 @@
 import time
 from colored import fg, attr
+from .setup import get_platform
 
 class Screen:
     field_width = 0
@@ -64,8 +65,28 @@ class Screen:
             print(draw)
         print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
 
+    def draw_no_colors(self, objects):
+        print(self.default_symbol * (self.field_width + 2))
+        for i in range(self.field_height):
+            spacer = []
+            for k in range(self.field_width):
+                spacer.append(' ')
+            draw = self.default_symbol
+            for j in range(self.field_width):
+                for obj in objects:
+                    if obj[0] == j and obj[1] == i:
+                        spacer[j] = obj[2]
+            for space in spacer:
+                draw += space
+            draw += self.default_symbol
+            print(draw)
+        print(self.default_symbol * (self.field_width + 2))
+
     def render(self):
-        self.draw(self.objectsList)
+        if get_platform() == "Windows":
+            self.draw_no_colors(self.objectsList)
+        else:
+            self.draw(self.objectsList)
         if self.auto_timeout:
             self.do_timeout()
         if self.auto_clear_objects_list:

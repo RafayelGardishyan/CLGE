@@ -1,3 +1,4 @@
+import sys
 packages_list = ['keyboard', 'playsound', 'colored']
 
 def packages_list_string():
@@ -19,3 +20,15 @@ except ImportError:
     print("Info: Please install the packages manually")
     print("Info: Package List: {}".format(packages_list_string()))
     raise SystemExit
+
+def get_platform():
+    platforms = {
+        'linux1': 'Linux',
+        'linux2': 'Linux',
+        'darwin': 'OS X',
+        'win32': 'Windows'
+    }
+    if sys.platform not in platforms:
+        return sys.platform
+
+    return platforms[sys.platform]
