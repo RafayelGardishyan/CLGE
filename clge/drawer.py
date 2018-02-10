@@ -28,10 +28,16 @@ class Screen:
         print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
-        if not len(symbol) > 1:
-            self.objectsList.append([x, y, symbol, fg(color)])
-        else:
-            self.objectsList.append([x, y, symbol[:1], fg(color)])
+        try:
+            if not len(symbol) > 1:
+                self.objectsList.append([x, y, symbol, fg(color)])
+            else:
+                self.objectsList.append([x, y, symbol[:1], fg(color)])
+        except KeyError:
+            if not len(symbol) > 1:
+                self.objectsList.append([x, y, symbol, color])
+            else:
+                self.objectsList.append([x, y, symbol[:1], color])
 
     def clear_objects_list(self):
         self.objectsList = []
