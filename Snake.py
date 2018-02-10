@@ -1,8 +1,16 @@
-from clge import Screen, generate_keymap, paint_text
+from clge import Screen, AudioPlayer, generate_keymap, paint_text
 import random
 import time
 
 scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
+
+sound_prefix = "snake_sound"
+sounds = [sound_prefix + "/level_up.wav", sound_prefix + "/player_moves.wav", sound_prefix + "/player_picks_fruit.wav",]
+sound_objects = {}
+for sound in sounds:
+    sound_objects[sound] = AudioPlayer(sound)
+print(sound_objects)
+
 game_over = """   _____                         ____                 
   / ____|                       / __ \                
  | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ 
@@ -112,11 +120,13 @@ def check_collision():
 
 def check_fruit_collision():
     if snake['x'] == fruit['x'] and snake['y'] == fruit['y']:
+        sound_objects['snake_sound/player_picks_fruit.wav'].play()
         fruit['x'] = random.randint(0, scr.field_width - 1)
         fruit['y'] = random.randint(0, scr.field_height - 1)
         values['score'] += 1
         snake['length'] += 1
         if values['buffer'] == (values['level'] * 2):
+            sound_objects['snake_sound/level_up.wav'].play()
             values['buffer'] = 0
             values['level'] += 1
         else:
@@ -154,6 +164,7 @@ while True:
     for i in range(snake['length']):
         scr.add_object(tailX[i], tailY[i], symbol="o", color=114)
     move()
+    sound_objects['snake_sound/player_moves.wav'].play()
     check_fruit_collision()
     if check_collision():
         print(paint_text(game_over, 23, 0, True))

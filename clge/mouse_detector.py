@@ -35,6 +35,9 @@ class MouseDetector:
         else:
             print("Info: No mouse detection, please install mouse package by \"pip install mouse\"")
 
+    def __str__(self):
+        return "Mouse Detector Object"
+
 
 def generate_mousemap(buttons):
     mousemap = {}

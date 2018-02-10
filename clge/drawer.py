@@ -97,3 +97,6 @@ class Screen:
             self.clear_objects_list()
         if self.auto_timeout:
             self.do_timeout()
+
+    def __str__(self):
+        return "Screen Object"

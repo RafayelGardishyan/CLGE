@@ -34,6 +34,8 @@ class KeyDetector:
         else:
             print("Info: No keyboard detection, please install keyboard package by \"pip install keyboard\"")
 
+    def __str__(self):
+        return "Key Detector Object"
 
 def convert_to_code(char):
     return ord(char)

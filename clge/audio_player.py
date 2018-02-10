@@ -1,4 +1,8 @@
-from playsound import playsound
+from .exceptions import CLGEException
+try:
+    from playsound import playsound
+except ImportError:
+    raise CLGEException("No audio player. Please install it by \"pip install playsound\"")
 
 class AudioPlayer:
     path_to_file = None
@@ -13,3 +17,6 @@ class AudioPlayer:
 
     def play(self):
         playsound(self.path_to_file, self.async)
+
+    def __str__(self):
+        return "Audio Player Object"
