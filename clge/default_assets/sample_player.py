@@ -1,5 +1,5 @@
 class SamplePlayer:
-    def __init__(self, xpos, ypos, step, lives):
+    def __init__(self, xpos, ypos, step, lives, symbol="#"):
         self.xpos = xpos
         self.ypos = ypos
         self.step = step
@@ -7,6 +7,7 @@ class SamplePlayer:
         self.bufferx = self.xpos
         self.buffery = self.ypos
         self.jump = True
+        self.symbol = symbol
 
     def move_up(self):
         self.ypos -= self.step
@@ -48,3 +49,7 @@ class SamplePlayer:
             return True
         else:
             return False
+
+    def add_to_screen(self, screen_object):
+        screen_object.add_object(self.xpos, self.ypos, self.symbol)
+

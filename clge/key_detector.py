@@ -1,11 +1,12 @@
-import asyncio
-
 try:
     import keyboard
+    import multitasking
+    import signal
+    signal.signal(signal.SIGINT, multitasking.killall)
     keyboardIsImported = True
 except ImportError:
     keyboardIsImported = False
-    print("Error: No keyboard detection, please install keyboard package by \"pip install keyboard\"")
+    print("Error: No keyboard detection or multitasking, please install keyboard and multitasking packages by \"pip install keyboard multitasking\"")
     raise SystemExit
 
 
@@ -14,6 +15,12 @@ class KeyDetector:
 
     def __init__(self, key):
         self.char = key
+
+    @multitasking.task
+    def setAsyncDetecting(self, function):
+        while True:
+            if self.detect():
+                function()
 
     def detect(self):
         if keyboardIsImported:
