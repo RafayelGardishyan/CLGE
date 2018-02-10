@@ -114,7 +114,7 @@ def tailor():
 while True:
     set_speed()
     scr.add_object(snake['x'], snake['y'], "O", 214)
-    scr.add_object(fruit['x'], fruit['y'], "F", 202)
+    scr.add_object(fruit['x'], fruit['y'], "+", 202)
     scr.render()
     print("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
     scr.do_timeout()
