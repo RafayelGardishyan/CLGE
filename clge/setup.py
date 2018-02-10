@@ -15,6 +15,7 @@ try:
         except:
             print("Unable to install {}".format(package))
             raise SystemExit
+    print("\n"*100)
 except ImportError:
     print("Error: No pip module. Can't do setup")
     print("Info: Please install the packages manually")
