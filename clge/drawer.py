@@ -70,7 +70,7 @@ class Screen:
             draw += self.default_color + self.default_symbol + self.default_color
             print(draw)
         print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
-
+    #TODO Add Windows COnsole Colors
     def draw_no_colors(self, objects):
         print(self.default_symbol * (self.field_width + 2))
         for i in range(self.field_height):

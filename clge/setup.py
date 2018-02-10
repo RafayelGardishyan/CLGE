@@ -1,5 +1,5 @@
 import sys
-packages_list = ['keyboard', 'playsound', 'colored', 'multitasking']
+packages_list = ['keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
 
 def packages_list_string():
     output = ""
@@ -26,7 +26,8 @@ def get_platform():
         'linux1': 'Linux',
         'linux2': 'Linux',
         'darwin': 'OS X',
-        'win32': 'Windows'
+        'win32': 'Windows',
+        'uwp': 'Windows'
     }
     if sys.platform not in platforms:
         return sys.platform
