@@ -1,5 +1,5 @@
 import sys
-packages_list = ['keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+packages_list = ['coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
 
 def packages_list_string():
     output = ""

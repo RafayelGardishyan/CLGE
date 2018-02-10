@@ -6,3 +6,4 @@ from .mouse_detector import MouseDetector, generate_mousemap
 from .audio_player import AudioPlayer
 from .painter import paint_text
 from . import default_assets as DefaultAssets
+from .testing import Tester as Tester
