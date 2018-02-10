@@ -1,5 +1,6 @@
 from clge import Screen, generate_keymap, paint_text
 import random
+import time
 
 scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
 game_over = """   _____                         ____                 
@@ -8,6 +9,20 @@ game_over = """   _____                         ____
  | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__|
  | |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |   
   \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|"""
+
+pause = """  _____       _    _  _____ ______ 
+ |  __ \ /\  | |  | |/ ____|  ____|
+ | |__) /  \ | |  | | (___ | |__   
+ |  ___/ /\ \| |  | |\___ \|  __|  
+ | |  / ____ \ |__| |____) | |____ 
+ |_| /_/    \_\____/|_____/|______|"""
+
+exit = """  ______      _ _   
+ |  ____|    (_) |  
+ | |__  __  ___| |_ 
+ |  __| \ \/ / | __|
+ | |____ >  <| | |_ 
+ |______/_/\_\_|\__|"""
 
 values = {
     'score': 0,
@@ -27,6 +42,8 @@ keys = generate_keymap({
     'right_arrow': 'right',
     'left': 'a',
     'left_arrow': 'left',
+    'pause': 'p',
+    'exit': 'esc',
 })
 
 snake = {
@@ -51,6 +68,19 @@ def detect():
         snake['dir'] = 'right'
     if keys['left'].detect() or keys['left_arrow'].detect():
         snake['dir'] = 'left'
+    if keys['pause'].detect():
+        while True:
+            print(paint_text(pause, 23, 0, True))
+            print(paint_text(" Press P to play".format(values['level'], values['score']), 64, 0, True))
+            time.sleep(1)
+            scr.clear_screen()
+            if keys['pause'].detect():
+                break
+
+    if keys['exit'].detect():
+        print(paint_text(exit, 23, 0, True))
+        print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
+        raise SystemExit
 
 
 def move():

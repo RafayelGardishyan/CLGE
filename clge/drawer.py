@@ -93,7 +93,7 @@ class Screen:
             self.draw_no_colors(self.objectsList)
         else:
             self.draw(self.objectsList)
-        if self.auto_timeout:
-            self.do_timeout()
         if self.auto_clear_objects_list:
             self.clear_objects_list()
+        if self.auto_timeout:
+            self.do_timeout()

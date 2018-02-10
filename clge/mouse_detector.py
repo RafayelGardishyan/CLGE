@@ -1,3 +1,4 @@
+from .exceptions import CLGEException
 try:
     import mouse
     import multitasking
@@ -6,8 +7,7 @@ try:
     keyboardIsImported = True
 except ImportError:
     keyboardIsImported = False
-    print("Error: No mouse detection or multitasking, please install mouse and multitasking packages by \"pip install mouse multitasking\"")
-    raise SystemExit
+    raise CLGEException("Error: No mouse detection or multitasking, please install mouse and multitasking packages by \"pip install mouse multitasking\"")
 
 
 class MouseDetector:

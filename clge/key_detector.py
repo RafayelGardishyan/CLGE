@@ -1,3 +1,4 @@
+from .exceptions import CLGEException
 try:
     import keyboard
     import multitasking
@@ -6,8 +7,7 @@ try:
     keyboardIsImported = True
 except ImportError:
     keyboardIsImported = False
-    print("Error: No keyboard detection or multitasking, please install keyboard and multitasking packages by \"pip install keyboard multitasking\"")
-    raise SystemExit
+    raise CLGEException("Error: No keyboard detection or multitasking, please install keyboard and multitasking packages by \"pip install keyboard multitasking\"")
 
 
 class KeyDetector:
