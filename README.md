@@ -1,9 +1,12 @@
 # CLGE
 
-## Command Line Game clge
+## Command Line Game Engine
 
 ##### Warning: Now colors only work on linux, macOS. To use them on windows use Windows Virtualbox or install cmder
 ##### Please note: Documentation is not complete!
+
+### Prerequisites
+You will only need Python3. The engine will self-install the needed packages
 
 ### Installation
 To install CLGE download the clge folder and the clge_project_admin.py (to the same folder) and run clge_project_admin.py. You will be asked to the name of your project. After that a folder with your project name will be created. To run your project open main.py. Now you can move it anywhere you want (Maybe you'll need to run your project first time with admin rights (On Windows).
