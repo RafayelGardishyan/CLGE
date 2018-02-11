@@ -25,10 +25,7 @@ class KeyDetector:
     def detect(self):
         if keyboardIsImported:
             try:
-                if keyboard.is_pressed(self.char):
-                    return True
-                else:
-                    return False
+                return keyboard.is_pressed(self.char)
             except:
                 return False
         else:

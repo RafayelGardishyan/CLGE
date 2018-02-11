@@ -2,6 +2,7 @@ from clge import Tester, Screen, generate_keymap
 
 t = Tester()
 
+t.CoverageStart()
 
 class SnakeTestException(Exception):
     def __init__(self, message):
@@ -47,7 +48,7 @@ def test_keyboard():
             pass
         else:
             t.simulate_keyboard_release(keys[key].char)
-            raise SnakeTestException("Key Not Detected")
+            raise SnakeTestException("Key {} in not detected".format(keys[key].char))
         t.simulate_keyboard_release(keys[key].char)
 
 def test_collision(cases):
@@ -61,5 +62,7 @@ def test_collision(cases):
 t.Test(test_screen)
 t.Test(test_keyboard)
 t.Test(test_tail)
-t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3],])
+t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3]])
+t.CoverageStop()
 t.printTestResults()
+t.getCoverage()

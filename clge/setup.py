@@ -1,6 +1,26 @@
 import sys
 from .exceptions import CLGEException
-packages_list = ['coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+
+def get_platform():
+    platforms = {
+        'linux1': 'Linux',
+        'linux2': 'Linux',
+        'darwin': 'OS X',
+        'win32': 'Windows',
+        'uwp': 'Windows'
+    }
+    if sys.platform not in platforms:
+        return sys.platform
+
+    return platforms[sys.platform]
+
+if get_platform() == "OS X":
+    packages_list = ['pyobjc-core', 'pyobjc', 'pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+elif get_platform() == "Linux":
+    packages_list = ['xlib', 'pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+else:
+    packages_list = ['pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+
 
 def packages_list_string():
     output = ""
@@ -21,16 +41,3 @@ except ImportError:
     print("Info: Please install the packages manually")
     print("Info: Package List: {}".format(packages_list_string()))
     raise SystemExit
-
-def get_platform():
-    platforms = {
-        'linux1': 'Linux',
-        'linux2': 'Linux',
-        'darwin': 'OS X',
-        'win32': 'Windows',
-        'uwp': 'Windows'
-    }
-    if sys.platform not in platforms:
-        return sys.platform
-
-    return platforms[sys.platform]
