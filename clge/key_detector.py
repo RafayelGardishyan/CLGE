@@ -45,3 +45,11 @@ def generate_keymap(keys):
     for key, value in keys.items():
         keymap[key] = KeyDetector(value)
     return keymap
+
+class KeymapGenerator:
+    keys = {}
+    def add(self, name, key):
+        self.keys['name'] = key
+
+    def generate(self):
+        return generate_keymap(self.keys)
