@@ -6,9 +6,8 @@
 ##### Please note: Documentation is not complete!
 
 ### Installation
-To install CLGE download the clge folder and copy it to your project directory. Also if you want to user KeyDetector install python keyboard module by "pip/pip3 install keyboard"
-
-First time you use The CLGE from clge import setup to install the required packages. 
+To install CLGE download the clge folder and the clge_project_admin.py (to the same folder) and run clge_project_admin.py. You will be asked to the name of your project. After that a folder with your project name will be created. To run your project open main.py. Now you can move it anywhere you want (Maybe you'll need to run your project first time with admin rights (On Windows).
+If you want to use keyboard and mouse detection on linux you'll need to run your project with sudo)"
 
 ### Example
 ```python
