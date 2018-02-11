@@ -1,6 +1,7 @@
 import sys
 import os
 import coverage
+import mouse
 import pyautogui
 
 class Testing:
@@ -68,3 +69,15 @@ class Testing:
         print("Released: {}".format(char))
         self.blockPrint()
         pyautogui.keyUp(char)
+
+    def simulate_mouse_press(self, button):
+        self.enablePrint()
+        print("Pressed Mouse Button: {}".format(button))
+        self.blockPrint()
+        mouse.press(button)
+
+    def simulate_mouse_release(self, button):
+        self.enablePrint()
+        print("Released Mouse Button: {}".format(button))
+        self.blockPrint()
+        mouse.release(button)
