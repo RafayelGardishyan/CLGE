@@ -1,5 +1,6 @@
 import sys
 from .exceptions import CLGEException
+import configparser
 
 def get_platform():
     platforms = {
@@ -41,3 +42,9 @@ except ImportError:
     print("Info: Please install the packages manually")
     print("Info: Package List: {}".format(packages_list_string()))
     raise SystemExit
+
+
+def get_config_data(config_file):
+    config = configparser.ConfigParser()
+    config.read(config_file)
+    return config

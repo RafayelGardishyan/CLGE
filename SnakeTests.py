@@ -1,6 +1,6 @@
-from clge import Tester, Screen, generate_keymap
+from clge import SimpleTester, Screen, generate_keymap
 
-t = Tester(15)
+t = SimpleTester(15)
 
 t.CoverageStart()
 
