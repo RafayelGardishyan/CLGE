@@ -3,20 +3,7 @@
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/project_creator/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/project_creator/creator.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge_project_admin.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.coverage" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Snake.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SnakeTests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multiplayer_fight.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snake_sound/level_up.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snake_sound/player_moves.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/snake_sound/player_picks_fruit.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/space_chase.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/__init__.py" afterPath="$PROJECT_DIR$/clge/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/key_detector.py" afterPath="$PROJECT_DIR$/clge/key_detector.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -322,7 +309,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33143508" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.261959" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23234624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23234624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
