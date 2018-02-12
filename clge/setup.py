@@ -1,6 +1,10 @@
 import sys
 from .exceptions import CLGEException
-import configparser
+# import configparser
+import json
+
+def get_packages():
+    return json.loads(open("clge/packages.json").read())
 
 def get_platform():
     platforms = {
@@ -15,12 +19,16 @@ def get_platform():
 
     return platforms[sys.platform]
 
+
+packages = get_packages()
+
+
 if get_platform() == "OS X":
-    packages_list = ['pyobjc-core', 'pyobjc', 'pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+    packages_list = packages["OS X"] + packages["Standard"]
 elif get_platform() == "Linux":
-    packages_list = ['xlib', 'pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+    packages_list = packages["Linux"] + packages["Standard"]
 else:
-    packages_list = ['pyautogui ', 'coverage', 'keyboard', 'mouse', 'playsound', 'colored', 'multitasking']
+    packages_list = packages["Windows"] + packages["Standard"]
 
 
 def packages_list_string():
@@ -44,7 +52,7 @@ except ImportError:
     raise SystemExit
 
 
-def get_config_data(config_file):
-    config = configparser.ConfigParser()
-    config.read(config_file)
-    return config
+# def get_config_data(config_file):
+#     config = configparser.ConfigParser()
+#     config.read(config_file)
+#     return config

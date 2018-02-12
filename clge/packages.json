@@ -1,0 +1,6 @@
+{
+  "Standard": ["pyautogui ", "coverage", "keyboard", "mouse", "playsound", "colored", "multitasking"],
+  "Windows": [],
+  "Linux": ["xlib"],
+  "OS X": ["pyobjc-core", "pyobjc"]
+}

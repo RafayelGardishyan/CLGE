@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/drawer.py" afterPath="$PROJECT_DIR$/clge/drawer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/packages.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/setup.py" afterPath="$PROJECT_DIR$/clge/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,21 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="drawer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/drawer.py">
+      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clge/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="574">
-              <caret line="48" column="18" lean-forward="false" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="504">
+              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Snake.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Snake.py">
+      <file leaf-file-name="packages.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clge/packages.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="4" selection-end-line="169" selection-end-column="9" />
+            <state relative-caret-position="21">
+              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -50,6 +54,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>'</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -92,7 +101,6 @@
         <option value="$PROJECT_DIR$/clge/exceptions.py" />
         <option value="$PROJECT_DIR$/clge/audio_player.py" />
         <option value="$PROJECT_DIR$/SnakeTests.py" />
-        <option value="$PROJECT_DIR$/clge/setup.py" />
         <option value="$PROJECT_DIR$/clge/testing/simple_test.py" />
         <option value="$PROJECT_DIR$/clge/mouse_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator.py" />
@@ -104,6 +112,8 @@
         <option value="$PROJECT_DIR$/clge/project_creator_files/logic.py" />
         <option value="$PROJECT_DIR$/clge/drawer.py" />
         <option value="$PROJECT_DIR$/Snake.py" />
+        <option value="$PROJECT_DIR$/clge/packages.json" />
+        <option value="$PROJECT_DIR$/clge/setup.py" />
       </list>
     </option>
   </component>
@@ -365,7 +375,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Snake.py" />
-    <entry file="file://$PROJECT_DIR$/Snake.py" />
     <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/clge/drawer.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -511,6 +520,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -522,13 +532,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SnakeTests.py" />
-    <entry file="file://$PROJECT_DIR$/clge/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/testing/simple_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -577,7 +580,7 @@
         <state relative-caret-position="210">
           <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -587,8 +590,16 @@
         <state relative-caret-position="490">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Snake.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="4" selection-end-line="169" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -600,11 +611,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Snake.py">
+    <entry file="file://$PROJECT_DIR$/clge/packages.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="4" selection-end-line="169" selection-end-column="9" />
+        <state relative-caret-position="21">
+          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
