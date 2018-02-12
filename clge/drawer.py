@@ -1,6 +1,7 @@
 import time
 from colored import fg, attr
 from .setup import get_platform
+import os
 
 class Screen:
     field_width = 0
@@ -12,13 +13,14 @@ class Screen:
     auto_timeout = True
     default_color = attr(0)
 
-    def __init__(self, width, height, symbol='#', timeout=1.0, auto_clear_objects_list=False, auto_timeout=True, default_color=attr(0)):
+    def __init__(self, width, height, symbol='#', timeout=1.0, auto_clear_objects_list=False, auto_timeout=True, default_color=attr(0), change_console_size=False):
         self.field_width = width
         self.field_height = height
         self.default_symbol = symbol
         self.timeout = timeout
         self.auto_clear_objects_list = auto_clear_objects_list
         self.auto_timeout = auto_timeout
+        self.console_change = change_console_size
         if default_color != attr(0):
             self.default_color = fg(default_color)
         else:
@@ -26,6 +28,9 @@ class Screen:
 
     def clear_screen(self):
         print('\n' * 100)
+
+    def set_console_size(self, width, height):
+        os.system('mode con: cols={} lines={}'.format(width, height))
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         try:
@@ -95,10 +100,14 @@ class Screen:
         print(self.default_symbol * (self.field_width + 2))
 
     def render(self):
+        if self.console_change:
+            self.set_console_size(self.field_width + 10, self.field_height + 10)
+
         if get_platform() == "Windows":
             self.draw_no_colors(self.objectsList)
         else:
             self.draw(self.objectsList)
+
         if self.auto_clear_objects_list:
             self.clear_objects_list()
         if self.auto_timeout:
