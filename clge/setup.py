@@ -1,10 +1,11 @@
 import sys
+import os
 from .exceptions import CLGEException
 # import configparser
 import json
 
 def get_packages():
-    return json.loads(open("clge/packages.json").read())
+    return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
 
 def get_platform():
     platforms = {

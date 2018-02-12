@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/packages.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/plugin_installer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/plugs/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/clge/plugs/plugs.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugin_test.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/clge_project_admin.py" afterPath="$PROJECT_DIR$/clge_manager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/__init__.py" afterPath="$PROJECT_DIR$/clge/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/setup.py" afterPath="$PROJECT_DIR$/clge/setup.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,24 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/clge/setup.py">
+      <file leaf-file-name="plugin_installer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clge/plugin_installer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+            <state relative-caret-position="84">
+              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="packages.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/packages.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -51,6 +46,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="PythonView" />
         <option value="Python Script" />
       </list>
     </option>
@@ -66,13 +62,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/engine/keypress_detector.py" />
-        <option value="$PROJECT_DIR$/engine/drawer.py" />
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/engine/audio_player.py" />
-        <option value="$PROJECT_DIR$/engine/platformer.py" />
-        <option value="$PROJECT_DIR$/platformer.py" />
-        <option value="$PROJECT_DIR$/space_chase.py" />
         <option value="$PROJECT_DIR$/engine/default_assets/__init__.py" />
         <option value="$PROJECT_DIR$/engine/default_assets/sample_object.py" />
         <option value="$PROJECT_DIR$/engine/default_assets/sample_player.py" />
@@ -105,7 +94,6 @@
         <option value="$PROJECT_DIR$/clge/mouse_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator.py" />
         <option value="$PROJECT_DIR$/clge/project_creator/__init__.py" />
-        <option value="$PROJECT_DIR$/clge/__init__.py" />
         <option value="$PROJECT_DIR$/clge/key_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator/creator.py" />
         <option value="$PROJECT_DIR$/clge_project_admin.py" />
@@ -113,7 +101,18 @@
         <option value="$PROJECT_DIR$/clge/drawer.py" />
         <option value="$PROJECT_DIR$/Snake.py" />
         <option value="$PROJECT_DIR$/clge/packages.json" />
+        <option value="$PROJECT_DIR$/test_plugin/plugin.py" />
+        <option value="$PROJECT_DIR$/test_plugin/packages.json" />
         <option value="$PROJECT_DIR$/clge/setup.py" />
+        <option value="$PROJECT_DIR$/test_plugin/__init__.py" />
+        <option value="$PROJECT_DIR$/test_plugin/setup.py" />
+        <option value="$PROJECT_DIR$/clge_manager.py" />
+        <option value="$PROJECT_DIR$/clge/__init__.py" />
+        <option value="$PROJECT_DIR$/clge/plugs/__init__.py" />
+        <option value="$PROJECT_DIR$/clge/plugs/test_plugin/setup.py" />
+        <option value="$PROJECT_DIR$/clge/plugs/plugs.json" />
+        <option value="$PROJECT_DIR$/plugin_test.py" />
+        <option value="$PROJECT_DIR$/clge/plugin_installer.py" />
       </list>
     </option>
   </component>
@@ -145,6 +144,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -157,12 +157,17 @@
               <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="clge" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
+              <item name="plugs" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,6 +176,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine" />
       <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine\clge\project_creator" />
     </key>
   </component>
@@ -313,7 +319,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16971" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17400645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -321,7 +327,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33143508" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.261959" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23234624" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44874716" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -374,54 +380,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Snake.py" />
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
-    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
-          <caret line="69" column="37" lean-forward="true" selection-start-line="69" selection-start-column="37" selection-end-line="69" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
-    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
-    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
-    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/clge/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -546,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/project_creator/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -575,31 +526,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge_project_admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clge/project_creator/creator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Snake.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="169" column="9" lean-forward="false" selection-start-line="169" selection-start-column="4" selection-end-line="169" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,12 +549,130 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/packages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/clge/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
+        <state relative-caret-position="924">
+          <caret line="44" column="21" lean-forward="false" selection-start-line="44" selection-start-column="21" selection-end-line="44" selection-end-column="21" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/plugin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/project_creator/creator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_plugin/setup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="42" column="68" lean-forward="false" selection-start-line="42" selection-start-column="68" selection-end-line="42" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/plugs/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="21" lean-forward="false" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/plugs/plugs.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugin_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="42" lean-forward="true" selection-start-line="2" selection-start-column="42" selection-end-line="2" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/plugin_installer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

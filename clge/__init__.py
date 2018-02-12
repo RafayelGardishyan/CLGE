@@ -9,3 +9,5 @@ from . import default_assets as DefaultAssets
 from .testing import Tester as SimpleTester
 from .exceptions import CLGEException
 from .project_creator import ProjectCreator
+from .plugs import *
+from .plugin_installer import PluginInstaller, UninstallPlugin, GetPlugins, list
