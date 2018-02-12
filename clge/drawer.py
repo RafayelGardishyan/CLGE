@@ -42,6 +42,12 @@ class Screen:
     def clear_objects_list(self):
         self.objectsList = []
 
+    def add_string(self, x, y, text, color=default_color):
+        x = x
+        for letter in text:
+            self.add_object(x, y, letter, color)
+            x += 1
+
     def add_polygon(self, width, height, x, y, symbol=default_symbol, color=default_color):
         for i in range(height):
             for j in range(width):
