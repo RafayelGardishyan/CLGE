@@ -14,7 +14,8 @@ def get_platform():
     platforms = {
         'linux1': 'Linux',
         'linux2': 'Linux',
-        'darwin': 'OS X',
+        'linux'L 'Linux',
+	'darwin': 'OS X',
         'win32': 'Windows',
         'uwp': 'Windows'
     }
