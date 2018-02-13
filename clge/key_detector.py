@@ -17,10 +17,10 @@ class KeyDetector:
         self.char = key
 
     @multitasking.task
-    def setAsyncDetecting(self, function):
+    def setAsyncDetecting(self):
         while True:
             if self.detect():
-                function()
+                print(Detected)
 
     def detect(self):
         if keyboardIsImported:
