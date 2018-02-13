@@ -85,7 +85,7 @@ def detect():
     if keys['pause'].detect():
         while True:
             print(paint_text(pause, 23, 0, True))
-            print(paint_text(" Press P to play".format(values['level'], values['score']), 64, 0, True))
+            print(paint_text(" Press P to play", 64, 0, True))
             time.sleep(1)
             scr.clear_screen()
             if keys['pause'].detect():
