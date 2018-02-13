@@ -1,8 +1,8 @@
-from clge import SimpleTester, Screen, generate_keymap, paint_text
+from clge import KeymapGenerator, SimpleTester, Screen, generate_keymap, paint_text, convert_to_code, convert_to_char
 
 t = SimpleTester(5)
 
-# t.CoverageStart()
+t.CoverageStart()
 
 class SnakeTestException(Exception):
     def __init__(self, message):
@@ -19,6 +19,7 @@ def color_test():
     for i in range(200):
         for j in range(200):
             print(paint_text("Test", i, 5, True))
+            print(paint_text("Test", i, 5, False))
 
 def test_tail():
     tailX = [None] * 20
@@ -39,17 +40,20 @@ def test_tail():
             prevY = prev2Y
 
 def test_keyboard():
-    keys = generate_keymap({
-        'up': 'w',
-        'up_arrow': 'up',
-        'down': 's',
-        'down_arrow': 'down',
-        'right': 'd',
-        'right_arrow': 'right',
-        'left': 'a',
-        'left_arrow': 'left',
-    })
+    keys = KeymapGenerator()
+    keys.add('up', 'w')
+    keys.add('up_arrow', 'up')
+    keys.add('down', 's')
+    keys.add('down_arrow', 'down')
+    keys.add('right', 'd')
+    keys.add('right_arrow', 'right')
+    keys.add('left', 'a')
+    keys.add('left_arrow', 'left')
+    keys = keys.generate()
+    keys["up"].detAsyncDetecting(print("Up"))
+    print(convert_to_code("a"), convert_to_char(15))
     for key in keys:
+        t.simulate_keyboard_release(keys[key].char)
         t.simulate_keyboard_press(keys[key].char)
         if keys[key].detect():
             pass
@@ -71,6 +75,6 @@ t.Test(test_keyboard)
 t.Test(test_tail)
 t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3]])
 t.Test(color_test)
-# t.CoverageStop()
+t.CoverageStop()
 t.printTestResults()
-# t.getCoverage()
+t.getCoverage()
