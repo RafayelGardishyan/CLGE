@@ -1,4 +1,5 @@
 from .exceptions import CLGEException
+from .setup import get_platform
 try:
     from playsound import playsound
 except ImportError:
@@ -10,13 +11,17 @@ class AudioPlayer:
 
     def __init__(self, path_to_file, async=True):
         self.path_to_file = path_to_file
-        if async == True:
-            self.async = False
-        elif async == False:
+        if get_platform() == "Windows":    
+            if async == True:
+                self.async = False
+            elif async == False:
+                self.async = True
+        else:
             self.async = True
 
     def play(self):
-        playsound(self.path_to_file, self.async)
+        if get_platform() == "Windows":
+            playsound(self.path_to_file, self.async)
 
     def __str__(self):
         return "Audio Player Object"
