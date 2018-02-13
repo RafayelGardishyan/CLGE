@@ -20,7 +20,7 @@ class KeyDetector:
     def setAsyncDetecting(self):
         while True:
             if self.detect():
-                print(Detected)
+                print("Detected")
 
     def detect(self):
         if keyboardIsImported:
