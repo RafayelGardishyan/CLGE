@@ -2,7 +2,7 @@ import sys
 import os
 import coverage
 import mouse
-import pyautogui
+import keyboard
 
 class Testing:
     testCount = 0
@@ -62,13 +62,13 @@ class Testing:
         self.enablePrint()
         print("Pressed: {}".format(char))
         self.blockPrint()
-        pyautogui.keyDown(char)
+        keyboard.press(char)
 
     def simulate_keyboard_release(self, char):
         self.enablePrint()
         print("Released: {}".format(char))
         self.blockPrint()
-        pyautogui.keyUp(char)
+        keyboard.release(char)
 
     def simulate_mouse_press(self, button):
         self.enablePrint()
