@@ -6,7 +6,7 @@ This is a free Game Engine creatoed to work in CMD and Powershell. Linux compati
 
 The current documenation is [Here](https://github.com/RafayelGardishyan/CLGE/wiki)
 
-## Ci and Code quality
+## CI, CodeCov and Code quality
 Service | Status
 --- | ---
 Travis | [![TravisCi Badge](https://travis-ci.org/RafayelGardishyan/CLGE.svg?branch=master)](https://travis-ci.org/RafayelGardishyan/CLGE) 
