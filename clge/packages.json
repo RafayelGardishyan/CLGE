@@ -1,6 +1,6 @@
 {
-  "Standard": ["pyautogui ", "coverage", "keyboard", "mouse", "playsound", "colored", "multitasking"],
-  "Windows": [],
+  "Standard": ["pyautogui ", "coverage", "keyboard", "mouse", "playsound", "colored", "multitasking", "colored"],
+  "Windows": ["colorama"],
   "Linux": ["xlib"],
   "OS X": ["pyobjc-core", "pyobjc"]
 }
