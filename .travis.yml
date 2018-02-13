@@ -7,7 +7,7 @@ python:
 before_script:
 
   - pip install codecov coverage
-  - clge_manager.py install SamplePlugin
+  - python clge_manager.py install SamplePlugin
 
 script:
 
