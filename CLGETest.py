@@ -1,4 +1,4 @@
-from clge import SimpleTester, Screen, generate_keymap
+from clge import SimpleTester, Screen, generate_keymap, paint_text
 
 t = SimpleTester(5)
 
@@ -12,6 +12,10 @@ def test_screen():
     scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
     return scr
 
+def color_test():
+    for i in range(200):
+        for j in range(200):
+            print(paint_text("Test", i, 5, True))
 
 def test_tail():
     tailX = [None] * 20
@@ -63,6 +67,7 @@ t.Test(test_screen)
 t.Test(test_keyboard)
 t.Test(test_tail)
 t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3]])
+t.Test(color_test)
 t.CoverageStop()
 t.printTestResults()
 t.getCoverage()

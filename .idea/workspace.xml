@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/plugin_installer.py" afterPath="$PROJECT_DIR$/clge/plugin_installer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/plugs/__init__.py" afterPath="$PROJECT_DIR$/clge/plugs/__init__.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugin_test.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/SnakeTests.py" afterPath="$PROJECT_DIR$/CLGETest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="$PROJECT_DIR$/.travis.yml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,51 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="drawer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/drawer.py">
+      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="189">
+              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/plugs/__init__.py">
+      <file leaf-file-name="CLGETest.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CLGETest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="4" column="61" lean-forward="false" selection-start-line="4" selection-start-column="61" selection-end-line="4" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="creator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/project_creator/creator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugin_installer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/plugin_installer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="41" column="36" lean-forward="true" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/clge/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+            <state relative-caret-position="631">
+              <caret line="69" column="17" lean-forward="false" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -99,8 +70,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/engine/default_assets/__init__.py" />
-        <option value="$PROJECT_DIR$/engine/default_assets/sample_object.py" />
         <option value="$PROJECT_DIR$/engine/default_assets/sample_player.py" />
         <option value="$PROJECT_DIR$/engine/setup.py" />
         <option value="$PROJECT_DIR$/engine/key_detector.py" />
@@ -124,7 +93,6 @@
         <option value="$PROJECT_DIR$/Game.Snake/SnakeTests.py" />
         <option value="$PROJECT_DIR$/clge/exceptions.py" />
         <option value="$PROJECT_DIR$/clge/audio_player.py" />
-        <option value="$PROJECT_DIR$/SnakeTests.py" />
         <option value="$PROJECT_DIR$/clge/testing/simple_test.py" />
         <option value="$PROJECT_DIR$/clge/mouse_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator.py" />
@@ -150,6 +118,9 @@
         <option value="$PROJECT_DIR$/clge/drawer.py" />
         <option value="$PROJECT_DIR$/clge/plugs/__init__.py" />
         <option value="$PROJECT_DIR$/clge/plugin_installer.py" />
+        <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/SnakeTests.py" />
+        <option value="$PROJECT_DIR$/CLGETest.py" />
       </list>
     </option>
   </component>
@@ -189,23 +160,6 @@
             <path>
               <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="clge" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="clge" type="462c0819:PsiDirectoryNode" />
-              <item name="plugs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
-              <item name="clge" type="462c0819:PsiDirectoryNode" />
-              <item name="project_creator" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -362,15 +316,16 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18743287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33143508" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.261959" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2596811" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18743287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2596811" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -379,7 +334,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -423,7 +377,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/clge/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -501,7 +454,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SnakeTests.py" />
     <entry file="file://$PROJECT_DIR$/clge/testing/simple_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="673">
@@ -651,6 +603,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CLGETest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="69" column="17" lean-forward="false" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
           <folding />
         </state>
       </provider>

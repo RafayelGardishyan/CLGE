@@ -6,4 +6,5 @@ python:
 
 script:
 
-  - python SnakeTests.py
+  - sudo python CLGETest.py
+  - python CLGETest.py
