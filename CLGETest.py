@@ -50,7 +50,7 @@ def test_keyboard():
     keys.add('left', 'a')
     keys.add('left_arrow', 'left')
     keys = keys.generate()
-    keys["up"].detAsyncDetecting(print("Up"))
+    keys["up"].detAsyncDetecting(print)
     print(convert_to_code("a"), convert_to_char(15))
     for key in keys:
         t.simulate_keyboard_release(keys[key].char)
