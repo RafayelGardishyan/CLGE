@@ -2,7 +2,7 @@ from clge import SimpleTester, Screen, generate_keymap, paint_text
 
 t = SimpleTester(5)
 
-t.CoverageStart()
+# t.CoverageStart()
 
 class SnakeTestException(Exception):
     def __init__(self, message):
@@ -68,6 +68,6 @@ t.Test(test_keyboard)
 t.Test(test_tail)
 t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3]])
 t.Test(color_test)
-t.CoverageStop()
+# t.CoverageStop()
 t.printTestResults()
-t.getCoverage()
+# t.getCoverage()
