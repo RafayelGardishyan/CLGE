@@ -10,7 +10,9 @@ class SnakeTestException(Exception):
 
 def test_screen():
     scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
-    return scr
+    for i in range(20):
+        scr.add_object(i, i*i, "I", i)
+        scr.render()
 
 def color_test():
     for i in range(200):
