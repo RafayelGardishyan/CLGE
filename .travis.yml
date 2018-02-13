@@ -6,11 +6,11 @@ python:
 
 before_script:
 
-  - pip install coverage
+  - pip install codecov
 
 script:
 
-  - coverage run CLGETest.py
+  -  codecov run CLGETest.py
 
 after_success:
-  - coverage
+  - codecov
