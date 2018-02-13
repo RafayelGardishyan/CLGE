@@ -5,31 +5,51 @@ import zipfile
 import os
 import shutil
 
-list = json.load(open(os.path.dirname(__file__) + "\plugs\plugs.json"))
+path = os.path.dirname(__file__)
+
+try:
+    list = json.load(open(path + "\plugs\plugs.json"))
+except:
+    list = json.load(open(path + "plugs\plugs.json"))
+
 
 def GetPlugins(list):
     plugins = ""
     for plugin in list:
-        plugins += plugin + ". "
+        plugins += plugin + " "
     return plugins
 
 
 def UninstallPlugin(plugin_name):
-    shutil.rmtree(os.path.dirname(__file__) + "\plugs\\" + plugin_name)
-    list = json.load(open(os.path.dirname(__file__) + "\plugs\plugs.json"))
-    list.pop(list.index(plugin_name))
-    open(os.path.dirname(__file__) + "\plugs\plugs.json", "w+").write(json.dumps(list))
+    try:
+        shutil.rmtree(path + r"\plugs\\" + plugin_name)
+        list = json.load(open(path + "\plugs\plugs.json"))
+        list.pop(list.index(plugin_name))
+        open(path + "\plugs\plugs.json", "w+").write(json.dumps(list))
+    except:
+        shutil.rmtree(path + r"plugs\\" + plugin_name)
+        list = json.load(open(path + "plugs\plugs.json"))
+        list.pop(list.index(plugin_name))
+        open(path + "plugs\plugs.json", "w+").write(json.dumps(list))
 
 
 def PluginInstaller(plugin_full_path, plugin_name):
     with zipfile.ZipFile(plugin_full_path, "r") as z:
-        os.makedirs(os.path.dirname(__file__) + "\plugs\\" + plugin_name)
-        z.extractall(os.path.dirname(__file__) + "\plugs\\" + plugin_name)
-        list = json.load(open(os.path.dirname(__file__) + "\plugs\plugs.json"))
-        list.append(plugin_name)
-        plugins = GetPlugins(list)
-        print("Your installed plugins: {}".format(plugins))
-
-        open(os.path.dirname(__file__) + "\plugs\plugs.json", "w+").write(json.dumps(list))
+        try:
+            os.makedirs(path + r"\plugs\\" + plugin_name)
+            z.extractall(path + r"\plugs\\" + plugin_name)
+            list = json.load(open(path + "\plugs\plugs.json"))
+            list.append(plugin_name)
+            plugins = GetPlugins(list)
+            print("Your installed plugins: {}".format(plugins))
+            open(path + "\plugs\plugs.json", "w+").write(json.dumps(list))
+        except:
+            os.makedirs(path + r"plugs\\" + plugin_name)
+            z.extractall(path + r"plugs\\" + plugin_name)
+            list = json.load(open(path + "plugs\plugs.json"))
+            list.append(plugin_name)
+            plugins = GetPlugins(list)
+            print("Your installed plugins: {}".format(plugins))
+            open(path + "\plugs\plugs.json", "w+").write(json.dumps(list))
 
 

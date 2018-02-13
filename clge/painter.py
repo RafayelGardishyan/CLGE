@@ -1,6 +1,5 @@
 from colored import fg, bg, attr
 from .setup import get_platform
-from colorama import init
 
 def paint_text(text, foreground=2, background=5, reset=True):
     if get_platform() != "Windows":

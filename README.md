@@ -3,7 +3,7 @@
 ## Command Line Game Engine
 
 ##### Warning: Now colors only work on linux, macOS. To use them on windows use Windows Virtualbox or install cmder
-##### Please note: Documentation is not complete!
+##### Please note: Documentation is not complete! You can help writing it on our wiki page on github
 
 ### Prerequisites
 You will only need Python3. The engine will self-install the needed packages

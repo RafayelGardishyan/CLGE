@@ -5,7 +5,10 @@ from .exceptions import CLGEException
 import json
 
 def get_packages():
-    return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
+    try:
+        return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
+    except:
+        return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "packages.json").read())
 
 def get_platform():
     platforms = {
