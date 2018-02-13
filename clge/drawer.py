@@ -13,7 +13,7 @@ class Screen:
     auto_timeout = True
     default_color = attr(0)
 
-    def __init__(self, width, height, symbol='#', timeout=1.0, auto_clear_objects_list=False, auto_timeout=True, default_color=attr(0), change_console_size=False):
+    def __init__(self, width, height, symbol='#', border=True, timeout=1.0, auto_clear_objects_list=False, auto_timeout=True, default_color=attr(0), change_console_size=False):
         self.field_width = width
         self.field_height = height
         self.default_symbol = symbol
@@ -21,6 +21,7 @@ class Screen:
         self.auto_clear_objects_list = auto_clear_objects_list
         self.auto_timeout = auto_timeout
         self.console_change = change_console_size
+        self.border = border
         if default_color != attr(0):
             self.default_color = fg(default_color)
         else:
@@ -65,12 +66,18 @@ class Screen:
         self.timeout = seconds
 
     def draw(self, objects):
-        print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+        if self.border:
+            print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+        else:
+            print(self.default_color + " " * (self.field_width + 2) + self.default_color)
         for i in range(self.field_height):
             spacer = []
             for k in range(self.field_width):
                 spacer.append(' ')
-            draw = self.default_color + self.default_symbol + self.default_color
+            if self.border:
+                draw = self.default_color + self.default_symbol + self.default_color
+            else:
+                draw = self.default_color + " " + self.default_color
             for j in range(self.field_width):
                 for obj in objects:
                     if obj[0] == j and obj[1] == i:
@@ -78,9 +85,15 @@ class Screen:
                         
             for space in spacer:
                 draw += space
-            draw += self.default_color + self.default_symbol + self.default_color
+            if self.border:
+                draw += self.default_color + self.default_symbol + self.default_color
+            else:
+                draw += self.default_color + " " + self.default_color
             print(draw)
-        print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+        if self.border:
+            print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+        else:
+            print(self.default_color + " " * (self.field_width + 2) + self.default_color)
     #TODO Add Windows COnsole Colors
     def draw_no_colors(self, objects):
         print(self.default_symbol * (self.field_width + 2))
