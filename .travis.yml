@@ -6,5 +6,7 @@ python:
 
 script:
 
-  - sudo python CLGETest.py
-  - python CLGETest.py
+  - coverage run CLGETest.py
+
+after_success:
+  - coverage
