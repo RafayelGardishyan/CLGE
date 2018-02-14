@@ -6,12 +6,14 @@ python:
 
 before_script:
 
-  - sudo pip install codecov coverage
+  - sudo wget https://bootstrap.pypa.io/get-pip.py
+  - sudo python3 get-pip.py
+  - sudo pip3 install codecov coverage
 #  - sudo python clge_manager.py install SamplePlugin
 
 script:
 
-  - sudo python CLGETest.py
+  - sudo python3 CLGETest.py
 
 after_success:
   - sudo codecov

@@ -39,8 +39,18 @@
       <file leaf-file-name="CLGETest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CLGETest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+            <state relative-caret-position="151">
+              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="key_detector.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clge/key_detector.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -99,7 +109,6 @@
         <option value="$PROJECT_DIR$/clge/mouse_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator.py" />
         <option value="$PROJECT_DIR$/clge/project_creator/__init__.py" />
-        <option value="$PROJECT_DIR$/clge/key_detector.py" />
         <option value="$PROJECT_DIR$/clge/project_creator/creator.py" />
         <option value="$PROJECT_DIR$/clge_project_admin.py" />
         <option value="$PROJECT_DIR$/clge/project_creator_files/logic.py" />
@@ -122,6 +131,7 @@
         <option value="$PROJECT_DIR$/clge/plugin_installer.py" />
         <option value="$PROJECT_DIR$/SnakeTests.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
+        <option value="$PROJECT_DIR$/clge/key_detector.py" />
         <option value="$PROJECT_DIR$/CLGETest.py" />
       </list>
     </option>
@@ -162,6 +172,11 @@
             <path>
               <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
               <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -476,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/key_detector.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/project_creator_files/logic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -610,10 +618,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clge/key_detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CLGETest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
+        <state relative-caret-position="151">
+          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
           <folding />
         </state>
       </provider>
