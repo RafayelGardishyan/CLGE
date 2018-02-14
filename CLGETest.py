@@ -20,7 +20,7 @@ def mouse_test():
             pass
         else:
             t.simulate_mouse_release(keys[key].button)
-            raise SnakeTestException("Key {} in not detected".format(keys[key].char))
+            raise SnakeTestException("Key {} in not detected".format(keys[key].button))
         t.simulate_mouse_release(keys[key].button)
 
 def test_screen():
