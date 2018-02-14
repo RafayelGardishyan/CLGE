@@ -9,7 +9,7 @@
 
 ###### Warning: On linux soud will not work
 ###### Warning: On Windows the colors will not work
-This is a free Game Engine creatoed to work in Terminal, CMD and PowerShell
+This is a free Game Engine created to work in Terminal, CMD and PowerShell
 
 
 ## CI, CodeCov and Code quality
