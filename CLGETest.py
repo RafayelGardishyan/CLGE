@@ -50,7 +50,7 @@ def test_keyboard():
     keys.add('left', 'a')
     keys.add('left_arrow', 'left')
     keys = keys.generate()
-    keys["up"].detAsyncDetecting()
+    # keys["up"].detAsyncDetecting()
     print(convert_to_code("a"), convert_to_char(15))
     for key in keys:
         t.simulate_keyboard_release(keys[key].char)
@@ -77,3 +77,4 @@ t.Test(test_collision, [[0, 1, 2, 3], [0, 0, 2, 4], [3, 1, 3, 3]])
 t.Test(color_test)
 t.CoverageStop()
 t.printTestResults()
+t.getCoverage()
