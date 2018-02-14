@@ -18,10 +18,7 @@ class KeyDetector:
 
     @multitasking.task
     def setAsyncDetecting(self):
-        while True:
-            if self.detect():
-                print("Detected")
-                break
+        pass
 
     def detect(self):
         if keyboardIsImported:
