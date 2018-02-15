@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CLGETest.py" afterPath="$PROJECT_DIR$/CLGETest.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/clge/default_assets/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/clge/default_assets/sample_object.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/clge/default_assets/sample_player.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/clge/default_assets/sample_polygon.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/__init__.py" afterPath="$PROJECT_DIR$/clge/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/plugs/plugs.json" afterPath="$PROJECT_DIR$/clge/plugs/plugs.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,42 +27,7 @@
     <SUITE FILE_PATH="coverage/CommandLineGameEngine$key_detector.coverage" NAME="key_detector Coverage Results" MODIFIED="1517148173023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.travis.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <marker date="1518550358869" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
-                <marker date="1518550358869" expanded="true" signature="208:216" ph="after_success: &lt;1 item&gt;" />
-                <marker date="1518550358869" expanded="true" signature="209:216" ph="codecov" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CLGETest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CLGETest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="key_detector.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/key_detector.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -120,7 +91,6 @@
         <option value="$PROJECT_DIR$/clge/plugs/test_plugin/setup.py" />
         <option value="$PROJECT_DIR$/plugin_test.py" />
         <option value="$PROJECT_DIR$/clge/plugs/plugs.json" />
-        <option value="$PROJECT_DIR$/clge/__init__.py" />
         <option value="$PROJECT_DIR$/clge_manager.py" />
         <option value="$PROJECT_DIR$/clge/painter.py" />
         <option value="$PROJECT_DIR$/clge/setup.py" />
@@ -132,6 +102,7 @@
         <option value="$PROJECT_DIR$/SnakeTests.py" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/clge/key_detector.py" />
+        <option value="$PROJECT_DIR$/clge/__init__.py" />
         <option value="$PROJECT_DIR$/CLGETest.py" />
       </list>
     </option>
@@ -164,8 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -178,10 +147,25 @@
               <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
               <item name="clge" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
+              <item name="plugs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CommandLineGameEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CommandLineGameEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
+              <item name="plugs" type="462c0819:PsiDirectoryNode" />
+              <item name="DefaultAssets" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -190,6 +174,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine\clge\plugs\DefaultAssets" />
       <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine" />
       <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine\clge\project_creator" />
     </key>
@@ -332,7 +317,7 @@
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1895811" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19226637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -393,13 +378,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/clge/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/clge/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -421,28 +399,28 @@
     <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/jorn.py" />
     <entry file="file://$PROJECT_DIR$/space_chase.py" />
-    <entry file="file://$PROJECT_DIR$/clge/default_assets/sample_polygon.py">
+    <entry file="file://$PROJECT_DIR$/DefaultAssets/sample_polygon.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="628">
           <caret line="28" column="80" lean-forward="false" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/default_assets/sample_object.py">
+    <entry file="file://$PROJECT_DIR$/DefaultAssets/sample_object.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="692">
           <caret line="27" column="0" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="27" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/default_assets/sample_player.py">
+    <entry file="file://$PROJECT_DIR$/DefaultAssets/sample_player.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="53" column="67" lean-forward="true" selection-start-line="52" selection-start-column="4" selection-end-line="53" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/default_assets/__init__.py">
+    <entry file="file://$PROJECT_DIR$/DefaultAssets/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
@@ -513,20 +491,6 @@
     <entry file="file://$PROJECT_DIR$/test_plugin/__init__.py" />
     <entry file="file://$PROJECT_DIR$/test_plugin/setup.py" />
     <entry file="file://$PROJECT_DIR$/plugin_test.py" />
-    <entry file="file://$PROJECT_DIR$/clge/plugs/plugs.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clge/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="80" lean-forward="false" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/painter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -608,28 +572,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <marker date="1518550358869" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
-            <marker date="1518550358869" expanded="true" signature="208:216" ph="after_success: &lt;1 item&gt;" />
-            <marker date="1518550358869" expanded="true" signature="209:216" ph="codecov" />
+            <marker date="1518585365181" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
+            <marker date="1518585365181" expanded="true" signature="38:63" ph="before_script: &lt;1 item&gt;" />
+            <marker date="1518585365181" expanded="true" signature="58:63" ph="sudo pip …v coverage" />
+            <marker date="1518585365181" expanded="true" signature="252:264" ph="sudo pyth…LGETest.py" />
+            <marker date="1518585365181" expanded="true" signature="289:297" ph="after_success: &lt;1 item&gt;" />
+            <marker date="1518585365181" expanded="true" signature="290:297" ph="codecov" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clge/key_detector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state relative-caret-position="420">
+          <caret line="20" column="12" lean-forward="false" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/plugs/plugs.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/plugs/DefaultAssets/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" lean-forward="true" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CLGETest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+        <state relative-caret-position="21">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
