@@ -30,7 +30,11 @@ def mouse_test():
         t.simulate_mouse_release(keys[key].button)
 
 def test_screen():
-    scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
+    scr = Screen(20, 20)
+    scr.auto_clear_objects_list_setter(True)
+    scr.set_timeout(.5)
+    scr.auto_timeout_setter(False)
+    scr.color_setter(39)
     for i in range(20):
         for j in range(20):
             scr.add_object(i, i*j, "I", i)
