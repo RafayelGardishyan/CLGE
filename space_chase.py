@@ -1,7 +1,9 @@
 from clge import Screen, generate_keymap
 import random
 
-scr = Screen(80, 40, timeout=.1, auto_clear_objects_list=True)
+scr = Screen(80, 40)
+scr.set_timeout(.1)
+scr.auto_timeout_setter(True)
 
 
 class SpaceStone:
