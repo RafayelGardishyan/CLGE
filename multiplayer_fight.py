@@ -213,17 +213,13 @@ while True:
     p.check_collision(g, screenObj)
     g.check_collision(p, screenObj)
     for bullet in bullets:
-        try:
-            if bullet[2] == "right":
-                bullet[0] += 1
-            elif bullet[2] == "left":
-                bullet[0] -= 1
-            screenObj.add_object(bullet[0], bullet[1], "O")
-            if bullet[0] < 0 or bullet[0] > screenObj.field_width:
-                bullet = None
-        except:
-            pass
-
+        if bullet[2] == "right":
+            bullet[0] += 1
+        elif bullet[2] == "left":
+            bullet[0] -= 1
+        screenObj.add_object(bullet[0], bullet[1], "O")
+        if bullet[0] < 0 or bullet[0] > screenObj.field_width:
+            bullet = None
 
     screenObj.add_object(p.xpos, p.ypos, '@')
     screenObj.add_object(g.xpos, g.ypos, '*')
