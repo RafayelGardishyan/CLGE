@@ -56,10 +56,10 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+            <state relative-caret-position="420">
+              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
-                <marker date="1518814253902" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
+                <marker date="1518814579774" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
               </folding>
             </state>
           </provider>
@@ -694,10 +694,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+        <state relative-caret-position="420">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding>
-            <marker date="1518814253902" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
+            <marker date="1518814579774" expanded="true" signature="38:58" ph="before_script: &lt;1 item&gt;" />
           </folding>
         </state>
       </provider>

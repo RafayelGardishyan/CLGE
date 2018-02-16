@@ -15,8 +15,8 @@ before_script:
 script:
 
   - sudo python3 CLGETest.py
-  - sudo python-codacy-coverage -r coverage.xml
 
 after_success:
+  - coverage xml
   - sudo codecov
-  - sudo python-codacy-coverage
+  - sudo python-codacy-coverage -r coverage.xml
