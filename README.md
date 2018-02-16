@@ -16,11 +16,17 @@
 ###### Warning: On Linux sound will not work
 ###### Warning: On Windows the colors will not work
 CLGE is a free Game Engine created to work in Terminal, CMD and PowerShell.
+
 It is made by Rafayel Gardishyan, a 14 years old programmer who learned programming by itself.
+
+
 It is completelty open source but you have to notice the author (See MIT Licence).
 It is easy to install and easier to use.
+
 It is what you want.
+
 It is what you are.
+
 What you will be.
 
 
