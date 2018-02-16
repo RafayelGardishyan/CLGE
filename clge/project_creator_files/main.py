@@ -1,4 +1,4 @@
-import data, screen, sounds, logic
+import data, screen, logic
 from clge import DefaultAssets as da
 
 info = data.get_data()
@@ -20,6 +20,7 @@ fruit = da.SampleObject(logic.fruit_first_pos_x(info["field_width"]),
                          logic.fruit_first_pos_y(info["field_height"]),
                          step=1,
                          symbol=info["fruit"]["symbol"])
+
 
 while True:
     scr.clear_screen()

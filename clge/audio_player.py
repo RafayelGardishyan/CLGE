@@ -11,11 +11,8 @@ class AudioPlayer:
 
     def __init__(self, path_to_file, async=True):
         self.path_to_file = path_to_file
-        if get_platform() == "Windows":    
-            if async == True:
-                self.async = False
-            elif async == False:
-                self.async = True
+        if get_platform() == "Windows":
+            self.async = not async
         else:
             self.async = True
 

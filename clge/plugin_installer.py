@@ -8,9 +8,9 @@ import shutil
 path = os.path.dirname(__file__)
 
 try:
-    list = json.load(open(path + "/plugs/plugs.json"))
+    List = json.load(open(path + "/plugs/plugs.json"))
 except:
-    list = json.load(open(path + "plugs/plugs.json"))
+    List = json.load(open(path + "plugs/plugs.json"))
 
 
 def GetPlugins(list):

@@ -91,11 +91,11 @@ gdown = KeyDetector("down")
 gleft = KeyDetector("left")
 gright = KeyDetector("right")
 gshoot = KeyDetector("l")
-help = KeyDetector("h")
+Help = KeyDetector("h")
 
 
 while True:
-    if help.detect():
+    if Help.detect():
         screenObj.timeout = 1
         screenObj.add_object(2, 2, "H")
         screenObj.add_object(3, 2, "E")

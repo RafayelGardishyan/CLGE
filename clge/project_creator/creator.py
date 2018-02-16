@@ -3,8 +3,7 @@ import errno
 import shutil
 from ..exceptions import CLGEException
 
-class ProjectCreator:
-    def start_project(self, directory):
+def start_project(directory):
         try:
             os.makedirs(directory)
             os.makedirs(directory + "/clge")
@@ -14,7 +13,7 @@ class ProjectCreator:
             else:
                 raise CLGEException("Could not create Project Folder")
 
-    def copy_engine(self, directory, symlinks=False, ignore=None):
+def copy_engine(directory, symlinks=False, ignore=None):
         for item in os.listdir("./clge"):
             s = os.path.join("./clge", item)
             d = os.path.join(directory + "/clge", item)
@@ -23,7 +22,7 @@ class ProjectCreator:
             else:
                 shutil.copy2(s, d)
 
-    def copy_sample_project(self, directory, symlinks=False, ignore=None):
+def copy_sample_project(directory, symlinks=False, ignore=None):
         for item in os.listdir("./clge/project_creator_files"):
             s = os.path.join("./clge/project_creator_files", item)
             d = os.path.join(directory, item)
@@ -32,7 +31,7 @@ class ProjectCreator:
             else:
                 shutil.copy2(s, d)
 
-    def __init__(self, project_name):
-        self.start_project(project_name)
-        self.copy_engine(project_name)
-        self.copy_sample_project(project_name)
+def ProjectCreator(project_name):
+        start_project(project_name)
+        copy_engine(project_name)
+        copy_sample_project(project_name)

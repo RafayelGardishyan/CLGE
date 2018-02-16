@@ -1,7 +1,7 @@
 import os
 from clge import ProjectCreator
 import sys
-from clge import PluginInstaller, UninstallPlugin, GetPlugins, list
+from clge import PluginInstaller, UninstallPlugin, GetPlugins, List
 
 if __name__ == '__main__':
     print("Welcome to CLGE Project Creator")
@@ -26,7 +26,7 @@ if __name__ == '__main__':
             UninstallPlugin(pn)
             print("Plugin is uninstalled successfully")
         elif inp == "plugins":
-            print("Installed plugins: {}".format(GetPlugins(list)))
+            print("Installed plugins: {}".format(GetPlugins(List)))
         else:
             projname = input("Project Name: ")
             ProjectCreator(projname)

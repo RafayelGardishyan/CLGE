@@ -4,6 +4,14 @@ import coverage
 import mouse
 import keyboard
 
+
+def blockPrint():
+    sys.stdout = open(os.devnull, 'w')
+
+
+def enablePrint():
+    sys.stdout = sys.__stdout__
+
 class Testing:
     testCount = 0
     passedTestCount = 0
@@ -29,26 +37,21 @@ class Testing:
 
     def Test(self, function, *args, **kwargs):
         for t in range(self.times):
+            print("Testing round: {}".format(t))
             self.testCount += 1
             print("INFO: Testing: \"" + function.__name__ + "\"")
-            self.blockPrint()
+            blockPrint()
             try:
                 function(*args, **kwargs)
-                self.enablePrint()
+                enablePrint()
                 print("INFO: Test \"" + function.__name__ + "\" passed\n\n")
                 self.passedTestCount += 1
             except Exception as e:
                 self.not_passed.append(function.__name__)
                 self.exceptions.append(str(e))
-                self.enablePrint()
+                enablePrint()
                 print("WARNING: Test \"" + function.__name__ +"\" is not passed")
                 print("ERROR: " + str(e) + "\n\n")
-
-    def blockPrint(self):
-        sys.stdout = open(os.devnull, 'w')
-
-    def enablePrint(self):
-        sys.stdout = sys.__stdout__
 
     def printTestResults(self):
         percent = int(self.passedTestCount * 100 / self.testCount)
@@ -59,25 +62,25 @@ class Testing:
                 print("{}: {} --> {}".format(self.not_passed.index(test) + 1, test, self.exceptions[self.not_passed.index(test)]))
 
     def simulate_keyboard_press(self, char):
-        self.enablePrint()
+        enablePrint()
         print("Pressed: {}".format(char))
-        self.blockPrint()
+        blockPrint()
         keyboard.press(char)
 
     def simulate_keyboard_release(self, char):
-        self.enablePrint()
+        enablePrint()
         print("Released: {}".format(char))
-        self.blockPrint()
+        blockPrint()
         keyboard.release(char)
 
     def simulate_mouse_press(self, button):
-        self.enablePrint()
+        enablePrint()
         print("Pressed Mouse Button: {}".format(button))
-        self.blockPrint()
+        blockPrint()
         mouse.press(button)
 
     def simulate_mouse_release(self, button):
-        self.enablePrint()
+        enablePrint()
         print("Released Mouse Button: {}".format(button))
-        self.blockPrint()
+        blockPrint()
         mouse.release(button)
