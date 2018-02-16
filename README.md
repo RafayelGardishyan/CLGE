@@ -18,7 +18,7 @@
 This is a free Game Engine created to work in Terminal, CMD and PowerShell
 
 
-## CI, CodeCov and Code quality
+## Continious Integration, CodeCov and Code quality
 Service | Status
 --- | ---
 TravisCI | [![TravisCi Badge](https://travis-ci.org/RafayelGardishyan/CLGE.svg?branch=master)](https://travis-ci.org/RafayelGardishyan/CLGE) 
