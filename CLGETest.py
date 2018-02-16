@@ -32,15 +32,15 @@ def mouse_test():
 def test_screen():
     scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
     for i in range(20):
-        for i in range(20):
-            scr.add_object(i, i*i, "I", i)
+        for j in range(20):
+            scr.add_object(i, i*j, "I", i)
         scr.render()
 
 def color_test():
     for i in range(200):
         for j in range(200):
             print(paint_text("Test", i, 5, True))
-            print(paint_text("Test", i, 5, False))
+            print(paint_text("Test", j, 5, False))
 
 def test_tail():
     tailX = [None] * 20
