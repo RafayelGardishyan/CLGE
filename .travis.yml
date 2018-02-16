@@ -8,12 +8,15 @@ before_script:
 
   - sudo wget https://bootstrap.pypa.io/get-pip.py
   - sudo python3 get-pip.py
-  - sudo pip3 install codecov coverage
+  - sudo pip3 install codecov coverage codacy-coverage
+  - export CODACY_PROJECT_TOKEN=52384ccb8a50488da515d93ead374e27
 #  - sudo python clge_manager.py install SamplePlugin
 
 script:
 
   - sudo python3 CLGETest.py
+  - sudo python-codacy-coverage -r coverage.xml
 
 after_success:
   - sudo codecov
+  - sudo python-codacy-coverage
