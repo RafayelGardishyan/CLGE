@@ -12,20 +12,27 @@ class Screen:
     auto_clear_objects_list = False
     auto_timeout = True
     default_color = attr(0)
+    console_change = False
 
-    def __init__(self, width, height, symbol='#', border=True, timeout=1.0, auto_clear_objects_list=False, auto_timeout=True, default_color=attr(0), change_console_size=False):
+    def __init__(self, width, height, symbol='#', border=True):
         self.field_width = width
         self.field_height = height
         self.default_symbol = symbol
-        self.timeout = timeout
-        self.auto_clear_objects_list = auto_clear_objects_list
-        self.auto_timeout = auto_timeout
-        self.console_change = change_console_size
-        self.border = border
-        if default_color != attr(0):
-            self.default_color = fg(default_color)
+
+    def auto_clear_objects_list_setter(self, value):
+        self.auto_clear_objects_list = value
+
+    def auto_timeout_setter(self, value):
+        self.auto_timeout = value
+
+    def console_change_setter(self, value):
+        self.console_change = value
+
+    def color_setter(self, value):
+        if value != attr(0):
+            self.default_color = fg(value)
         else:
-            self.default_color = default_color
+            self.default_color = value
 
     def clear_screen(self):
         print('\n' * 100)
