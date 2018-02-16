@@ -1,6 +1,9 @@
 from clge import Screen, KeyDetector, setup
 
-screenObj = Screen(60, 20, auto_clear_objects_list=True, auto_timeout=True, timeout=0.05)
+screenObj = Screen(60, 20)
+screenObj.auto_timeout_setter(True)
+screenObj.auto_clear_objects_list_setter(True)
+screenObj.set_timeout(.05)
 bullets = []
 
 class Player:
