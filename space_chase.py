@@ -1,5 +1,5 @@
 from clge import Screen, generate_keymap
-import random
+import secrets
 
 scr = Screen(80, 40)
 scr.set_timeout(.1)
@@ -19,8 +19,8 @@ class SpaceStone:
     def return_to_0x(self):
         if self.xpos == -1:
             self.xpos = scr.field_width - 1
-            self.speed = random.randint(1, 9)
-            self.ypos = random.randint(0, scr.field_height - 1)
+            self.speed = secrets.randbelow(9) + 1
+            self.ypos = secrets.randbelow(scr.field_height - 1)
 
 class SpaceShip:
 
@@ -57,7 +57,7 @@ class SpaceShip:
 player = SpaceShip(int(scr.field_height/2), 5)
 stones = []
 for i in range(10):
-    stones.append(SpaceStone(scr.field_width - 1, random.randint(0, scr.field_height - 1), random.randint(1, 9)))
+    stones.append(SpaceStone(scr.field_width - 1, secrets.randbelow(scr.field_height - 1), secrets.randbelow(9) + 1))
 
 while True:
     player.detect_key_press()
