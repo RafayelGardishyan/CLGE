@@ -2,7 +2,11 @@ from clge import Screen, AudioPlayer, generate_keymap, paint_text
 import secrets
 import time
 
-scr = Screen(27, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
+scr = Screen(27, 20, "#", True)
+scr.color_setter(39)
+scr.auto_timeout_setter(False)
+scr.set_timeout(.5)
+scr.auto_timeout_setter(True)
 
 sound_prefix = "snake_sound"
 sounds = [sound_prefix + "/level_up.wav", sound_prefix + "/player_moves.wav", sound_prefix + "/player_picks_fruit.wav",]
