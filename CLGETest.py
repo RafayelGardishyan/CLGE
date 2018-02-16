@@ -1,5 +1,11 @@
-from clge import KeymapGenerator, SimpleTester, Screen, generate_keymap, paint_text, convert_to_code, convert_to_char
-from clge import CLGEException, generate_mousemap
+from clge import KeymapGenerator
+from clge import SimpleTester
+from clge import Screen
+from clge import paint_text
+from clge import convert_to_code
+from clge import convert_to_char
+from clge import CLGEException
+from clge import generate_mousemap
 
 t = SimpleTester(5)
 
