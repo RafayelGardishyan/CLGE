@@ -1,4 +1,5 @@
 from clge import KeymapGenerator, SimpleTester, Screen, generate_keymap, paint_text, convert_to_code, convert_to_char
+from clge import CLGEException, generate_mousemap
 
 t = SimpleTester(5)
 
@@ -7,6 +8,20 @@ t.CoverageStart()
 class SnakeTestException(Exception):
     def __init__(self, message):
         self.message = message
+
+def test_exception():
+    raise CLGEException("Testing Exception")
+
+def mouse_test():
+    keys = generate_mousemap({"l":"left", "r": "right", "m": "middle"})
+    for key in keys:
+        t.simulate_mouse_press(keys[key].button)
+        if keys[key].detect():
+            pass
+        else:
+            t.simulate_mouse_release(keys[key].button)
+            raise SnakeTestException("Key {} in not detected".format(keys[key].button))
+        t.simulate_mouse_release(keys[key].button)
 
 def test_screen():
     scr = Screen(20, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
@@ -54,7 +69,6 @@ def test_keyboard():
     keys["up"].setAsyncDetecting()
     print(convert_to_code("a"), convert_to_char(15))
     for key in keys:
-        t.simulate_keyboard_release(keys[key].char)
         t.simulate_keyboard_press(keys[key].char)
         if keys[key].detect():
             pass
@@ -71,6 +85,8 @@ def test_collision(cases):
             pass
 
 
+t.Test(test_exception)
+t.Test(mouse_test)
 t.Test(test_screen)
 t.Test(test_keyboard)
 t.Test(test_tail)

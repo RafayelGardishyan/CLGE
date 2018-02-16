@@ -1,10 +1,16 @@
 # CLGE
+[[docs]](https://github.com/RafayelGardishyan/CLGE/wiki)
+[[license]](https://github.com/RafayelGardishyan/CLGE/blob/master/LICENSE)
+[[purpose]](https://github.com/RafayelGardishyan/CLGE/wiki/Purpose)
+[[contributing]](https://github.com/RafayelGardishyan/CLGE/blob/master/CONTRIBUTING.md)
+[[code of conduct]](https://github.com/RafayelGardishyan/CLGE/blob/master/CODE_OF_CONDUCT.md)
 
 ## Command Line Game Engine
 
-This is a free Game Engine creatoed to work in CMD and Powershell. Linux compatiblity mode is in progress and will be available soon.
+###### Warning: On linux soud will not work
+###### Warning: On Windows the colors will not work
+This is a free Game Engine created to work in Terminal, CMD and PowerShell
 
-The current documenation is [Here](https://github.com/RafayelGardishyan/CLGE/wiki)
 
 ## CI, CodeCov and Code quality
 Service | Status
