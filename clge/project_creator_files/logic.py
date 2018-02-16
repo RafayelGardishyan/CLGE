@@ -1,6 +1,6 @@
 from interaction import get_controls
 from sounds import get_sounds
-import random
+import secrets
 
 keys = get_controls()
 sounds = get_sounds()
@@ -45,14 +45,14 @@ def move(player, width, height, sound_enabled):
         player.ypos = height
 
 def reposition_fruit(fruit, width, height):
-    fruit.xpos = random.randint(0, width)
-    fruit.ypos = random.randint(0, height)
+    fruit.xpos = secrets.randbelow(width)
+    fruit.ypos = secrets.randbelow(height)
 
 def fruit_first_pos_x(width):
-    return random.randint(0, width)
+    return secrets.randbelow(width)
 
 def fruit_first_pos_y(height):
-    return random.randint(0, height)
+    return secrets.randbelow(height)
 
 def check_fruit_collision(player, fruit):
     if player.xpos == fruit.xpos and player.ypos == fruit.ypos:
