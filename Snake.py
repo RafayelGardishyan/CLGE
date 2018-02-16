@@ -1,5 +1,5 @@
 from clge import Screen, AudioPlayer, generate_keymap, paint_text
-import random
+import secrets
 import time
 
 scr = Screen(27, 20, auto_clear_objects_list=True, timeout=.5, auto_timeout=False, default_color=39)
@@ -68,8 +68,8 @@ snake = {
 }
 
 fruit = {
-    'x': random.randint(0, scr.field_width - 1),
-    'y': random.randint(0, scr.field_height - 1)
+    'x': secrets.randbelow(scr.field_width - 1),
+    'y': secrets.randbelow(scr.field_height - 1)
 }
 
 
@@ -131,8 +131,8 @@ def check_collision():
 def check_fruit_collision():
     if snake['x'] == fruit['x'] and snake['y'] == fruit['y']:
         sound_objects['snake_sound/player_picks_fruit.wav'].play()
-        fruit['x'] = random.randint(0, scr.field_width - 1)
-        fruit['y'] = random.randint(0, scr.field_height - 1)
+        fruit['x'] = secrets.randbelow(scr.field_width - 1)
+        fruit['y'] = secrets.randbelow(scr.field_height - 1)
         values['score'] += 1
         snake['length'] += 1
         if values['buffer'] == (values['level'] * 2):
