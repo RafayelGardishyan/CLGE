@@ -4,7 +4,7 @@
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/space_chase.py" afterPath="$PROJECT_DIR$/space_chase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/multiplayer_fight.py" afterPath="$PROJECT_DIR$/multiplayer_fight.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,11 +81,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="space_chase.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="space_chase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/space_chase.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
               <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multiplayer_fight.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/multiplayer_fight.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -119,7 +129,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/engine/setup.py" />
         <option value="$PROJECT_DIR$/engine/key_detector.py" />
         <option value="$PROJECT_DIR$/engine/__init__.py" />
         <option value="$PROJECT_DIR$/jorn.py" />
@@ -170,6 +179,7 @@
         <option value="$PROJECT_DIR$/Snake.py" />
         <option value="$PROJECT_DIR$/clge/project_creator_files/logic.py" />
         <option value="$PROJECT_DIR$/space_chase.py" />
+        <option value="$PROJECT_DIR$/multiplayer_fight.py" />
       </list>
     </option>
   </component>
@@ -453,7 +463,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/keypress_detector.py" />
     <entry file="file://$PROJECT_DIR$/platformer.py" />
-    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py" />
     <entry file="file://$PROJECT_DIR$/jorn.py" />
     <entry file="file://$PROJECT_DIR$/DefaultAssets/sample_polygon.py" />
     <entry file="file://$PROJECT_DIR$/DefaultAssets/sample_object.py" />
@@ -678,6 +687,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/multiplayer_fight.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding />
         </state>
       </provider>
