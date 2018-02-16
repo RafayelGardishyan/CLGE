@@ -17,6 +17,8 @@ class Testing:
     passedTestCount = 0
     not_passed = []
     exceptions = []
+    key = ""
+
     def __init__(self, testing_rounds):
         self.times = testing_rounds
     # Code Coverage is an experimental function
@@ -63,24 +65,28 @@ class Testing:
 
     def simulate_keyboard_press(self, char):
         enablePrint()
-        print("Pressed: {}".format(char))
+        self.key = char
+        print("Pressed: {}".format(self.key))
         blockPrint()
-        keyboard.press(char)
+        keyboard.press(self.key)
 
     def simulate_keyboard_release(self, char):
         enablePrint()
-        print("Released: {}".format(char))
+        self.key = char
+        print("Released: {}".format(self.key))
         blockPrint()
-        keyboard.release(char)
+        keyboard.release(self.key)
 
     def simulate_mouse_press(self, button):
         enablePrint()
-        print("Pressed Mouse Button: {}".format(button))
+        self.key = button
+        print("Pressed Mouse Button: {}".format(self.key))
         blockPrint()
-        mouse.press(button)
+        mouse.press(self.key)
 
     def simulate_mouse_release(self, button):
         enablePrint()
-        print("Released Mouse Button: {}".format(button))
+        self.key = button
+        print("Released Mouse Button: {}".format(self.key))
         blockPrint()
-        mouse.release(button)
+        mouse.release(self.key)
