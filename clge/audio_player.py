@@ -17,8 +17,7 @@ class AudioPlayer:
             self.async = True
 
     def play(self):
-        if get_platform() == "Windows":
-            playsound(self.path_to_file, self.async)
+        playsound(self.path_to_file, self.async)
 
     def __str__(self):
         return "Audio Player Object"

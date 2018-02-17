@@ -1,21 +1,19 @@
 import sys
 import os
 from .exceptions import CLGEException
-# import configparser
 import json
 
+
 def get_packages():
-    try:
-        return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
-    except:
-        return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "packages.json").read())
+    return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
+
 
 def get_platform():
     platforms = {
         'linux1': 'Linux',
         'linux2': 'Linux',
         'linux': 'Linux',
-	'darwin': 'OS X',
+        'darwin': 'OS X',
         'win32': 'Windows',
         'uwp': 'Windows'
     }
@@ -38,17 +36,15 @@ else:
 
 def packages_list_string():
     output = ""
-    for package in packages_list:
-        output += package + " "
+    for Package in packages_list:
+        output += Package + " "
     return output
+
 
 try:
     import pip
     for package in packages_list:
-        try:
-            pip.main(['install', package])
-        except:
-            raise CLGEException("Unable to install {}".format(package))
+        pip.main(['install', package])
     print("\n"*100)
 except ImportError:
     print("Error: No pip module. Can't do setup")

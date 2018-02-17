@@ -39,7 +39,7 @@ class Testing:
 
     def Test(self, function, *args, **kwargs):
         for t in range(self.times):
-            print("Testing round: {}".format(t))
+            print("Testing round: {}".format(t + 1))
             self.testCount += 1
             print("INFO: Testing: \"" + function.__name__ + "\"")
             blockPrint()
@@ -60,8 +60,8 @@ class Testing:
         print("{}% of test are passed ({} / {})".format(percent, self.passedTestCount, self.testCount))
         if len(self.not_passed) > 0:
             print("Not passed:")
-            for test in self.not_passed:
-                print("{}: {} --> {}".format(self.not_passed.index(test) + 1, test, self.exceptions[self.not_passed.index(test)]))
+            for test in range(len(self.not_passed)):
+                print("{}: {} --> {}".format(test + 1, self.not_passed[test], self.exceptions[test]))
 
     def simulate_keyboard_press(self, char):
         enablePrint()
