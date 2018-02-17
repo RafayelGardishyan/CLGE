@@ -1,1 +1,0 @@
-from .simple_test import Testing as Tester
