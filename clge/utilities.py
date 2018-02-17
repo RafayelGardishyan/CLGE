@@ -1,23 +1,24 @@
-import secrets
+import random
 import time
 
+secrets = random.SystemRandom()
 
 def randint(a, b):
-    return secrets.randbelow(b) + a
+    return secrets.randint(a, b)
 
 
 def randcode(length):
-    a = secrets.randbelow(9)
+    a = secrets.randint(0, 9)
     for i in range(length - 1):
         b = i
-        a += secrets.randbelow(9)
+        a += secrets.randint(0, 9)
     return a
 
 
-def randchoice(List):
-    return secrets.choice(List)
+def randchoice(seq):
+    return secrets.choice(seq)
 
 
-def sleep(miliseconds):
-    seconds = miliseconds / 1000
+def sleep(milliseconds):
+    seconds = milliseconds / 1000
     return time.sleep(seconds)

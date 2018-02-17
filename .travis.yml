@@ -8,7 +8,7 @@ before_script:
 
   - sudo wget https://bootstrap.pypa.io/get-pip.py
   - sudo python3 get-pip.py
-  - sudo -H pip3 install secrets codecov coverage==4.3 codacy-coverage codeclimate-test-reporter
+  - sudo -H pip3 install codecov coverage==4.3 codacy-coverage codeclimate-test-reporter
   - export CODACY_PROJECT_TOKEN=52384ccb8a50488da515d93ead374e27
   - export CODECLIMATE_REPO_TOKEN=9674fa1ab072a4ced75f6ee61433ad3e794c46cdd156ecd90ff7a5131aafc72b
 #  - sudo python clge_manager.py install SamplePlugin

@@ -1,0 +1,23 @@
+{
+  "title": "Sample Project",
+  "score": 0,
+  "player": {
+    "name": "Hero",
+    "lives": 5,
+    "step": 1,
+    "symbol": "@",
+    "begin_x": 0,
+    "begin_y": 0
+  },
+  "fruit":{
+    "symbol": "+"
+  },
+  "field_width": 30,
+  "field_height": 30,
+  "default_color": 15,
+  "default_symbol": "#",
+  "timeout_duration": 0.1,
+  "auto_timeout": false,
+  "auto_clear_objects": true,
+  "sound_enabled": true
+}
