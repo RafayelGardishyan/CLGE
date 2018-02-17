@@ -1,4 +1,9 @@
 from clge import Screen
 
 def open_screen(width, height, symbol, timeout, auto_timeout, auto_clear, color):
-    return Screen(width=width, height=height, symbol=symbol, timeout=timeout, auto_clear_objects_list=auto_clear, auto_timeout=auto_timeout, default_color=color)
+    scr = Screen(width, height, symbol, True)
+    scr.set_timeout(timeout)
+    scr.auto_timeout_setter(auto_timeout)
+    scr.auto_clear_objects_list_setter(auto_clear)
+    scr.color_setter(color)
+    return scr
