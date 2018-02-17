@@ -23,7 +23,6 @@ fruit = da.SampleObject(logic.fruit_first_pos_x(info["field_width"]),
 
 
 while True:
-    scr.clear_screen()
     logic.move(player, info["field_width"], info["field_height"], info["sound_enabled"])
     info["score"] = logic.check_collision_and_add_points(
                                                          player,
@@ -35,7 +34,5 @@ while True:
                                                         })
     player.add_to_screen(scr)
     fruit.add_to_screen(scr)
-    print(info["title"])
-    scr.render()
-    print("Score: {}".format(info["score"]))
+    scr.render(info["title"], "Score: {}".format(info["score"]))
     scr.do_timeout()

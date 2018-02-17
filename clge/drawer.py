@@ -12,12 +12,17 @@ class Screen:
     auto_clear_objects_list = False
     auto_timeout = True
     default_color = attr(0)
+    frame = ""
+    multiple_screens = False
 
     def __init__(self, width, height, symbol='#', border=True):
         self.field_width = width
         self.field_height = height
         self.default_symbol = symbol[0]
         self.border = border
+
+    def multiple_screen_setter(self, value):
+        self.multiple_screens = value
 
     def auto_clear_objects_list_setter(self, value):
         self.auto_clear_objects_list = value
@@ -31,8 +36,8 @@ class Screen:
         else:
             self.default_color = value
 
-    def clear_screen(self):
-        print('\n' * 100)
+    # def clear_screen(self):
+    #     print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         try:
@@ -66,16 +71,19 @@ class Screen:
     def set_timeout(self, seconds):
         self.timeout = seconds
 
-    # TODO: Preparing new printing engine
-    # def write(self, printlist):
-    #     sys.stdout.write(printlist)
-    #     sys.stdout.flush()
+    def write(self, before, after):
+        sys.stdout.write("\n" * 100) if not self.multiple_screens else sys.stdout.write("")
+        sys.stdout.write(before + "\n")
+        sys.stdout.write(self.frame)
+        sys.stdout.write(after + "\n")
+        sys.stdout.flush()
 
     def draw(self, objects):
+        self.frame = ""
         if self.border:
-            print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
         else:
-            print(self.default_color + " " * (self.field_width + 2) + self.default_color)
+            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
         for i in range(self.field_height):
             spacer = []
             for k in range(self.field_width):
@@ -95,14 +103,18 @@ class Screen:
                 draw += self.default_color + self.default_symbol + self.default_color
             else:
                 draw += self.default_color + " " + self.default_color
-            print(draw)
+            self.frame += draw + "\n"
         if self.border:
-            print(self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color)
+            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
         else:
-            print(self.default_color + " " * (self.field_width + 2) + self.default_color)
+            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
 
     def draw_no_colors(self, objects):
-        print(self.default_symbol * (self.field_width + 2))
+        self.frame = ""
+        if self.border:
+            self.frame += self.default_symbol * (self.field_width + 2) + "\n"
+        else:
+            self.frame += " " * (self.field_width + 2) + "\n"
         for i in range(self.field_height):
             spacer = []
             for k in range(self.field_width):
@@ -115,14 +127,19 @@ class Screen:
             for space in spacer:
                 draw += space
             draw += self.default_symbol
-            print(draw)
-        print(self.default_symbol * (self.field_width + 2))
+            self.frame += draw + "\n"
+        if self.border:
+            self.frame += self.default_symbol * (self.field_width + 2) + "\n"
+        else:
+            self.frame += " " * (self.field_width + 2) + "\n"
 
-    def render(self):
+    def render(self, before_screen, after_screen):
         if get_platform() == "Windows":
             self.draw_no_colors(self.objectsList)
         else:
             self.draw(self.objectsList)
+
+        self.write(before_screen, after_screen)
 
         if self.auto_clear_objects_list:
             self.clear_objects_list()

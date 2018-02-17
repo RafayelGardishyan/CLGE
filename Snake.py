@@ -6,7 +6,7 @@ scr = Screen(27, 20, "#", True)
 scr.color_setter(39)
 scr.auto_timeout_setter(False)
 scr.set_timeout(.5)
-scr.auto_timeout_setter(True)
+scr.auto_clear_objects_list_setter(True)
 
 sound_prefix = "snake_sound"
 sounds = [sound_prefix + "/level_up.wav", sound_prefix + "/player_moves.wav", sound_prefix + "/player_picks_fruit.wav",]
@@ -169,11 +169,9 @@ while True:
     set_speed()
     scr.add_object(snake['x'], snake['y'], "O", 214)
     scr.add_object(fruit['x'], fruit['y'], "+", 202)
-    print(title)
-    scr.render()
-    # print("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
+    scr.render(title, "{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
     scr.do_timeout()
-    scr.clear_screen()
+    # scr.clear_screen()
     detect()
     tailor()
     for i in range(snake['length']):
