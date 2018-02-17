@@ -12,6 +12,10 @@ matrix:
         - os: osx
           language: generic
           python: "3.6"
+          
+        - os: osx
+          language: generic
+          python: "2.7"
 
 before_script:
 
