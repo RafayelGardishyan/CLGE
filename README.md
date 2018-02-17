@@ -25,7 +25,7 @@ It is easy to install and easier to use.
 
 
 
-## Continious Integration, CodeCov and Code quality
+## Continuous Integration, CodeCov and Code quality
 Service | Status | Extra Badge
 --- | --- | ---
 TravisCI | [![TravisCi Badge](https://travis-ci.org/RafayelGardishyan/CLGE.svg?branch=master)](https://travis-ci.org/RafayelGardishyan/CLGE) | 
