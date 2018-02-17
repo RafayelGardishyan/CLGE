@@ -95,7 +95,7 @@ def test_color():
 
 
 def test_utils():
-    Utils.sleep(1000)
+    Utils.sleep(500)
     Utils.randint(5, 100)
     Utils.randcode(100)
     Utils.randchoice(["Test", 5, 6, Utils, "Me"])
