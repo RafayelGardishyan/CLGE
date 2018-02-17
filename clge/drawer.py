@@ -72,7 +72,10 @@ class Screen:
         self.timeout = seconds
 
     def write(self, before, after):
-        sys.stdout.write("\n" * 100) if not self.multiple_screens else sys.stdout.write("")
+        if not self.multiple_screens:
+            sys.stdout.write("\n" * 100)
+        else:
+            sys.stdout.write("")
         sys.stdout.write(before + "\n")
         sys.stdout.write(self.frame)
         sys.stdout.write(after + "\n")
