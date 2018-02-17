@@ -136,7 +136,7 @@ class Screen:
         else:
             self.frame += " " * (self.field_width + 2) + "\n"
 
-    def render(self, before_screen, after_screen):
+    def render(self, before_screen="", after_screen=""):
         if get_platform() == "Windows":
             self.draw_no_colors(self.objectsList)
         else:
