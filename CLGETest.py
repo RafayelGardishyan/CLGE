@@ -1,5 +1,11 @@
-from clge import KeymapGenerator
 from clge import SimpleTester
+
+t = SimpleTester(5)
+
+t.CoverageStart()
+
+
+from clge import KeymapGenerator
 from clge import Screen
 from clge import paint_text
 from clge import convert_to_code
@@ -11,9 +17,6 @@ from clge import AudioPlayer
 from clge import PluginInstaller, UninstallPlugin, GetPlugins
 from clge import ProjectCreator
 
-t = SimpleTester(5)
-
-t.CoverageStart()
 
 
 def test_exception():

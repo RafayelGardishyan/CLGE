@@ -1,5 +1,6 @@
 from clge import Screen
 
+
 def open_screen(width, height, symbol, timeout, auto_timeout, auto_clear, color):
     scr = Screen(width, height, symbol, True)
     scr.set_timeout(timeout)

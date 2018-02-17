@@ -1,7 +1,7 @@
 import time
 from colored import fg, attr
 from .setup import get_platform
-
+import sys
 
 class Screen:
     field_width = 0
@@ -65,6 +65,11 @@ class Screen:
 
     def set_timeout(self, seconds):
         self.timeout = seconds
+
+    # TODO: Preparing new printing engine
+    # def write(self, printlist):
+    #     sys.stdout.write(printlist)
+    #     sys.stdout.flush()
 
     def draw(self, objects):
         if self.border:

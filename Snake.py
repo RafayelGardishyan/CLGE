@@ -171,7 +171,7 @@ while True:
     scr.add_object(fruit['x'], fruit['y'], "+", 202)
     print(title)
     scr.render()
-    print("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
+    # print("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
     scr.do_timeout()
     scr.clear_screen()
     detect()
