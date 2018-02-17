@@ -9,11 +9,11 @@ matrix:
           dist: trusty
 
         # Use generic language for osx
-        - os: osx
-          language: generic
-          python: 
-            - "3.6"
-            - "2.7"
+        # - os: osx
+        #   language: generic
+        #   python: 
+        #     - "3.6"
+        #     - "2.7"
 
 before_script:
 
