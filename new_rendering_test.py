@@ -1,7 +1,8 @@
 import time
 from colored import fg, attr
-from .setup import get_platform
+from clge.setup import get_platform
 import sys
+
 
 class Screen:
     field_width = 0
@@ -12,7 +13,8 @@ class Screen:
     auto_clear_objects_list = False
     auto_timeout = True
     default_color = attr(0)
-    frame = ""
+    rendered_frame = ""
+    frame = []
     multiple_screens = False
 
     def __init__(self, width, height, symbol='#', border=True):
@@ -20,6 +22,7 @@ class Screen:
         self.field_height = height
         self.default_symbol = symbol[0]
         self.border = border
+        self.last_element_id = self.field_height - 1
 
     def multiple_screen_setter(self, value):
         self.multiple_screens = value
@@ -77,60 +80,46 @@ class Screen:
         else:
             sys.stdout.write("")
         sys.stdout.write(before + "\n")
-        sys.stdout.write(self.frame)
+        sys.stdout.write(self.rendered_frame)
         sys.stdout.write(after + "\n")
         sys.stdout.flush()
 
+    def render_frame(self):
+        print(self.frame)
+        for line in self.frame:
+            for pos in line:
+                self.rendered_frame += pos
+            self.rendered_frame += "\n"
+
     def draw(self, objects):
-        self.frame = ""
+        self.frame = [[" "] * self.field_width] * self.field_height
         if self.border:
-            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
+            self.frame[0] = [(self.default_color + self.default_symbol + self.default_color)] * (self.field_width + 2)
         else:
-            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
-        for i in range(self.field_height):
-            spacer = [" "] * self.field_width
-            if self.border:
-                draw = self.default_color + self.default_symbol + self.default_color
-            else:
-                draw = self.default_color + " " + self.default_color
-            for j in range(self.field_width):
-                for obj in objects:
-                    if obj[0] == j and obj[1] == i:
-                        spacer[j] = str(obj[3]) + obj[2] + str(self.default_color)
-                        
-            for space in spacer:
-                draw += space
-            if self.border:
-                draw += self.default_color + self.default_symbol + self.default_color
-            else:
-                draw += self.default_color + " " + self.default_color
-            self.frame += draw + "\n"
+            self.frame[0] = [(self.default_color + " " + self.default_color)] * (self.field_width + 2)
+
+        for x in objects:
+            self.frame[x[1]][x[0]] = x[3] + x[2] + self.default_color
+
         if self.border:
-            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
+            self.frame[self.last_element_id] = [(self.default_color + self.default_symbol + self.default_color)] * (self.field_width + 2)
         else:
-            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
+            self.frame[self.last_element_id] = [(self.default_color + " " + self.default_color)] * (self.field_width + 2)
 
     def draw_no_colors(self, objects):
-        self.frame = ""
+        self.frame = [[" "] * self.field_width] * self.field_height
         if self.border:
-            self.frame += self.default_symbol * (self.field_width + 2) + "\n"
+            self.frame[0] = [self.default_symbol] * (self.field_width + 2)
         else:
-            self.frame += " " * (self.field_width + 2) + "\n"
-        for i in range(self.field_height):
-            spacer = [" "] * self.field_width
-            draw = self.default_symbol
-            for j in range(self.field_width):
-                for obj in objects:
-                    if obj[0] == j and obj[1] == i:
-                        spacer[j] = obj[2]
-            for space in spacer:
-                draw += space
-            draw += self.default_symbol
-            self.frame += draw + "\n"
+            self.frame[0] = [" "] * (self.field_width + 2)
+
+        for x in objects:
+            self.frame[x[1]][x[0]] = x[3] + x[2]
+
         if self.border:
-            self.frame += self.default_symbol * (self.field_width + 2) + "\n"
+            self.frame[self.last_element_id] = [self.default_symbol] * (self.field_width + 2)
         else:
-            self.frame += " " * (self.field_width + 2) + "\n"
+            self.frame[self.last_element_id] = [" "] * (self.field_width + 2)
 
     def render(self, before_screen="", after_screen=""):
         if get_platform() == "Windows":
@@ -138,6 +127,7 @@ class Screen:
         else:
             self.draw(self.objectsList)
 
+        self.render_frame()
         self.write(before_screen, after_screen)
 
         if self.auto_clear_objects_list:
@@ -147,3 +137,10 @@ class Screen:
 
     def __str__(self):
         return "Screen Object"
+
+
+
+test = Screen(20, 20)
+test.add_object(10, 10)
+test.add_object(5, 15)
+test.render()
