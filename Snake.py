@@ -28,7 +28,7 @@ pause = """  _____       _    _  _____ ______
  | |  / ____ \ |__| |____) | |____ 
  |_| /_/    \_\____/|_____/|______|"""
 
-exit = """  ______      _ _
+Exit = """  ______      _ _
  |  ____|    (_) |  
  | |__  __  ___| |_ 
  |  __| \ \/ / | __|
@@ -61,7 +61,7 @@ keys = generate_keymap({
     'left': 'a',
     'left_arrow': 'left',
     'pause': 'p',
-    'exit': 'esc',
+    'Exit': 'esc',
 })
 
 snake = {
@@ -95,8 +95,8 @@ def detect():
             if keys['pause'].detect():
                 break
 
-    if keys['exit'].detect():
-        print(paint_text(exit, 23, 0, True))
+    if keys['Exit'].detect():
+        print(paint_text(Exit, 23, 0, True))
         print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
         raise SystemExit
 
