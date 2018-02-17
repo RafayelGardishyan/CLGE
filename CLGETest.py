@@ -78,14 +78,14 @@ def test_keyboard():
     # keys["up"].detAsyncDetecting()
     keys["up"].setAsyncDetecting()
     print(convert_to_code("a"), convert_to_char(15))
-    for key in keys:
-        t.simulate_keyboard_press(keys[key].char)
-        if keys[key].detect():
+    for button in keys:
+        t.simulate_keyboard_press(keys[button].char)
+        if keys[button].detect():
             pass
         else:
-            t.simulate_keyboard_release(keys[key].char)
+            t.simulate_keyboard_release(keys[button].char)
             raise SnakeTestException("Key {} in not detected".format(keys[key].char))
-        t.simulate_keyboard_release(keys[key].char)
+        t.simulate_keyboard_release(keys[button].char)
 
 def test_collision(cases):
     for i in cases:
