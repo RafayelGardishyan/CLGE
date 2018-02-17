@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
-    <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.coverage" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multiplayer_fight.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/space_chase.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CLGETest.py" afterPath="$PROJECT_DIR$/CLGETest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/appveyor.yml" afterPath="$PROJECT_DIR$/appveyor.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/__init__.py" afterPath="$PROJECT_DIR$/clge/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/audio_player.py" afterPath="$PROJECT_DIR$/clge/audio_player.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/drawer.py" afterPath="$PROJECT_DIR$/clge/drawer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/key_detector.py" afterPath="$PROJECT_DIR$/clge/key_detector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/mouse_detector.py" afterPath="$PROJECT_DIR$/clge/mouse_detector.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/painter.py" afterPath="$PROJECT_DIR$/clge/painter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/plugin_installer.py" afterPath="$PROJECT_DIR$/clge/plugin_installer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/setup.py" afterPath="$PROJECT_DIR$/clge/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge/testing/simple_test.py" afterPath="$PROJECT_DIR$/clge/testing/simple_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clge_manager.py" afterPath="$PROJECT_DIR$/clge_manager.py" />
-    </list>
+    <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

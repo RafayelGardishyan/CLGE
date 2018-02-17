@@ -1,6 +1,5 @@
 import sys
 import os
-from .exceptions import CLGEException
 import json
 
 
