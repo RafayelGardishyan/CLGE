@@ -26,11 +26,11 @@ It is easy to install and easier to use.
 
 
 ## Continious Integration, CodeCov and Code quality
-Service | Status
---- | ---
-TravisCI | [![TravisCi Badge](https://travis-ci.org/RafayelGardishyan/CLGE.svg?branch=master)](https://travis-ci.org/RafayelGardishyan/CLGE) 
-AppVeyor | [![Build status](https://ci.appveyor.com/api/projects/status/uoketmge9oq210e7?svg=true)](https://ci.appveyor.com/project/RafayelGardishyan/clge)
-CodeCov | [![codecov](https://codecov.io/gh/RafayelGardishyan/CLGE/branch/master/graph/badge.svg)](https://codecov.io/gh/RafayelGardishyan/CLGE)
-CodeClimate | [![Maintainability](https://api.codeclimate.com/v1/badges/8f45daeedcc501637724/maintainability)](https://codeclimate.com/github/RafayelGardishyan/CLGE/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/8f45daeedcc501637724/test_coverage)](https://codeclimate.com/github/RafayelGardishyan/CLGE/test_coverage)
-Codacy | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/688d81b67ba14634a53e51491554fcdc)](https://www.codacy.com/app/RafayelGardishyan/CLGE?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RafayelGardishyan/CLGE&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/688d81b67ba14634a53e51491554fcdc)](https://www.codacy.com/app/RafayelGardishyan/CLGE?utm_source=github.com&utm_medium=referral&utm_content=RafayelGardishyan/CLGE&utm_campaign=Badge_Coverage)
+Service | Status | Extra Badge
+--- | --- | ---
+TravisCI | [![TravisCi Badge](https://travis-ci.org/RafayelGardishyan/CLGE.svg?branch=master)](https://travis-ci.org/RafayelGardishyan/CLGE) | 
+AppVeyor | [![Build status](https://ci.appveyor.com/api/projects/status/uoketmge9oq210e7?svg=true)](https://ci.appveyor.com/project/RafayelGardishyan/clge) | 
+CodeCov | [![codecov](https://codecov.io/gh/RafayelGardishyan/CLGE/branch/master/graph/badge.svg)](https://codecov.io/gh/RafayelGardishyan/CLGE) | 
+CodeClimate | [![Maintainability](https://api.codeclimate.com/v1/badges/8f45daeedcc501637724/maintainability)](https://codeclimate.com/github/RafayelGardishyan/CLGE/maintainability) | [![Test Coverage](https://api.codeclimate.com/v1/badges/8f45daeedcc501637724/test_coverage)](https://codeclimate.com/github/RafayelGardishyan/CLGE/test_coverage)
+Codacy | [![Codacy Badge](https://api.codacy.com/project/badge/Grade/688d81b67ba14634a53e51491554fcdc)](https://www.codacy.com/app/RafayelGardishyan/CLGE?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=RafayelGardishyan/CLGE&amp;utm_campaign=Badge_Grade) | [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/688d81b67ba14634a53e51491554fcdc)](https://www.codacy.com/app/RafayelGardishyan/CLGE?utm_source=github.com&utm_medium=referral&utm_content=RafayelGardishyan/CLGE&utm_campaign=Badge_Coverage)
 Codebeat | [![Codebeat Badge](https://codebeat.co/badges/992916ff-59e1-4ecc-b723-cad309d37524)](https://codebeat.co/projects/github-com-rafayelgardishyan-clge-master)
