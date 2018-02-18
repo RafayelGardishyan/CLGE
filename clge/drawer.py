@@ -1,5 +1,5 @@
 import time
-from colored import fg, attr
+from colored import fg
 from .setup import get_platform
 import sys
 
@@ -11,7 +11,8 @@ class Screen:
     objectsList = []
     auto_clear_objects_list = False
     auto_timeout = True
-    default_color = attr(0)
+    default_color = 256
+    rendered_frame = ""
     frame = ""
     multiple_screens = False
 
@@ -31,25 +32,14 @@ class Screen:
         self.auto_timeout = value
 
     def color_setter(self, value):
-        if value != attr(0):
-            self.default_color = fg(value)
-        else:
-            self.default_color = value
+        self.default_color = fg(value)
 
-    def clear_screen(self):
+    @staticmethod
+    def clear_screen():
         print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
-        try:
-            if not len(symbol) > 1:
-                self.objectsList.append([x, y, symbol, fg(color)])
-            else:
-                self.objectsList.append([x, y, symbol[:1], fg(color)])
-        except KeyError:
-            if not len(symbol) > 1:
-                self.objectsList.append([x, y, symbol, color])
-            else:
-                self.objectsList.append([x, y, symbol[:1], color])
+        self.objectsList.append([x, y, symbol, fg(color)])
 
     def clear_objects_list(self):
         self.objectsList = []
@@ -77,7 +67,7 @@ class Screen:
         else:
             sys.stdout.write("")
         sys.stdout.write(before + "\n")
-        sys.stdout.write(self.frame)
+        sys.stdout.write(self.rendered_frame)
         sys.stdout.write(after + "\n")
         sys.stdout.flush()
 
@@ -110,6 +100,8 @@ class Screen:
         else:
             self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
 
+        self.rendered_frame = self.frame
+
     def draw_no_colors(self, objects):
         self.frame = ""
         if self.border:
@@ -131,6 +123,8 @@ class Screen:
             self.frame += self.default_symbol * (self.field_width + 2) + "\n"
         else:
             self.frame += " " * (self.field_width + 2) + "\n"
+
+        self.rendered_frame = self.frame
 
     def render(self, before_screen="", after_screen=""):
         if get_platform() == "Windows":
