@@ -12,7 +12,7 @@ class Screen:
     objectsList = []
     auto_clear_objects_list = False
     auto_timeout = True
-    default_color = attr(0)
+    default_color = 256
     rendered_frame = ""
     frame = []
     multiple_screens = False
@@ -34,25 +34,13 @@ class Screen:
         self.auto_timeout = value
 
     def color_setter(self, value):
-        if value != attr(0):
-            self.default_color = fg(value)
-        else:
-            self.default_color = value
+        self.default_color = fg(value)
 
-    # def clear_screen(self):
-    #     print('\n' * 100)
+    def clear_screen(self):
+        sys.stdout.write('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
-        try:
-            if not len(symbol) > 1:
-                self.objectsList.append([x, y, symbol, fg(color)])
-            else:
-                self.objectsList.append([x, y, symbol[:1], fg(color)])
-        except KeyError:
-            if not len(symbol) > 1:
-                self.objectsList.append([x, y, symbol, color])
-            else:
-                self.objectsList.append([x, y, symbol[:1], color])
+        self.objectsList.append([x, y, symbol, fg(color)])
 
     def clear_objects_list(self):
         self.objectsList = []
@@ -75,51 +63,69 @@ class Screen:
         self.timeout = seconds
 
     def write(self, before, after):
+        sys.stdout.flush()
         if not self.multiple_screens:
             sys.stdout.write("\n" * 100)
         else:
             sys.stdout.write("")
         sys.stdout.write(before + "\n")
-        sys.stdout.write(self.rendered_frame)
-        sys.stdout.write(after + "\n")
+        sys.stdout.write(self.rendered_frame + "\n")
+        sys.stdout.write(after)
         sys.stdout.flush()
 
     def render_frame(self):
-        print(self.frame)
-        for line in self.frame:
-            for pos in line:
-                self.rendered_frame += pos
+        self.rendered_frame = ""
+        if self.border:
+            if get_platform() == "Windows":
+                self.rendered_frame += self.default_symbol * (self.field_width + 2)
+            else:
+                self.rendered_frame += self.default_color + self.default_symbol * (self.field_width + 2)
             self.rendered_frame += "\n"
 
-    def draw(self, objects):
-        self.frame = [[" "] * self.field_width] * self.field_height
+        for row in range(self.field_height):
+            if self.border:
+                if get_platform() == "Windows":
+                    self.rendered_frame += self.default_symbol
+                else:
+                    self.rendered_frame += self.default_color + self.default_symbol
+
+            for column in range(self.field_width):
+                self.rendered_frame += self.frame[(row * self.field_width) + column]
+
+            if self.border:
+                if get_platform() == "Windows":
+                    self.rendered_frame += self.default_symbol
+                else:
+                    self.rendered_frame += self.default_color + self.default_symbol
+
+            self.rendered_frame += "\n"
+
         if self.border:
-            self.frame[0] = [(self.default_color + self.default_symbol + self.default_color)] * (self.field_width + 2)
-        else:
-            self.frame[0] = [(self.default_color + " " + self.default_color)] * (self.field_width + 2)
+            if get_platform() == "Windows":
+                self.rendered_frame += self.default_symbol * (self.field_width + 2)
+            else:
+                self.rendered_frame += self.default_color + self.default_symbol * (self.field_width + 2)
+
+    def draw(self, objects):
+        self.frame = [" "] * (self.field_width * self.field_height)
 
         for x in objects:
-            self.frame[x[1]][x[0]] = x[3] + x[2] + self.default_color
-
-        if self.border:
-            self.frame[self.last_element_id] = [(self.default_color + self.default_symbol + self.default_color)] * (self.field_width + 2)
-        else:
-            self.frame[self.last_element_id] = [(self.default_color + " " + self.default_color)] * (self.field_width + 2)
+            try:
+                self.frame[(x[1] * self.field_width) + x[0]] = x[3] + x[2] + self.default_color
+            except IndexError:
+                self.frame.append(x[3] + x[2] + self.default_color)
+        self.render_frame()
 
     def draw_no_colors(self, objects):
-        self.frame = [[" "] * self.field_width] * self.field_height
-        if self.border:
-            self.frame[0] = [self.default_symbol] * (self.field_width + 2)
-        else:
-            self.frame[0] = [" "] * (self.field_width + 2)
+        self.frame = [" "] * (self.field_width * self.field_height)
 
         for x in objects:
-            self.frame[x[1]][x[0]] = x[3] + x[2]
+            try:
+                self.frame[(x[1] * self.field_width) + x[0]] = x[2]
+            except IndexError:
+                self.frame.append(x[3] + x[2])
 
-        if self.border:
-            self.frame[self.last_element_id] = [self.default_symbol] * (self.field_width + 2)
-        else:
-            self.frame[self.last_element_id] = [" "] * (self.field_width + 2)
+        self.render_frame()
 
     def render(self, before_screen="", after_screen=""):
         if get_platform() == "Windows":
@@ -127,7 +133,6 @@ class Screen:
         else:
             self.draw(self.objectsList)
 
-        self.render_frame()
         self.write(before_screen, after_screen)
 
         if self.auto_clear_objects_list:
@@ -137,10 +142,3 @@ class Screen:
 
     def __str__(self):
         return "Screen Object"
-
-
-
-test = Screen(20, 20)
-test.add_object(10, 10)
-test.add_object(5, 15)
-test.render()

@@ -88,14 +88,13 @@ def detect():
         snake['dir'] = 'left'
     if keys['pause'].detect():
         while True:
-            print(paint_text(pause, 23, 0, True))
-            print(paint_text(" Press P to play", 64, 0, True))
+            scr.render(paint_text(pause, 23, 0, True), paint_text(" Press P to play", 64, 0, True))
             time.sleep(1)
-            scr.clear_screen()
             if keys['pause'].detect():
                 break
 
     if keys['Exit'].detect():
+        scr.clear_screen()
         print(paint_text(Exit, 23, 0, True))
         print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
         raise SystemExit
@@ -179,6 +178,7 @@ while True:
     move()
     check_fruit_collision()
     if check_collision():
+        scr.clear_screen()
         print(paint_text(game_over, 23, 0, True))
         print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
         raise SystemExit

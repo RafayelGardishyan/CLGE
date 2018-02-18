@@ -7,6 +7,7 @@ t.CoverageStart()
 
 from clge import KeymapGenerator
 from clge import Screen
+from clge import AltScreen
 from clge import paint_text
 from clge import convert_to_code
 from clge import convert_to_char
@@ -79,6 +80,21 @@ def test_screen():
     for i in range(20):
         for j in range(20):
             scr.add_object(i, i*j, "I", i)
+            scr.add_string(j, j, "Hello", j)
+            scr.add_polygon(i, j, j, i, "L", j)
+        scr.render()
+        scr.clear_screen()
+    print(scr)
+    scr.do_timeout()
+
+    scr = AltScreen(20, 20)
+    scr.auto_clear_objects_list_setter(True)
+    scr.set_timeout(.5)
+    scr.auto_timeout_setter(True)
+    scr.color_setter(39)
+    for i in range(20):
+        for j in range(20):
+            scr.add_object(i, i * j, "I", i)
             scr.add_string(j, j, "Hello", j)
             scr.add_polygon(i, j, j, i, "L", j)
         scr.render()

@@ -36,8 +36,8 @@ class Screen:
         else:
             self.default_color = value
 
-    # def clear_screen(self):
-    #     print('\n' * 100)
+    def clear_screen(self):
+        print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         try:
@@ -97,7 +97,7 @@ class Screen:
                 for obj in objects:
                     if obj[0] == j and obj[1] == i:
                         spacer[j] = str(obj[3]) + obj[2] + str(self.default_color)
-                        
+
             for space in spacer:
                 draw += space
             if self.border:
