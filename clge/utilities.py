@@ -9,8 +9,8 @@ def randint(a, b):
 
 def randcode(length):
     a = secrets.randint(0, 9)
-    for i in range(length - 1):
-        a += (i + secrets.randint(0, 9))[0]
+    for i in range(length - 1):   
+        a += secrets.randint(9, i * 9) % 9
     return a
 
 
