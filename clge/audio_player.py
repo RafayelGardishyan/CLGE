@@ -1,9 +1,5 @@
-from .exceptions import CLGEException
 from .setup import get_platform
-try:
-    from playsound import playsound
-except ImportError:
-    raise CLGEException("No audio player. Please install it by \"pip install playsound\"")
+from playsound import playsound
 
 class AudioPlayer:
     path_to_file = None
