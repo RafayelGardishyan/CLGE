@@ -75,6 +75,7 @@ def test_screen():
     scr = Screen(20, 20)
     scr.auto_clear_objects_list_setter(True)
     scr.set_timeout(.5)
+    scr.multiple_screen_setter(True)
     scr.auto_timeout_setter(True)
     scr.color_setter(39)
     for i in range(20):
