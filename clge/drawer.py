@@ -4,15 +4,16 @@ from .setup import get_platform
 import sys
 
 class Screen:
+    default_symbol = '#'
+    default_color = 256
+    
     def __init__(self, width, height, symbol='#', border=True):
         self.field_width = 0
         self.field_height = 0
-        self.default_symbol = '#'
         self.timeout = 1
         self.objectsList = []
         self.auto_clear_objects_list = False
         self.auto_timeout = True
-        self.default_color = 256
         self.rendered_frame = ""
         self.frame = ""
         self.multiple_screens = False
