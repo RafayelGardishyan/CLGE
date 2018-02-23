@@ -30,7 +30,7 @@ def test_mouse():
         "r": "right",
         "m": "middle"
     })
-
+    print(keys["l"])
     for key in keys:
         t.simulate_mouse_press(keys[key].button)
         Utils.sleep(500)
@@ -56,6 +56,7 @@ def test_keyboard():
     keys.add('left', 'a')
     keys.add('left_arrow', 'left')
     keys = keys.generate()
+    print(keys["up"])
     print(convert_to_code("a"), convert_to_char(15))
     for button in keys:
         t.simulate_keyboard_press(keys[button].char)
@@ -120,6 +121,7 @@ def test_utils():
 
 def test_audio():
     p = AudioPlayer("snake_sound/level_up.wav", async=False)
+    print(p)
     p.play()
 
 
