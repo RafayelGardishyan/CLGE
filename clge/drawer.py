@@ -5,7 +5,7 @@ import sys
 
 class Screen:
     default_symbol = '#'
-    default_color = 256
+    default_color = fg(255)
     
     def __init__(self, width, height, symbol='#', border=True):
         self.field_width = 0
@@ -39,7 +39,7 @@ class Screen:
         print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
-        self.objectsList.append([x, y, symbol, fg(color)])
+        self.objectsList.append([x, y, symbol])
 
     def clear_objects_list(self):
         self.objectsList = []
