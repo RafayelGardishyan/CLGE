@@ -43,7 +43,10 @@ def packages_list_string():
 
 try:
     for package in packages_list:
-        subprocess.check_call(["python3", '-m', 'pip', 'install', package])
+        if get_platform() == "Windows":
+            subprocess.check_call(["python", '-m', 'pip', 'install', package])
+        else:
+            subprocess.check_call(["python3", '-m', 'pip', 'install', package])
     print("\n"*100)
 except ImportError:
     print("Error: No pip module. Can't do setup")
