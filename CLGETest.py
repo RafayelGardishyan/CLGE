@@ -17,11 +17,26 @@ from clge import Utils
 from clge import AudioPlayer
 from clge import PluginInstaller, UninstallPlugin, GetPlugins
 from clge import ProjectCreator
+from clge import CoordinateTranslator
 
 
 
 def test_exception():
     raise CLGEException("Testing Exception")
+
+
+def test_coordinate_translator():
+    systems = ['lm', 'lb', 'mt', 'mm', 'mb', 'rt', 'rm', 'rb']
+    answers = [[6, -3], [6, 0], [3, 6], [3, -3], [3, 0], [0, 6], [0, -3], [0, 0]]
+    x, y = 6, 6
+
+    for system in systems:
+        if CoordinateTranslator(x, y, 6, 6, "std", system) != tuple(answers[systems.index(system)]):
+            print(CoordinateTranslator(x, y, 6, 6, "std", system))
+            print(tuple(answers[systems.index(system)]))
+            raise CLGEException("Error: Coordinate Translator Doesn't work")
+
+    return True
 
 
 def test_mouse():
@@ -135,7 +150,6 @@ def test_project_creator():
     ProjectCreator("Test" + str(Utils.randint(500, 1000)))
 
 
-
 t.Test(test_exception)
 t.Test(test_mouse)
 t.Test(test_screen)
@@ -145,6 +159,7 @@ t.Test(test_utils)
 t.Test(test_audio)
 t.Test(test_plugins)
 t.Test(test_project_creator)
+t.Test(test_coordinate_translator)
 t.CoverageStop()
 t.printTestResults()
 t.getCoverage()

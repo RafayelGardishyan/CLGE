@@ -2,6 +2,7 @@ import time
 from colored import fg
 from .setup import get_platform
 import sys
+from .coord_translators import CoordinateTranslator
 
 class Screen:
     default_symbol = '#'
@@ -21,9 +22,13 @@ class Screen:
         self.field_height = height
         self.default_symbol = symbol[0]
         self.border = border
+        self.coordinate_system = "std"
 
     def multiple_screen_setter(self, value):
         self.multiple_screens = value
+
+    def change_coordinate_system(self, system="std"):
+        self.coordinate_system = system
 
     def auto_clear_objects_list_setter(self, value):
         self.auto_clear_objects_list = value
@@ -39,7 +44,8 @@ class Screen:
         print('\n' * 100)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
-        self.objectsList.append([x, y, symbol])
+        xt, yt = CoordinateTranslator(x, y, self.field_height, self.field_width, self.coordinate_system)
+        self.objectsList.append([xt, yt, symbol, color])
 
     def clear_objects_list(self):
         self.objectsList = []

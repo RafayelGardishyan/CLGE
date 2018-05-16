@@ -1,4 +1,5 @@
 from . import setup
+from .coord_translators import CoordinateTranslator
 from .setup import get_platform
 from .drawer import Screen
 from .alt_drawer import Screen as AltScreen
