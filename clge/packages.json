@@ -1,6 +1,6 @@
 {
   "Standard": ["coverage", "keyboard", "mouse", "playsound", "colored", "multitasking", "colored"],
-  "Windows": ["colorama"],
+  "Windows": [],
   "Linux": [],
   "OS X": []
 }
