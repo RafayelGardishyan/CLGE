@@ -1,4 +1,5 @@
 import sys
+import subprocess
 import os
 import json
 
@@ -41,9 +42,8 @@ def packages_list_string():
 
 
 try:
-    import pip
     for package in packages_list:
-        pip.main(['install', package])
+        subprocess.check_call(["python", '-m', 'pip', 'install', package])
     print("\n"*100)
 except ImportError:
     print("Error: No pip module. Can't do setup")
