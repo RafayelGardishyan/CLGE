@@ -1,5 +1,5 @@
 {
-  "Standard": ["coverage", "keyboard", "mouse", "playsound", "colored", "multitasking"],
+  "Standard": ["coverage", "keyboard", "mouse", "playsound", "colored==1.3.5", "multitasking"],
   "Windows": [],
   "Linux": [],
   "OS X": []
