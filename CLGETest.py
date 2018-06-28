@@ -22,8 +22,10 @@ from clge import CoordinateTranslator
 
 
 def test_exception():
-    raise CLGEException("Testing Exception")
-
+    try:
+        raise CLGEException("Testing Exception")
+    except CLGEException:
+        return "Working"
 
 def test_coordinate_translator():
     systems = ['lm', 'lb', 'mt', 'mm', 'mb', 'rt', 'rm', 'rb']
@@ -32,9 +34,13 @@ def test_coordinate_translator():
 
     for system in systems:
         if CoordinateTranslator(x, y, 6, 6, "std", system) != tuple(answers[systems.index(system)]):
-            print(CoordinateTranslator(x, y, 6, 6, "std", system))
-            print(tuple(answers[systems.index(system)]))
-            raise CLGEException("Error: Coordinate Translator Doesn't work")
+            raise CLGEException("Error: Coordinate Translator Error")
+    #
+    # for answer in answers:
+    #     print(CoordinateTranslator(answer[0], answer[1], 6, 6, systems[answers.index(answer) - 1], "std"))
+    #     if CoordinateTranslator(answer[0], answer[1], 6, 6, systems[answers.index(answer) - 1], "std") != (x, y):
+    #         print(CoordinateTranslator(answer[0], answer[1], 6, 6, systems[answers.index(answer)], "std"))
+    #         raise CLGEException("Error: Coordinate Translator Doesn't work")
 
     return True
 
@@ -150,16 +156,17 @@ def test_project_creator():
     ProjectCreator("Test" + str(Utils.randint(500, 1000)))
 
 
-t.Test(test_exception)
-t.Test(test_mouse)
-t.Test(test_screen)
-t.Test(test_keyboard)
-t.Test(test_color)
-t.Test(test_utils)
-t.Test(test_audio)
-t.Test(test_plugins)
-t.Test(test_project_creator)
-t.Test(test_coordinate_translator)
-t.CoverageStop()
-t.printTestResults()
-t.getCoverage()
+# t.Test(test_exception)
+# t.Test(test_mouse)
+# t.Test(test_screen)
+# t.Test(test_keyboard)
+# t.Test(test_color)
+# t.Test(test_utils)
+# t.Test(test_audio)
+# t.Test(test_plugins)
+# t.Test(test_project_creator)
+# t.Test(test_coordinate_translator)
+# t.CoverageStop()
+# t.printTestResults()
+# t.getCoverage()
+test_coordinate_translator()

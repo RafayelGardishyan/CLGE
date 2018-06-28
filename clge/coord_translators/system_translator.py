@@ -1,6 +1,25 @@
+"""
+@package docstring
+Coordinate system translator
+"""
+
+"""
+Coordinate system list
+"""
 cmodes = ['std', 'lt', 'lm', 'lb', 'mt', 'mm', 'mb', 'rt', 'rm', 'rb']
 
 def to_std(x, y, height, width, Sfrom):
+    """
+    Function which translates Sfrom corner coordinate system coordinates to Left-Upper corner system
+    Width and Height of game field required
+
+    :param x: input X
+    :param y: input Y
+    :param height: field height
+    :param width: field width
+    :param Sfrom: output coordinate system
+    :return: (output X, output Y)
+    """
     if Sfrom not in cmodes:
         raise Exception("Error: Not existing coordinate mode")
     if Sfrom == "lb":
@@ -23,6 +42,17 @@ def to_std(x, y, height, width, Sfrom):
         return x, y
 
 def from_std(x, y, height, width, Sto):
+    """
+    Function which translates Left-Upper corner coordinate system coordinates to Sto coordinate system
+    Width and Height of game field required
+
+    :param x: input X
+    :param y: input Y
+    :param height: field height
+    :param width: field width
+    :param Sto: output coordinate system
+    :return: (output X, output Y)
+    """
     if Sto == "lb":
         return x, height - y
     if Sto == "lm":
@@ -43,6 +73,18 @@ def from_std(x, y, height, width, Sto):
         return x, y
 
 def translate_coord_system(x, y, height, width, Sfrom="std", Sto="std"):
+    """
+    Function which translates coordinates to another coordinate system
+    Width and Height of game field required
+
+    :param x: input X coordinate
+    :param y: input Y coordinate
+    :param height: field height
+    :param width: field width
+    :param Sfrom: input coordinate system
+    :param Sto: output coordinate system
+    :return: (output X, output Y)
+    """
     if (Sfrom not in cmodes) or (Sto not in cmodes):
         raise Exception("Error: Not existing coordinate mode")
     if Sfrom == Sto:

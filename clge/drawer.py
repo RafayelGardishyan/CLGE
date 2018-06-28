@@ -4,11 +4,22 @@ from .setup import get_platform
 import sys
 from .coord_translators import CoordinateTranslator
 
+"""
+@package docstring
+Screen class -> Renderer
+"""
 class Screen:
     default_symbol = '#'
     default_color = fg(255)
     
     def __init__(self, width, height, symbol='#', border=True):
+        """
+        Sets screen object's main settings
+        :param width: Field width
+        :param height: Field height
+        :param symbol: Field border symbol
+        :param border: Bool: render border or not
+        """
         self.field_width = 0
         self.field_height = 0
         self.timeout = 1
@@ -25,9 +36,15 @@ class Screen:
         self.coordinate_system = "std"
 
     def multiple_screen_setter(self, value):
+        """
+        Set multiple screen parameter
+        :param value: Bool
+        :return: None
+        """
         self.multiple_screens = value
 
     def change_coordinate_system(self, system="std"):
+
         self.coordinate_system = system
 
     def auto_clear_objects_list_setter(self, value):
