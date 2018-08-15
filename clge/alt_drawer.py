@@ -46,7 +46,7 @@ class Screen(drawer.Screen):
                 self.frame.append(x[3] + x[2] + self.default_color)
         self.render_frame()
 
-    def draw_no_colors(self, objects):
+    def draw_windows(self, objects):
         self.frame = [" "] * (self.field_width * self.field_height)
 
         for x in objects:

@@ -3,6 +3,11 @@ from colored import fg
 from .setup import get_platform
 import sys
 from .coord_translators import CoordinateTranslator
+from datetime import datetime
+from .Camera import Camera
+from .UserDefinedFunctionManager import UserDefinedFunctionManager
+import asyncio
+
 
 """
 @package docstring
@@ -11,8 +16,9 @@ Screen class -> Renderer
 class Screen:
     default_symbol = '#'
     default_color = fg(255)
+    beforeScreen = afterScreen = ""
     
-    def __init__(self, width, height, symbol='#', border=True):
+    def __init__(self, width, height, loop=False, symbol='#', border=True):
         """
         Sets screen object's main settings
         :param width: Field width
@@ -34,6 +40,32 @@ class Screen:
         self.default_symbol = symbol[0]
         self.border = border
         self.coordinate_system = "std"
+        self.camera = Camera(0, 0)
+        self.previousFrame = datetime.now()
+        self.deltaTime = 0.0000000
+        self.FunctionManager = UserDefinedFunctionManager()
+        self.loop = loop
+        self.eventloop = asyncio.get_event_loop()
+
+    def setBeforeScreen(self, string):
+        self.beforeScreen = string
+
+    def setAfterScreen(self, string):
+        self.afterScreen = string
+
+    def setDeltatime(self):
+        thisFrame = datetime.now()
+        td = thisFrame - self.previousFrame
+        self.previousFrame = thisFrame
+        self.deltaTime = td.total_seconds()
+
+    def setActiveCamera(self, camera: Camera):
+        """
+        Function wich sets the active camera
+        :param camera: A Camera class object
+        :return: None
+        """
+        self.camera = camera
 
     def multiple_screen_setter(self, value):
         """
@@ -101,14 +133,16 @@ class Screen:
         else:
             self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
         for i in range(self.field_height):
+            camI = i - self.camera.y
             spacer = [" "] * self.field_width
             if self.border:
                 draw = self.default_color + self.default_symbol + self.default_color
             else:
                 draw = self.default_color + " " + self.default_color
             for j in range(self.field_width):
+                camJ = j - self.camera.x
                 for obj in objects:
-                    if obj[0] == j and obj[1] == i:
+                    if obj[0] == camJ and obj[1] == camI:
                         spacer[j] = str(obj[3]) + obj[2] + str(self.default_color)
 
             for space in spacer:
@@ -125,7 +159,7 @@ class Screen:
 
         self.rendered_frame = self.frame
 
-    def draw_no_colors(self, objects):
+    def draw_windows(self, objects):
         self.frame = ""
         if self.border:
             self.frame += self.default_symbol * (self.field_width + 2) + "\n"
@@ -149,18 +183,40 @@ class Screen:
 
         self.rendered_frame = self.frame
 
-    def render(self, before_screen="", after_screen=""):
+    def render(self):
+        self.FunctionManager.Start()
+        self.FunctionManager.PreUpdate()
+        self.FunctionManager.Update()
+        self.setDeltatime()
         if get_platform() == "Windows":
-            self.draw_no_colors(self.objectsList)
+            self.draw_windows(self.objectsList)
         else:
             self.draw(self.objectsList)
 
-        self.write(before_screen, after_screen)
+        self.write(self.beforeScreen, self.afterScreen)
 
         if self.auto_clear_objects_list:
             self.clear_objects_list()
         if self.auto_timeout:
             self.do_timeout()
 
+        self.FunctionManager.LateUpdate()
+
+    async def runLoop(self):
+            while True:
+                self.render()
+
+    def Start(self):
+        if self.loop:
+            asyncio.ensure_future(self.runLoop())
+            self.eventloop.run_forever()
+
+    def Stop(self):
+        self.eventloop.stop()
+
     def __str__(self):
         return "Screen Object"
+
+    def destroy(self):
+        self.FunctionManager.Destroy()
+        self = None

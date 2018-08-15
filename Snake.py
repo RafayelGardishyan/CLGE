@@ -1,8 +1,9 @@
 from clge import Screen, AudioPlayer, generate_keymap, paint_text
 import secrets
 import time
+import os
 
-scr = Screen(27, 20, "#", True)
+scr = Screen(27, 20, True, "#", True)
 scr.color_setter(39)
 scr.auto_timeout_setter(False)
 scr.set_timeout(.5)
@@ -88,16 +89,19 @@ def detect():
         snake['dir'] = 'left'
     if keys['pause'].detect():
         while True:
-            scr.render(paint_text(pause, 23, 0, True), paint_text(" Press P to play", 64, 0, True))
+            scr.setBeforeScreen(paint_text(pause, 23, 0, True))
+            scr.setAfterScreen(paint_text(" Press P to play", 64, 0, True))
+            scr.render()
             time.sleep(1)
             if keys['pause'].detect():
                 break
 
     if keys['Exit'].detect():
         scr.clear_screen()
+        scr.Stop()
         print(paint_text(Exit, 23, 0, True))
         print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
-        raise SystemExit
+        os._exit(1)
 
 
 def move():
@@ -164,13 +168,17 @@ def tailor():
         prevY = prev2Y
 
 
-while True:
+def Update():
     set_speed()
+    scr.setBeforeScreen(title)
+    scr.setAfterScreen("{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True),
+                                      paint_text("Level: {}".format(values['level']), 50, 0, True)))
     scr.add_object(snake['x'], snake['y'], "O", 214)
     scr.add_object(fruit['x'], fruit['y'], "+", 202)
-    scr.render(title, "{} {}".format(paint_text("Score: {}".format(values['score']), 3, 0, True), paint_text("Level: {}".format(values['level']), 50, 0, True)))
+
+
+def LateUpdate():
     scr.do_timeout()
-    # scr.clear_screen()
     detect()
     tailor()
     for i in range(snake['length']):
@@ -181,4 +189,13 @@ while True:
         scr.clear_screen()
         print(paint_text(game_over, 23, 0, True))
         print(paint_text(" You reached {} level and your score was {}".format(values['level'], values['score']), 64, 0, True))
-        raise SystemExit
+        scr.Stop()
+        os._exit(1)
+
+
+# Register Callbacks
+scr.FunctionManager.registerUpdate(Update)
+scr.FunctionManager.registerLateUpdate(LateUpdate)
+
+# Start Mainloop
+scr.Start()
