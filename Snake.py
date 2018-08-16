@@ -88,13 +88,8 @@ def detect():
     if keys['left'].detect() or keys['left_arrow'].detect():
         snake['dir'] = 'left'
     if keys['pause'].detect():
-        while True:
-            scr.setBeforeScreen(paint_text(pause, 23, 0, True))
-            scr.setAfterScreen(paint_text(" Press P to play", 64, 0, True))
-            scr.render()
-            time.sleep(1)
-            if keys['pause'].detect():
-                break
+        scr.FunctionManager.registerUpdate(PauseUpdate)
+        scr.FunctionManager.registerLateUpdate(PauseUpdate)
 
     if keys['Exit'].detect():
         scr.clear_screen()
@@ -166,6 +161,17 @@ def tailor():
         tailY[i] = prevY
         prevX = prev2X
         prevY = prev2Y
+
+
+
+def PauseUpdate():
+    scr.setBeforeScreen(paint_text(pause, 23, 0, True))
+    scr.setAfterScreen(paint_text(" Press P to play", 64, 0, True))
+    time.sleep(1)
+    if keys['pause'].detect():
+        scr.FunctionManager.registerUpdate(Update)
+        scr.FunctionManager.registerLateUpdate(LateUpdate)
+        time.sleep(1)
 
 
 def Update():
