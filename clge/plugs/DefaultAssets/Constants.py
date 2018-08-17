@@ -1,0 +1,2 @@
+TRANSFORM2D_MV_POS = "move"
+TRANSFORM2D_SET_POS = "set"
