@@ -110,6 +110,9 @@ class Screen:
             for j in range(width):
                 self.add_object(x + j, y + i, symbol, color)
 
+    def add_behaviour_boject(self, behaviour):
+        behaviour.getComponentByType("asciirenderer2d").getPolygon(self)
+
     def do_timeout(self):
         time.sleep(self.timeout)
 
