@@ -1,5 +1,6 @@
-from.Component import Component
-from .Constants import *
+from clge.Constants import *
+from .Component import Component
+
 
 class Transform2D(Component):
     def __init__(self, x, y, width, height):
@@ -7,15 +8,18 @@ class Transform2D(Component):
         self.y = y
         self.width = width
         self.height = height
+        self.blockMovement = False
         self.my_type = "transform2d"
 
     def changePosition(self, action, x, y):
         if action == TRANSFORM2D_MV_POS:
             self.x += x
             self.y += y
-        if action == TRANSFORM2D_SET_POS:
+        if action == TRANSFORM2D_SET_POS and not self.blockMovement:
             self.x = x
             self.y = y
+
+        self.blockMovement = False
 
     def getPosition(self):
         return self.x, self.y

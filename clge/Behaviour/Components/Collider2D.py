@@ -1,9 +1,9 @@
-from clge.plugs.DefaultAssets.Behaviour import Behaviour
+from clge.Behaviour import Behaviour
 from .Component import Component
 
 
 class Collider2D(Component):
-    def __init__(self, *args):
+    def __init__(self, *args, **kwargs):
         if len(args) == 4:
             self.x = args[0]
             self.x2 = args[1]
@@ -15,6 +15,11 @@ class Collider2D(Component):
             self.y = location["y"]
             self.x2 = location["end_x"]
             self.y2 = location["end_y"]
+
+        if (len(kwargs) < 1):
+            self.isTrigger = False
+        else:
+            self.isTrigger = kwargs["is_trigger"]
 
         self.layer = 0
         self.my_type = "collider2d"
@@ -42,10 +47,11 @@ class Collider2D(Component):
         self.layer = layer
 
     def checkCollision(self, other: Behaviour):
-        otherCollider = other.getComponent("collider2d")
+        otherCollider = other.getComponentByType("collider2d")
         otherObjectCoordinates = otherCollider.getCoordinates()
         for i in self.coordinates:
             for j in otherObjectCoordinates:
                 if i == j and otherCollider.layer == self.layer:
+                    other.getComponentByType("transform2d").blockMovement = True
                     return True
         return False
