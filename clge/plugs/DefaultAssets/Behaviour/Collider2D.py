@@ -16,6 +16,7 @@ class Collider2D(Component):
             self.x2 = location["end_x"]
             self.y2 = location["end_y"]
 
+        self.layer = 0
         self.my_type = "collider2d"
         self.coordinates = []
         self.setCoordinates()
@@ -37,11 +38,14 @@ class Collider2D(Component):
     def getCoordinates(self):
         return self.coordinates
 
+    def changeLayer(self, layer):
+        self.layer = layer
+
     def checkCollision(self, other: Behaviour):
         otherCollider = other.getComponent("collider2d")
         otherObjectCoordinates = otherCollider.getCoordinates()
         for i in self.coordinates:
             for j in otherObjectCoordinates:
-                if i == j:
+                if i == j and otherCollider.layer == self.layer:
                     return True
         return False
