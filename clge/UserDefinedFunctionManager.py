@@ -1,38 +1,50 @@
-class UserDefinedFunctionManager:
+class Functions:
     def __init__(self):
         self.StartCalled = False
 
-    def Update(self):
-        pass
+    update = []
 
-    def fStart(self):
-        pass
+    start = []
+
+    lateupdate = []
+
+    preupdate = []
+
+    destroy = []
 
     def Start(self):
         if not self.StartCalled:
-            self.fStart()
+            for i in self.start:
+                i()
             self.StartCalled = True
 
+    def Update(self):
+        for i in self.update:
+            i()
+
     def LateUpdate(self):
-        pass
+        for i in self.lateupdate:
+            i()
 
     def PreUpdate(self):
-        pass
+        for i in self.preupdate:
+            i()
 
     def Destroy(self):
-        pass
+        for i in self.destroy:
+            i()
 
     def registerUpdate(self, function):
-        self.Update = function
+        self.update.append(function)
 
     def registerStart(self, function):
-        self.fStart = function
+        self.start.append(function)
 
     def registerLateUpdate(self, function):
-        self.LateUpdate = function
+        self.lateupdate.append(function)
 
     def registerPreUpdate(self, function):
-        self.PreUpdate = function
+        self.preupdate.append(function)
 
     def registerDestroy(self, function):
-        self.Destroy = function
+        self.destroy.append(function)

@@ -1,6 +1,6 @@
 from clge.Behaviour import Behaviour
 from .Component import Component
-
+import gc
 
 class Collider2D(Component):
     def __init__(self, *args, **kwargs):
@@ -48,10 +48,31 @@ class Collider2D(Component):
 
     def checkCollision(self, other: Behaviour):
         otherCollider = other.getComponentByType("collider2d")
+        otherTransform = other.getComponentByType("transform2d")
         otherObjectCoordinates = otherCollider.getCoordinates()
         for i in self.coordinates:
             for j in otherObjectCoordinates:
+
+                # Collision is detected
                 if i == j and otherCollider.layer == self.layer:
-                    other.getComponentByType("transform2d").blockMovement = True
+
+                    # Check X
+                    if self.x < otherTransform.x:
+                        otherTransform.blockMovement["down"] = True
+                    elif self.x2 > otherTransform.getFullInformation()["end_x"]:
+                        otherTransform.blockMovement["up"] = True
+
+                    # Check Y
+                    if self.y < otherTransform.y:
+                        otherTransform.blockMovement["left"] = True
+                    elif self.y2 > otherTransform.getFullInformation()["end_y"]:
+                        otherTransform.blockMovement["right"] = True
                     return True
+
+        # If no collision is detected return False
         return False
+
+    def Update(self):
+        for obj in gc.get_objects():
+            if isinstance(obj, Behaviour):
+                self.checkCollision(Behaviour)

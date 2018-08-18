@@ -5,8 +5,22 @@ class Behaviour:
     components = [Transform2D(0, 0, 1, 1)]
     disabledComponents = []
 
+    def __init__(self, screen):
+        self.screen = screen
+
     def addComponent(self, component):
         self.components.append(component)
+
+        if component.Start:
+            self.screen.FunctionManager.registerStart(component.Start)
+        if component.Update:
+            self.screen.FunctionManager.registerUpdate(component.Update)
+        if component.PreUpdate:
+            self.screen.FunctionManager.registerPreUpdate(component.PreUpdate)
+        if component.LateUpdate:
+            self.screen.FunctionManager.registerLateUpdate(component.LateUpdate)
+        if component.Destroy:
+            self.screen.FunctionManager.registerDestroy(component.Destroy)
 
     def getComponentByType(self, component_type):
         for component in self.components:

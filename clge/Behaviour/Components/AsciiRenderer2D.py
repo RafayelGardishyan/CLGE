@@ -6,16 +6,20 @@ class AsciiRenderer2D(Component):
     character: str
     color: int
 
-    def __init__(self, transform2d, character, color):
+    def __init__(self, transform2d, character, color, screen):
         self.transform2d = transform2d
         self.character = character
         self.color = color
+        self.screen = screen
         self.my_type = "asciirenderer2d"
 
     def editData(self, ntransform2d=transform2d, ncharacter=character, ncolor=color):
         self.transform2d = ntransform2d
         self.character = ncharacter
         self.color = ncolor
+
+    def Update(self):
+        self.getPolygon(self.screen)
 
     def getPolygon(self, screen):
         transforminfo = self.transform2d.getFullInformation()
