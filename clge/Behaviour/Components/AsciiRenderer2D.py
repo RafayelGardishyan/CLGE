@@ -1,29 +1,26 @@
 from .Component import Component
 from .Transform2d import Transform2D
 
+
 class AsciiRenderer2D(Component):
-    transform2d: Transform2D
     character: str
     color: int
 
-    def __init__(self, transform2d, character, color, screen):
-        self.transform2d = transform2d
-        self.character = character
-        self.color = color
-        self.screen = screen
+    def __init__(self):
         self.my_type = "asciirenderer2d"
+        self.character = self.screen.default_symbol
+        self.color = self.screen.default_color
 
-    def editData(self, ntransform2d=transform2d, ncharacter=character, ncolor=color):
-        self.transform2d = ntransform2d
+    def editData(self, ncharacter=character, ncolor=color):
         self.character = ncharacter
         self.color = ncolor
 
     def Update(self):
-        self.getPolygon(self.screen)
+        self.getPolygon()
 
-    def getPolygon(self, screen):
+    def getPolygon(self):
         transforminfo = self.transform2d.getFullInformation()
-        screen.add_polygon(
+        self.screen.add_polygon(
             transforminfo["width"],
             transforminfo["height"],
             transforminfo["x"],

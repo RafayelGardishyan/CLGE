@@ -4,11 +4,12 @@ from .Component import Component
 
 
 class Transform2D(Component):
-    def __init__(self, x, y, width, height):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
+    def __init__(self):
+        self.x: int
+        self.y: int
+        self.width: int
+        self.height: int
+        self.offsetLastFrame = Vector2(0, 0)
         self.blockMovement = {
             "up": False,
             "right": False,
@@ -16,6 +17,12 @@ class Transform2D(Component):
             "left": False
         }
         self.my_type = "transform2d"
+
+    def customInit(self, **kwargs):
+        self.x = kwargs["x"]
+        self.y = kwargs["y"]
+        self.width = kwargs["width"]
+        self.height = kwargs["height"]
 
     def changePositionBy(self, action, x, y):
         pass_x = pass_y = False
@@ -30,6 +37,8 @@ class Transform2D(Component):
         if self.blockMovement['left'] and y < self.y:
             pass_y = True
 
+        previous = Vector2(x, y)
+
         # Perform Movement
         if action == TRANSFORM2D_MV_POS:
             if not pass_x:
@@ -42,10 +51,12 @@ class Transform2D(Component):
             self.x = x
             self.y = y
 
+        self.offsetLastFrame = Vector2(Vector2(self.x, self.y) - previous)
+
         self.blockMovement = False
 
     def getPosition(self):
-        return self.x, self.y
+        return Vector2(self.x, self.y)
 
     def getSize(self):
         return self.width, self.height
@@ -53,6 +64,9 @@ class Transform2D(Component):
     def setSize(self, width, height):
         self.width = width
         self.height = height
+
+    def PreUpdate(self):
+        self.offsetLastFrame = Vector2(0, 0)
 
     def getFullInformation(self):
         return {

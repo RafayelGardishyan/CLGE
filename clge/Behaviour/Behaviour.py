@@ -1,26 +1,52 @@
 from clge.Behaviour.Components.Transform2d import Transform2D
+from clge.Constants import TRANSFORM2D_MV_POS
 
 
 class Behaviour:
-    components = [Transform2D(0, 0, 1, 1)]
+
+    # Components
+    components = []
     disabledComponents = []
 
-    def __init__(self, screen):
+    # Children
+    children = []
+
+    def __init__(self, name, screen):
+        self.name = name
         self.screen = screen
+        self.screen.FunctionManager.registerLateUpdate(self.Update)
+        self.addComponent(Transform2D, x=0, y=0, width=1, height=1)
 
-    def addComponent(self, component):
-        self.components.append(component)
+    def addChild(self, child):
+        self.children.append(child)
 
-        if component.Start:
+    def getChildByName(self, name):
+        for child in self.children:
+            if child.name == name:
+                return name
+        return None
+
+    def addComponent(self, component, **kwargs):
+        c = component()
+        c.screen = self.screen
+        c.parent = self
+        c.transform2d = self.getComponentByType("transform2d")
+        self.components.append(c)
+
+        if hasattr(component, "Start"):
             self.screen.FunctionManager.registerStart(component.Start)
-        if component.Update:
+        if hasattr(component, "Update"):
             self.screen.FunctionManager.registerUpdate(component.Update)
-        if component.PreUpdate:
+        if hasattr(component, "PreUpdate"):
             self.screen.FunctionManager.registerPreUpdate(component.PreUpdate)
-        if component.LateUpdate:
+        if hasattr(component, "LateUpdate"):
             self.screen.FunctionManager.registerLateUpdate(component.LateUpdate)
-        if component.Destroy:
+        if hasattr(component, "Destroy"):
             self.screen.FunctionManager.registerDestroy(component.Destroy)
+
+        if component.customInit:
+            component.customInit(kwargs)
+
 
     def getComponentByType(self, component_type):
         for component in self.components:
@@ -48,3 +74,8 @@ class Behaviour:
     def checkCollision(self, other):
         if self.getComponentByType("collider2d"):
             self.getComponentByType("collider2d").checkCollision(other)
+
+    def LateUpdate(self):
+        offset = self.getComponentByType("transform2d").getPosition()
+        for child in self.children:
+            child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, offset.x, offset.y)

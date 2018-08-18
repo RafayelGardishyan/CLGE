@@ -17,3 +17,14 @@ class Vector2:
             return self
         else:
             return self.__add__(other)
+
+    def __sub__(self, other):
+        totalx = self.x - other.x
+        totaly = self.y - other.y
+        return Vector2(totalx, totaly)
+
+    def __rsub__(self, other):
+        if other == 0:
+            return self
+        else:
+            return self.__sub__(other)

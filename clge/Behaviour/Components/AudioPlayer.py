@@ -3,14 +3,17 @@ from .Component import Component
 import asyncio
 
 class AudioPlayer(Component):
-    def __init__(self, path_to_file, loop=False, start_on_awake=False):
-        self.loop = loop
-        self.path_to_file = path_to_file
-
+    def __init__(self):
         self.my_type = "audioplayer"
         self.eventloop = asyncio.get_event_loop()
+        self.loop = None
+        self.path_to_file = None
 
-        if start_on_awake:
+    def customInit(self, **kwargs):
+        self.loop = kwargs["loop"]
+        self.path_to_file = kwargs["path_to_file"]
+
+        if kwargs["start_on_awake"]:
             self.play()
 
     def changeFile(self, path_to_file):
