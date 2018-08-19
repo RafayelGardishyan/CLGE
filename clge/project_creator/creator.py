@@ -36,7 +36,7 @@ def copy_engine(directory, symlinks=False, ignore=None):
 
 def copy_sample_project(directory, symlinks=False, ignore=None):
     """
-    Functions which copies the sample project files to the project folder
+    UserDefinedFunctionManager which copies the sample project files to the project folder
     :param directory: Project directory
     :param symlinks: Symlinks (See shutil.copytree documentation)
     :param ignore: Ignor (See shutil.copytree documentation)

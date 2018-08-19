@@ -15,3 +15,4 @@ from .plugin_installer import PluginInstaller, UninstallPlugin, GetPlugins
 from . import utilities as Utils
 from . import Camera
 from . import Behaviour
+from .UserDefinedFunctionManager import UserDefinedFunctionManager

@@ -1,40 +1,41 @@
 from clge.Behaviour import Behaviour
-from .Component import Component
-import gc
 
-class Collider2D(Component):
+
+class Collider2D:
     def __init__(self):
         self.layer = 0
         self.isTrigger = False
         self.my_type = "collider2d"
         self.coordinates = []
+        self.coordinatesForOthers = []
         self.collided = []
-        self.setCoordinates()
 
     def updatePosition(self):
         location = self.transform2d.getFullInformation()
-        self.x = location["x"]
-        self.x2 = location["end_x"]
-        self.y = location["y"]
-        self.y2 = location["end_y"]
+        self.x = round(location["x"])
+        self.x2 = round(location["end_x"])
+        self.y = round(location["y"])
+        self.y2 = round(location["end_y"])
         self.setCoordinates()
-
-    def customInit(self, **kwargs):
-        self.layer = kwargs["layer"]
-        self.updatePosition()
 
     def getCollidedBehaviours(self):
         return self.collided
 
     def setCoordinates(self):
-        for i in range(self.x - 1, self.x2 + 2):
-            for j in range(self.y - 1, self.y2 + 2):
-                if (j == self.y - 1 or j == self.y2 - 1) and (i == self.x - 1 or i == self.x2 - 1):
+        self.coordinates = []
+        self.coordinatesForOthers = []
+        for i in range(self.x - 1, self.x2 + 1):
+            for j in range(self.y - 1, self.y2 + 1):
+                if (j == self.y - 1 or j == self.y2 + 1) and (i == self.x - 1 or i == self.x2 + 1):
                     continue
                 self.coordinates.append((i, j))
 
+        for i in range(self.x, self.x2):
+            for j in range(self.y, self.y2):
+                self.coordinatesForOthers.append((i, j))
+
     def getCoordinates(self):
-        return self.coordinates
+        return self.coordinatesForOthers
 
     def changeLayer(self, layer):
         self.layer = layer
@@ -44,6 +45,10 @@ class Collider2D(Component):
 
     def checkCollision(self, other: Behaviour):
         otherCollider = other.getComponentByType("collider2d")
+
+        if otherCollider == self:
+            return False
+
         otherTransform = other.getComponentByType("transform2d")
         otherObjectCoordinates = otherCollider.getCoordinates()
         for i in self.coordinates:
@@ -54,17 +59,17 @@ class Collider2D(Component):
 
                     self.collided.append(other)
 
-                    if self.isTrigger:
-                        # Check X
-                        if self.x < otherTransform.x:
-                            otherTransform.blockMovement["down"] = True
-                        elif self.x2 > otherTransform.getFullInformation()["end_x"]:
-                            otherTransform.blockMovement["up"] = True
-
+                    if not self.isTrigger:
                         # Check Y
                         if self.y < otherTransform.y:
-                            otherTransform.blockMovement["left"] = True
+                            otherTransform.blockMovement["down"] = True
                         elif self.y2 > otherTransform.getFullInformation()["end_y"]:
+                            otherTransform.blockMovement["up"] = True
+
+                        # Check X
+                        if self.x > otherTransform.x:
+                            otherTransform.blockMovement["left"] = True
+                        elif self.x2 < otherTransform.getFullInformation()["end_x"]:
                             otherTransform.blockMovement["right"] = True
                     return True
 
@@ -72,7 +77,9 @@ class Collider2D(Component):
         return False
 
     def PreUpdate(self):
+        self.updatePosition()
+        self.setCoordinates()
         self.collided = []
-        for obj in gc.get_objects():
-            if isinstance(obj, Behaviour):
-                self.checkCollision(Behaviour)
+        for obj in self.world.children:
+            if obj.getComponentByType("collider2d"):
+                self.checkCollision(obj)

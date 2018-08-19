@@ -1,8 +1,7 @@
 from playsound import playsound
-from .Component import Component
 import asyncio
 
-class AudioPlayer(Component):
+class AudioPlayer:
     def __init__(self):
         self.my_type = "audioplayer"
         self.eventloop = asyncio.get_event_loop()

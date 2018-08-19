@@ -94,7 +94,7 @@ class Screen:
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         xt, yt = CoordinateTranslator(x, y, self.field_height, self.field_width, self.coordinate_system)
-        self.objectsList.append([xt, yt, symbol, color])
+        self.objectsList.append([round(xt), round(yt), symbol, color])
 
     def clear_objects_list(self):
         self.objectsList = []
@@ -109,9 +109,6 @@ class Screen:
         for i in range(height):
             for j in range(width):
                 self.add_object(x + j, y + i, symbol, color)
-
-    def add_behaviour_boject(self, behaviour):
-        behaviour.getComponentByType("asciirenderer2d").getPolygon(self)
 
     def do_timeout(self):
         time.sleep(self.timeout)

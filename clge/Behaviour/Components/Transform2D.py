@@ -1,9 +1,8 @@
-from clge.Behaviour import Vector2
+from clge.Behaviour.Vector2 import Vector2
 from clge.Constants import *
-from .Component import Component
 
 
-class Transform2D(Component):
+class Transform2D:
     def __init__(self):
         self.x: int
         self.y: int
@@ -18,23 +17,23 @@ class Transform2D(Component):
         }
         self.my_type = "transform2d"
 
-    def customInit(self, **kwargs):
-        self.x = kwargs["x"]
-        self.y = kwargs["y"]
-        self.width = kwargs["width"]
-        self.height = kwargs["height"]
+    def customInit(self, x, y, w, h):
+        self.x = x
+        self.y = y
+        self.width = w
+        self.height = h
 
     def changePositionBy(self, action, x, y):
         pass_x = pass_y = False
 
         # Check if any movement is blocked
-        if self.blockMovement["up"] and x < self.x:
+        if self.blockMovement["right"] and self.x < x:
             pass_x = True
-        if self.blockMovement["down"] and x > self.x:
+        if self.blockMovement["left"] and x < self.x:
             pass_x = True
-        if self.blockMovement["right"] and y > self.y:
+        if self.blockMovement["up"] and y < self.y:
             pass_y = True
-        if self.blockMovement['left'] and y < self.y:
+        if self.blockMovement['down'] and self.y < y:
             pass_y = True
 
         previous = Vector2(x, y)
@@ -46,14 +45,12 @@ class Transform2D(Component):
             if not pass_y:
                 self.y += y
 
-        # Temporally Functionality. Will be removed later
-        if action == TRANSFORM2D_SET_POS:
-            self.x = x
-            self.y = y
-
         self.offsetLastFrame = Vector2(Vector2(self.x, self.y) - previous)
 
-        self.blockMovement = False
+        self.blockMovement["up"] = False
+        self.blockMovement["down"] = False
+        self.blockMovement["right"] = False
+        self.blockMovement["left"] = False
 
     def getPosition(self):
         return Vector2(self.x, self.y)
