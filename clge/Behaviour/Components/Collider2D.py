@@ -6,7 +6,7 @@ class Collider2D:
         self.layer = 0
         self.isTrigger = False
         self.my_type = "collider2d"
-        self.coordinates = []
+        self.coordinates = {}
         self.coordinatesForOthers = []
         self.collided = []
 
@@ -28,13 +28,20 @@ class Collider2D:
         return self.collided
 
     def setCoordinates(self):
-        self.coordinates = []
+        self.coordinates = {
+            "top": [],
+            "bottom": [],
+            "right": [],
+            "left": []
+        }
         self.coordinatesForOthers = []
-        for i in range(self.x - 1, self.x2 + 1):
-            for j in range(self.y - 1, self.y2 + 1):
-                if (j == self.y - 1 or j == self.y2 + 1) and (i == self.x - 1 or i == self.x2 + 1):
-                    continue
-                self.coordinates.append((i, j))
+        # Set the Border Coordinates
+        for i in range(self.x, self.x2):
+            self.coordinates["top"].append((i, self.y - 1))
+            self.coordinates["bottom"].append((i, self.y2))
+        for i in range(self.y, self.y2):
+            self.coordinates["right"].append((self.x2, i))
+            self.coordinates["left"].append((self.x - 1, i))
 
         for i in range(self.x, self.x2):
             for j in range(self.y, self.y2):
@@ -52,43 +59,38 @@ class Collider2D:
     def checkCollision(self, other: Behaviour):
         otherCollider = other.getComponentByType("collider2d")
 
+        freturn = False
+
         if otherCollider == self:
             return False
 
         otherTransform = other.getComponentByType("transform2d")
         otherObjectCoordinates = otherCollider.getCoordinates()
-        for i in self.coordinates:
-            for j in otherObjectCoordinates:
 
-                # Collision is detected
-                if i == j and otherCollider.layer == self.layer:
+        for otherCoordinate in otherObjectCoordinates:
+            if otherCoordinate in self.coordinates["top"]:
+                otherTransform.blockMovement["down"] = True
+                self.transform2d.blockMovement["up"] = True
+                freturn = True
+            if otherCoordinate in self.coordinates["bottom"]:
+                otherTransform.blockMovement["up"] = True
+                self.transform2d.blockMovement["down"] = True
+                freturn = True
+            if otherCoordinate in self.coordinates["right"]:
+                otherTransform.blockMovement["left"] = True
+                self.transform2d.blockMovement["right"] = True
+                freturn = True
+            if otherCoordinate in self.coordinates["left"]:
+                otherTransform.blockMovement["right"] = True
+                self.transform2d.blockMovement["left"] = True
+                freturn = True
 
-                    self.collided.append(other)
+        return freturn
 
-                    if not self.isTrigger:
-                        self.onCollisionEnter2D(other)
-                        # Check Y
-                        if self.y < otherTransform.y:
-                            otherTransform.blockMovement["down"] = True
-                        elif self.y2 > otherTransform.getFullInformation()["end_y"]:
-                            otherTransform.blockMovement["up"] = True
-
-                        # Check X
-                        if self.x > otherTransform.x:
-                            otherTransform.blockMovement["left"] = True
-                        elif self.x2 < otherTransform.getFullInformation()["end_x"]:
-                            otherTransform.blockMovement["right"] = True
-                    else:
-                        self.onTriggerEnter2D(other)
-
-                    return True
-
-        # If no collision is detected return False
-        return False
-
-    def PreUpdate(self):
+    def FixedUpdate(self):
         self.updatePosition()
         self.setCoordinates()
+
         self.collided = []
         for obj in self.world.children:
             if obj.getComponentByType("collider2d"):

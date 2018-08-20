@@ -46,6 +46,7 @@ class Screen:
         self.FunctionManager = UserDefinedFunctionManager()
         self.loop = loop
         self.eventloop = asyncio.get_event_loop()
+        self.fixedUpdateTimout = .05
 
     def setBeforeScreen(self, string):
         self.beforeScreen = string
@@ -206,7 +207,9 @@ class Screen:
     def Start(self):
         if self.loop:
             asyncio.ensure_future(self.runLoop())
+            asyncio.ensure_future(self.FunctionManager.FixedUpdate(self.fixedUpdateTimout))
             self.eventloop.run_forever()
+
 
     def Stop(self):
         self.eventloop.stop()

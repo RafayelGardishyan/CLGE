@@ -27,13 +27,13 @@ class Transform2D:
         pass_x = pass_y = False
 
         # Check if any movement is blocked
-        if self.blockMovement["right"] and self.x < x:
+        if self.blockMovement["right"] and x > 0:
             pass_x = True
-        if self.blockMovement["left"] and x < self.x:
+        if self.blockMovement["left"] and x < 0:
             pass_x = True
-        if self.blockMovement["up"] and y < self.y:
+        if self.blockMovement["up"] and y < 0:
             pass_y = True
-        if self.blockMovement['down'] and self.y < y:
+        if self.blockMovement['down'] and y > 0:
             pass_y = True
 
         previous = Vector2(x, y)

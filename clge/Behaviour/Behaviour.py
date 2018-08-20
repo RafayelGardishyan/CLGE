@@ -42,6 +42,8 @@ class Behaviour:
             self.screen.FunctionManager.registerStart(c)
         if hasattr(c, "Update"):
             self.screen.FunctionManager.registerUpdate(c)
+        if hasattr(c, "FixedUpdate"):
+            self.screen.FunctionManager.registerFixedUpdate(c)
         if hasattr(c, "PreUpdate"):
             self.screen.FunctionManager.registerPreUpdate(c)
         if hasattr(c, "LateUpdate"):

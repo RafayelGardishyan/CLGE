@@ -1,3 +1,8 @@
+import asyncio
+
+import time
+
+
 def functionI():
     pass
 
@@ -10,6 +15,8 @@ class UserDefinedFunctionManager:
         self.start = []
 
         self.lateupdate = []
+
+        self.fixedupdate = []
 
         self.preupdate = []
 
@@ -42,6 +49,14 @@ class UserDefinedFunctionManager:
             if type(functionI) == type(i) or type(self.Start) == type(i): i()
             else: i.Destroy()
 
+    async def FixedUpdate(self, timeout):
+        for i in self.fixedupdate:
+            if type(functionI) == type(i) or type(self.Start) == type(i): i()
+            else: i.FixedUpdate()
+        time.sleep(timeout)
+        asyncio.ensure_future(self.FixedUpdate(timeout))
+
+
     def registerUpdate(self, function):
         self.update.append(function)
 
@@ -50,6 +65,9 @@ class UserDefinedFunctionManager:
 
     def registerLateUpdate(self, function):
         self.lateupdate.append(function)
+
+    def registerFixedUpdate(self, function):
+        self.fixedupdate.append(function)
 
     def registerPreUpdate(self, function):
         self.preupdate.append(function)

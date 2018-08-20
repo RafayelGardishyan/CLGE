@@ -3,4 +3,7 @@ from .sample_object import SampleObject
 from .sample_player import SamplePlayer
 from .sample_polygon import SamplePolygon
 
-# New Behaviour Object Logic
+# Player Controller for future
+from .PlayerController import PlayerController
+
+# New Behaviour Object Logic Coming Soon
