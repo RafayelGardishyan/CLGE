@@ -10,6 +10,12 @@ class Collider2D:
         self.coordinatesForOthers = []
         self.collided = []
 
+    def onCollisionEnter2D(self, col):
+        pass
+
+    def onTriggerEnter2D(self, col):
+        pass
+
     def updatePosition(self):
         location = self.transform2d.getFullInformation()
         self.x = round(location["x"])
@@ -60,6 +66,7 @@ class Collider2D:
                     self.collided.append(other)
 
                     if not self.isTrigger:
+                        self.onCollisionEnter2D(other)
                         # Check Y
                         if self.y < otherTransform.y:
                             otherTransform.blockMovement["down"] = True
@@ -71,6 +78,9 @@ class Collider2D:
                             otherTransform.blockMovement["left"] = True
                         elif self.x2 < otherTransform.getFullInformation()["end_x"]:
                             otherTransform.blockMovement["right"] = True
+                    else:
+                        self.onTriggerEnter2D(other)
+
                     return True
 
         # If no collision is detected return False

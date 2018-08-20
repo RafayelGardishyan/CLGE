@@ -1,5 +1,3 @@
-import time
-
 from clge import *
 from clge import Constants
 
@@ -11,15 +9,13 @@ world = Behaviour.World()
 
 a = Behaviour.Behaviour("Test Object", scr, world)
 a.addComponent(Behaviour.Components.AsciiRenderer2D)
-a.addComponent(Behaviour.Components.Physiqs)
-a.getComponentByType("physiqs").addForce(Behaviour.Vector2(1, 0), 5)
-# a.getComponentByType("physiqs").addForce(Behaviour.Vector2(5, 0), 5)
 a.addComponent(Behaviour.Components.Collider2D)
+
 
 b = Behaviour.Behaviour("Wall Object", scr, world)
 b.addComponent(Behaviour.Components.AsciiRenderer2D)
 b.getComponentByType("transform2d").changePositionBy(Constants.TRANSFORM2D_MV_POS, 0, 15)
-b.getComponentByType("transform2d").setSize(15, 1)
+b.getComponentByType("transform2d").setSize(25, 1)
 b.addComponent(Behaviour.Components.Collider2D)
 
 scr.Start()

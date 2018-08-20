@@ -28,7 +28,7 @@ class Screen:
         """
         self.field_width = 0
         self.field_height = 0
-        self.timeout = 1
+        self.timeout = .2
         self.objectsList = []
         self.auto_clear_objects_list = False
         self.auto_timeout = True
@@ -109,9 +109,6 @@ class Screen:
         for i in range(height):
             for j in range(width):
                 self.add_object(x + j, y + i, symbol, color)
-
-    def do_timeout(self):
-        time.sleep(self.timeout)
 
     def set_timeout(self, seconds):
         self.timeout = seconds
@@ -198,13 +195,13 @@ class Screen:
         if self.auto_clear_objects_list:
             self.clear_objects_list()
         if self.auto_timeout:
-            self.do_timeout()
+            time.sleep(self.timeout)
 
         self.FunctionManager.LateUpdate()
 
     async def runLoop(self):
-            while True:
-                self.render()
+        self.render()
+        asyncio.ensure_future(self.runLoop())
 
     def Start(self):
         if self.loop:
