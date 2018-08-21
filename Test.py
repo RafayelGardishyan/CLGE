@@ -14,9 +14,16 @@ a.addComponent(Behaviour.Components.AsciiRenderer2D)
 a.addComponent(Behaviour.Components.Collider2D)
 a.addComponent(PlayerController.PlayerController)
 
+# The Children of a Behaviour object are not working pretty so I don't advice you to use them
+# c = Behaviour.Behaviour("Test Child Object", scr, world)
+# c.addComponent(Behaviour.Components.AsciiRenderer2D)
+# c.addComponent(Behaviour.Components.Collider2D)
+# c.getComponentByType("transform2d").changePositionBy(Constants.TRANSFORM2D_MV_POS, 0, 1)
+#
+# a.addChild(c)
+
 # The Physiqs module is currently being tested and is experimental.
 # It may cause bugs and errors! Use it at your own risk
-
 # a.addComponent(Behaviour.Components.Physiqs)
 # a.getComponentByType("physiqs").addForce(Vector2(1, 0), 5)
 

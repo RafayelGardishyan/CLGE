@@ -42,8 +42,12 @@ class Transform2D:
         if action == TRANSFORM2D_MV_POS:
             if not pass_x:
                 self.x += x
+                for child in self.parent.children:
+                    child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, x, 0)
             if not pass_y:
                 self.y += y
+                for child in self.parent.children:
+                    child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, 0, y)
 
         self.offsetLastFrame = Vector2(Vector2(self.x, self.y) - previous)
 
@@ -61,9 +65,6 @@ class Transform2D:
     def setSize(self, width, height):
         self.width = width
         self.height = height
-
-    def PreUpdate(self):
-        self.offsetLastFrame = Vector2(0, 0)
 
     def getFullInformation(self):
         return {

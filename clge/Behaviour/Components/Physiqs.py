@@ -8,6 +8,8 @@ This module is experimental and may cause errors or bugs
 Use it at your own risk
 """
 
+# TODO: FIXME: Fix the Physics Engine
+
 class Physiqs:
     def __init__(self):
         self.gravity = 2.0
@@ -56,7 +58,7 @@ class Physiqs:
     def GetGravityForce(self):
         return self.gravity * self.gravityFrame * self.mass / 2
 
-    def FixedUpdate(self):
+    def Update(self):
         self.appendForces()
         self.transform2d.changePositionBy(TRANSFORM2D_MV_POS, self.frame.x, self.frame.y)
         self.checkReset()

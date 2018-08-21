@@ -87,7 +87,7 @@ class Collider2D:
 
         return freturn
 
-    def FixedUpdate(self):
+    def PreUpdate(self):
         self.updatePosition()
         self.setCoordinates()
 

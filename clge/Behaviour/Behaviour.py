@@ -13,12 +13,27 @@ class Behaviour:
         self.children = []
         self.name = name
         self.screen = screen
-        self.screen.FunctionManager.registerLateUpdate(self.LateUpdate)
-        x = Transform2D()
-        x.customInit(0, 0, 1, 1)
-        self.components.append(x)
         world.addChild(self)
         self.world = world
+        x = Transform2D()
+        x.screen = self.screen
+        x.parent = self
+        x.world = self.world
+        if hasattr(x, "Start"):
+            self.screen.FunctionManager.registerStart(x)
+        if hasattr(x, "Update"):
+            self.screen.FunctionManager.registerUpdate(x)
+        if hasattr(x, "FixedUpdate"):
+            self.screen.FunctionManager.registerFixedUpdate(x)
+        if hasattr(x, "PreUpdate"):
+            self.screen.FunctionManager.registerPreUpdate(x)
+        if hasattr(x, "LateUpdate"):
+            self.screen.FunctionManager.registerLateUpdate(x)
+        if hasattr(x, "Destroy"):
+            self.screen.FunctionManager.registerDestroy(x)
+
+        x.customInit(0, 0, 1, 1)
+        self.components.append(x)
 
     def addChild(self, child):
         self.children.append(child)
@@ -81,11 +96,6 @@ class Behaviour:
     def checkCollision(self, other):
         if self.getComponentByType("collider2d"):
             self.getComponentByType("collider2d").checkCollision(other)
-
-    def LateUpdate(self):
-        offset = self.getComponentByType("transform2d").getPosition()
-        for child in self.children:
-            child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, offset.x, offset.y)
 
     def __del__(self):
         self.world.children.pop(self.world.children.index(self))
