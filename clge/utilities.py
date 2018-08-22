@@ -3,6 +3,7 @@ import time
 
 secrets = random.SystemRandom()
 
+
 def randint(a, b):
     return secrets.randint(a, b)
 
@@ -21,3 +22,7 @@ def randchoice(seq):
 def sleep(milliseconds):
     seconds = milliseconds / 1000
     return time.sleep(seconds)
+
+
+def clamp(val, _min, _max):
+    return min(max(_min, val), _max)
