@@ -8,8 +8,6 @@ def functionI():
 
 class UserDefinedFunctionManager:
     def __init__(self):
-        self.StartCalled = False
-
         self.update = []
 
         self.start = []
@@ -55,7 +53,6 @@ class UserDefinedFunctionManager:
             else: i.FixedUpdate()
         time.sleep(timeout)
         asyncio.ensure_future(self.FixedUpdate(timeout))
-
 
     def registerUpdate(self, function):
         self.update.append(function)
