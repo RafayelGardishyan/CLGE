@@ -6,7 +6,7 @@ from clge.Constants import TRANSFORM2D_MV_POS
 class PlayerController:
     def __init__(self):
         self.keymap = None
-        self.my_type = "std.playercontroller"
+        self.my_type = "playercontroller"
 
     def Start(self):
         kg = KeymapGenerator()

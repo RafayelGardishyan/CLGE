@@ -1,7 +1,7 @@
-import PlayerController
 from clge import *
 from clge import Constants
-from clge.Behaviour import Vector2
+from clge.plugs.DefaultAssets import PlayerController
+# from clge.Behaviour import Vector2
 
 scr = Screen(30, 30, True)
 scr.set_timeout(.1)
@@ -12,7 +12,7 @@ world = Behaviour.World()
 a = Behaviour.Behaviour("Test Object", scr, world)
 a.addComponent(Behaviour.Components.AsciiRenderer2D)
 a.addComponent(Behaviour.Components.Collider2D)
-a.addComponent(PlayerController.PlayerController)
+a.addComponent(PlayerController)
 
 # The Children of a Behaviour object are not working pretty so I don't advice you to use them
 # c = Behaviour.Behaviour("Test Child Object", scr, world)
