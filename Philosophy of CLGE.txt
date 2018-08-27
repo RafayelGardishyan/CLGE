@@ -1,0 +1,12 @@
+﻿Philosphy of "Command Line Game Engine"
+
+Command Line Game Engine is a Game engine made in Python(3) and renders everything in CMD for Windows and Terminal for Linux and Mac OS
+From now we'll define "Command Line Game Engine" as CLGE
+
+CLGE is made to make CMD and Terminal popular again because with the new technologies and GUI's the popularity of Command Line interfaces is gone.
+
+CLGE is also made so that every programming beginner and proffesional can make their own games using only a couple of predefined statements.
+
+CLGE uses the object system as in Unity. This means that every oject derives from the class "Behaviour". An object can ba a Screen object (2D or 3D), Camera, Sound Player etc. Also every object has to be added to a World object. Every object which has a renderer object in it (2D or 3D) immediately is displayed on the screen.
+
+More about CLGE you can read on the Documantation/Wiki

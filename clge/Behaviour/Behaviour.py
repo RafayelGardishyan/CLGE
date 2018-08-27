@@ -1,5 +1,4 @@
 from clge.Behaviour.Components.Transform2D import Transform2D
-from clge.Constants import TRANSFORM2D_MV_POS
 
 
 class Behaviour:

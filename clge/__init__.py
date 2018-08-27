@@ -16,3 +16,4 @@ from . import utilities as Utils
 from . import Camera
 from . import Behaviour
 from .UserDefinedFunctionManager import UserDefinedFunctionManager
+from . import splash_screen
