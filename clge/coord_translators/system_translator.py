@@ -56,17 +56,17 @@ def from_std(x, y, height, width, Sto):
     if Sto == "lb":
         return x, height - y
     if Sto == "lm":
-        return x, int(height / 2) - y
+        return x, int(height / 2) + y
     if Sto == "mt":
         return int(x - (width / 2)), y
     if Sto == "mm":
-        return int(x - (width / 2)), int(height / 2) - y
+        return int(x - (width / 2)), int(height / 2) + y
     if Sto == "mb":
         return int(x - (width / 2)), height - y
     if Sto == "rt":
         return width - x, y
     if Sto == "rm":
-        return width - x, int(height / 2) - y
+        return width - x, int(height / 2) + y
     if Sto == "rb":
         return width - x, height - y
     if Sto == "std":
