@@ -7,6 +7,7 @@ offset = 4
 
 scr = Screen(20, 10, False, "*")
 
+
 scr.auto_clear_objects_list_setter(True)
 
 for i in range(offset + 1):
@@ -22,6 +23,6 @@ for i in range(offset + 1):
 
     scr.render()
 
-time.sleep(5)
+time.sleep(2)
 
 scr = None

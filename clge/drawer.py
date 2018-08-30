@@ -95,7 +95,7 @@ class Screen:
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         xt, yt = CoordinateTranslator(x, y, self.field_height, self.field_width, self.coordinate_system)
-        self.objectsList.append([round(xt), round(yt), symbol, color])
+        self.objectsList.append([round(xt), round(yt), symbol[0], color])
 
     def clear_objects_list(self):
         self.objectsList = []
@@ -110,6 +110,19 @@ class Screen:
         for i in range(height):
             for j in range(width):
                 self.add_object(x + j, y + i, symbol, color)
+
+    def add_line(self, x1, x2, y1, y2, symbol=default_symbol, color=default_color):
+        dx = x2 - x1
+        dy = y2 - y1
+        if x1 < x2:
+            startx = x1
+            endx = x2
+        else:
+            startx = x2
+            endx = x1
+        for x in range(round(startx), round(endx)):
+            y = y1 + dy * (x - startx) / dx
+            self.add_object(x, y, symbol, color)
 
     def set_timeout(self, seconds):
         self.timeout = seconds
@@ -209,6 +222,8 @@ class Screen:
             asyncio.ensure_future(self.runLoop())
             asyncio.ensure_future(self.FunctionManager.FixedUpdate(self.fixedUpdateTimout))
             self.eventloop.run_forever()
+        else:
+            self.render()
 
 
     def Stop(self):
