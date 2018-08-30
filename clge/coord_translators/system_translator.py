@@ -25,17 +25,17 @@ def to_std(x, y, height, width, Sfrom):
     if Sfrom == "lb":
         return x, height + y
     if Sfrom == "lm":
-        return x, int(height / 2) + y
+        return x, int(height / 2) - y
     if Sfrom == "mt":
         return int(x + (width / 2)), y
     if Sfrom == "mm":
-        return int(x + (width / 2)), int(height / 2) + y
+        return int(x + (width / 2)), int(height / 2) - y
     if Sfrom == "mb":
         return int(x + (width / 2)), height + y
     if Sfrom == "rt":
         return width + x, y
     if Sfrom == "rm":
-        return width + x, int(height / 2) + y
+        return width + x, int(height / 2) - y
     if Sfrom == "rb":
         return width + x, height + y
     if Sfrom == "std":
