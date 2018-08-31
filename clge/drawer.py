@@ -1,6 +1,7 @@
 import time
 from colored import fg
 
+from clge.Constants import CoordinateSystems
 from clge.utilities import sign
 from .setup import get_platform
 import sys
@@ -41,7 +42,7 @@ class Screen:
         self.field_height = height
         self.default_symbol = symbol[0]
         self.border = border
-        self.coordinate_system = "std"
+        self.coordinate_system = CoordinateSystems.STANDARD
         self.camera = Camera(0, 0)
         self.previousFrame = datetime.now()
         self.deltaTime = 0.0000000
@@ -51,12 +52,26 @@ class Screen:
         self.fixedUpdateTimout = .05
 
     def setBeforeScreen(self, string):
+        """
+        Set Before Screen Text
+        :param string: Text
+        :return: None
+        """
         self.beforeScreen = string
 
     def setAfterScreen(self, string):
+        """
+        Set After Screen Text
+        :param string: Text
+        :return: None
+        """
         self.afterScreen = string
 
     def setDeltatime(self):
+        """
+        Set time elapsed in this frame in the variable timedelta
+        :return: None
+        """
         thisFrame = datetime.now()
         td = thisFrame - self.previousFrame
         self.previousFrame = thisFrame
@@ -78,8 +93,12 @@ class Screen:
         """
         self.multiple_screens = value
 
-    def change_coordinate_system(self, system="std"):
-
+    def change_coordinate_system(self, system=CoordinateSystems.STANDARD):
+        """
+        Change Coordinate Origin
+        :param system: Enum Value String
+        :return:
+        """
         self.coordinate_system = system
 
     def auto_clear_objects_list_setter(self, value):

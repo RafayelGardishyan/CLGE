@@ -28,3 +28,9 @@ class Vector2:
             return self
         else:
             return self.__sub__(other)
+
+    def __getitem__(self, key):
+        if key == "x" or 0:
+            return self.x
+        elif key == "y" or 1:
+            return self.y
