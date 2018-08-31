@@ -12,6 +12,7 @@
       <option name="ignoredIdentifiers">
         <list>
           <option value="bool.__getitem__" />
+          <option value="list.__getitem__" />
         </list>
       </option>
     </inspection_tool>

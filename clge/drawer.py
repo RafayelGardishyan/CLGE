@@ -133,10 +133,20 @@ class Screen:
                 self.add_object(x + j, y + i, symbol, color)
 
     def add_line(self, x1, x2, y1, y2, symbol=default_symbol, color=default_color):
-        xs = min(x1, x2)
-        xe = max(x1, x2)
+        # # Simple Line Drawing Algorithm
+        # xs = min(x1, x2)
+        # xe = max(x1, x2)
+        # dx = xe - xs
+        # if dx < 1:
+        #     dx = 1
+        # dy = y2 - y1
+        #
+        # for x in range(round(xs), round(xe)):
+        #     y = y1 + dy * (x - xs) / dx
+        #     self.add_object(x, y, symbol, color)
 
-        dx = xe - xs
+        # # Complex Line Drawing Algorithm
+        dx = x2 - x1
         dy = y2 - y1
 
         sign_x = 1 if dx > 0 else -1 if dx < 0 else 0
@@ -152,7 +162,7 @@ class Screen:
             pdx, pdy = 0, sign_y
             es, el = dx, dy
 
-        x, y = xs, y1
+        x, y = x1, y1
 
         error, t = el / 2, 0
 

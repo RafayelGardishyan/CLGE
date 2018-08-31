@@ -3,7 +3,6 @@ from clge.Constants import CoordinateSystems
 from clge.GameMath import Matrix
 from clge import AltScreen
 
-
 w = 200
 h = w / 2
 
@@ -45,28 +44,27 @@ def update():
             projected[(i+1) % 4].x,
             projected[i].y,
             projected[(i+1) % 4].y,
-            "."
+            "O"
         )
         scr.add_line(
             projected[i + 4].x,
             projected[((i + 1) % 4) + 4].x,
             projected[i + 4].y,
             projected[((i + 1) % 4) + 4].y,
-            "."
+            "O"
         )
         scr.add_line(
             projected[i].x,
             projected[i + 4].x,
             projected[i].y,
             projected[i + 4].y,
-            "."
+            "O"
         )
 
     for j in projected:
         scr.add_object(j.x, j.y, "O")
 
     angle += .05
-
 
 scr.FunctionManager.registerUpdate(update)
 

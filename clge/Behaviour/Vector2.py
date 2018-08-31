@@ -29,8 +29,36 @@ class Vector2:
         else:
             return self.__sub__(other)
 
+    def __mul__(self, other):
+        totalx = self.x * float(other.x)
+        totaly = self.y * float(other.y)
+        return Vector2(totalx, totaly)
+
+    def __rmul__(self, other):
+        if other == 0:
+            return self
+        else:
+            return self.__add__(other)
+
+    def __div__(self, other):
+        totalx = self.x / float(other.x)
+        totaly = self.y / float(other.y)
+        return Vector2(totalx, totaly)
+
+    def __rdiv__(self, other):
+        if other == 0:
+            return self
+        else:
+            return self.__sub__(other)
+
     def __getitem__(self, key):
         if key == "x" or 0:
             return self.x
         elif key == "y" or 1:
             return self.y
+
+    def __setitem__(self, key, value):
+        if key == "x" or 0:
+            self.x = value
+        elif key == "y" or 1:
+            self.y = value
