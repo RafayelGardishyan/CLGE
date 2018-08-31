@@ -50,6 +50,7 @@ class Screen:
         self.loop = loop
         self.eventloop = asyncio.get_event_loop()
         self.fixedUpdateTimout = .05
+        self.screen_spacing = 100 if self.field_height <= 100 else self.field_height
 
     def setBeforeScreen(self, string):
         """
@@ -110,9 +111,8 @@ class Screen:
     def color_setter(self, value):
         self.default_color = fg(value)
 
-    @staticmethod
-    def clear_screen():
-        print('\n' * 100)
+    def clear_screen(self):
+        sys.stdout.write("\n" * self.screen_spacing)
 
     def add_object(self, x, y, symbol=default_symbol, color=default_color):
         xt, yt = CoordinateTranslator(x, y, self.field_height, self.field_width, self.coordinate_system)
@@ -185,7 +185,7 @@ class Screen:
 
     def write(self, before, after):
         if not self.multiple_screens:
-            sys.stdout.write("\n" * 100)
+            self.clear_screen()
         else:
             sys.stdout.write("")
         sys.stdout.write(before + "\n")
