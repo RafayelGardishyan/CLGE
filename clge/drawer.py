@@ -1,5 +1,7 @@
 import time
 from colored import fg
+
+from clge.utilities import sign
 from .setup import get_platform
 import sys
 from .coord_translators import CoordinateTranslator
@@ -112,16 +114,41 @@ class Screen:
                 self.add_object(x + j, y + i, symbol, color)
 
     def add_line(self, x1, x2, y1, y2, symbol=default_symbol, color=default_color):
-        dx = x2 - x1
+        xs = min(x1, x2)
+        xe = max(x1, x2)
+
+        dx = xe - xs
         dy = y2 - y1
-        if x1 < x2:
-            startx = x1
-            endx = x2
+
+        sign_x = 1 if dx > 0 else -1 if dx < 0 else 0
+        sign_y = 1 if dy > 0 else -1 if dy < 0 else 0
+
+        if dx < 0: dx = -dx
+        if dy < 0: dy = -dy
+
+        if dx > dy:
+            pdx, pdy = sign_x, 0
+            es, el = dy, dx
         else:
-            startx = x2
-            endx = x1
-        for x in range(round(startx), round(endx)):
-            y = y1 + dy * (x - startx) / dx
+            pdx, pdy = 0, sign_y
+            es, el = dx, dy
+
+        x, y = xs, y1
+
+        error, t = el / 2, 0
+
+        self.add_object(x, y, symbol, color)
+
+        while t < el:
+            error -= es
+            if error < 0:
+                error += el
+                x += sign_x
+                y += sign_y
+            else:
+                x += pdx
+                y += pdy
+            t += 1
             self.add_object(x, y, symbol, color)
 
     def set_timeout(self, seconds):

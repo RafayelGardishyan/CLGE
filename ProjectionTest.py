@@ -1,23 +1,23 @@
 from clge.Behaviour import Vector3, Vector2
 from clge.GameMath import Matrix
-from clge import Screen
+from clge import AltScreen
 
-scr = Screen(100, 50, True)
+scr = AltScreen(200, 100, True)
 scr.auto_clear_objects_list_setter(True)
 scr.change_coordinate_system("mm")
-scr.set_timeout(.1)
+scr.set_timeout(.5)
 
 angle = 0
 
 points = [
-    Vector3(10, 10, 10),
-    Vector3(-10, 10, 10),
-    Vector3(10, 10, -10),
-    Vector3(-10, 10, -10),
-    Vector3(10, -10, 10),
-    Vector3(-10, -10, 10),
-    Vector3(10, -10, -10),
-    Vector3(-10, -10, -10),
+    Vector3(-20, -20, -20),
+    Vector3(20, -20, -20),
+    Vector3(20, 20, -20),
+    Vector3(-20, 20, -20),
+    Vector3(-20, -20, 20),
+    Vector3(20, -20, 20),
+    Vector3(20, 20, 20),
+    Vector3(-20, 20, 20),
 ]
 
 
@@ -34,10 +34,28 @@ def update():
     for j in projected:
         scr.add_object(j.x, j.y, "O")
 
-    # for i in range(4):
-    #     scr.add_line(projected[i].x, projected[(i+1) % 4].x, projected[i].y, projected[(i+1) % 4].y, "O")
-    #     scr.add_line(projected[i + 4].x, projected[((i + 1) % 4) + 4].x, projected[i + 4].y, projected[((i + 1) % 4) + 4].y, "O")
-    #     scr.add_line(projected[i].x, projected[i + 4].x, projected[i].y, projected[i + 4].y, "O")
+    for i in range(4):
+        scr.add_line(
+            projected[i].x,
+            projected[(i+1) % 4].x,
+            projected[i].y,
+            projected[(i+1) % 4].y,
+            "O"
+        )
+        scr.add_line(
+            projected[i + 4].x,
+            projected[((i + 1) % 4) + 4].x,
+            projected[i + 4].y,
+            projected[((i + 1) % 4) + 4].y,
+            "O"
+        )
+        scr.add_line(
+            projected[i].x,
+            projected[i + 4].x,
+            projected[i].y,
+            projected[i + 4].y,
+            "O"
+        )
 
     angle += .05
 

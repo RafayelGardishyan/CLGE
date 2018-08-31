@@ -24,5 +24,9 @@ def sleep(milliseconds):
     return time.sleep(seconds)
 
 
+def sign(x):
+    return 1 - (x <= 0)
+
+
 def clamp(val, _min, _max):
     return min(max(_min, val), _max)
