@@ -37,7 +37,8 @@ def update():
         r = Matrix.rotate_x(i, angle)
         r = Matrix.rotate_y(r, angle)
         r = Matrix.rotate_z(r, angle)
-        p = Matrix.project(r, aspect, field_of_view, near_plane, far_plane)
+        # p = Matrix.project(r, aspect, field_of_view, near_plane, far_plane)
+        p = Matrix.project(r, 100, 1.5)
         projected.append(p)
 
     for i in range(4):

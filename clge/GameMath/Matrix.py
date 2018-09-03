@@ -14,17 +14,17 @@ def deg_to_rad(fov):
     return 2.0 * math.pi * fov / 360
 
 
-def project(point: Vector3, aspect, fov, near, far) -> Vector2:
-    perspective_matrix = [
-        [1/(aspect * math.tan(deg_to_rad(fov / 2))), 0, 0, 0],
-        [0, 1/(math.tan(deg_to_rad(fov / 2))), 0, 0],
-        [0, 0, - ((far + near) / (far - near)), -((2 * far * near) / far - near)],
-        [0, 0, -1, 0]
-    ]
+def project(point: Vector3, distance: float, multiplier: float) -> Vector2:
+    # perspective_matrix = [
+    #     [1/(aspect * math.tan(deg_to_rad(fov / 2))), 0, 0, 0],
+    #     [0, 1/(math.tan(deg_to_rad(fov / 2))), 0, 0],
+    #     [0, 0, - ((far + near) / (far - near)), -((2 * far * near) / far - near)],
+    #     [0, 0, -1, 0]
+    # ]
 
     # perspective_point = matmult(perspective_matrix, [[point.x], [point.y], [point.z], [1]])
     # perspective_point.pop()
-    coefficient = 1
+    coefficient = 1 - ((point.z / distance) * multiplier)
     projection_matrix = [
         [coefficient, 0, 0],
         [0, coefficient, 0]
