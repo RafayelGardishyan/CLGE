@@ -1,4 +1,3 @@
-from .AudioPlayer import AudioPlayer
 from .Physiqs import Physiqs
 from clge.Behaviour.Components.Collider2D import Collider2D
 from .Collider2D import Collider2D

@@ -1,81 +1,48 @@
-from clge.Behaviour.Vector2 import Vector2
-from clge.Constants import *
+from clge.Behaviour.Vector3 import Vector3
 
 
-class Transform2D:
+class Transform3D:
     def __init__(self):
-        self.x: int
-        self.y: int
-        self.width: int
-        self.height: int
-        self.offsetLastFrame = Vector2(0, 0)
+        self.x = 0
+        self.y = 0
+        self.z = 0
+        self.scale = [1, 1, 1]
+        self.rotation = [0, 0, 0]
+        self.offsetLastFrame = Vector3(0, 0, 0)
         self.blockMovement = {
             "up": False,
             "right": False,
             "down": False,
             "left": False
         }
-        self.my_type = "transform2d"
+        self.my_type = "transform3d"
 
-    def customInit(self, x, y, w, h):
-        self.x = x
-        self.y = y
-        self.width = w
-        self.height = h
-
-    def changePositionBy(self, action, x, y):
-        pass_x = pass_y = False
-
-        # Check if any movement is blocked
-        if self.blockMovement["right"] and x > 0:
-            pass_x = True
-        if self.blockMovement["left"] and x < 0:
-            pass_x = True
-        if self.blockMovement["up"] and y < 0:
-            pass_y = True
-        if self.blockMovement['down'] and y > 0:
-            pass_y = True
-
-        previous = Vector2(x, y)
-
-        # Perform Movement
-        if action == TRANSFORM2D_MV_POS:
-            if not pass_x:
-                self.x += x
-                for child in self.parent.children:
-                    child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, x, 0)
-            if not pass_y:
-                self.y += y
-                for child in self.parent.children:
-                    child.getComponentByType("transform2d").changePositionBy(TRANSFORM2D_MV_POS, 0, y)
-
-        self.offsetLastFrame = Vector2(Vector2(self.x, self.y) - previous)
-
-        self.blockMovement["up"] = False
-        self.blockMovement["down"] = False
-        self.blockMovement["right"] = False
-        self.blockMovement["left"] = False
+    def changePositionBy(self, x, y, z):
+        self.x += x
+        self.y += y
+        self.z += z
 
     def getPosition(self):
-        return Vector2(self.x, self.y)
+        return Vector3(self.x, self.y, self.z)
 
     def getSize(self):
-        return self.width, self.height
+        return self.scale
 
-    def setSize(self, width, height):
-        self.width = width
-        self.height = height
+    def setSize(self, scale):
+        self.scale = scale
+
+    def getRotation(self):
+        return self.scale
+
+    def setRotation(self, scale):
+        self.scale = scale
 
     def getFullInformation(self):
         return {
             "x": self.x,
             "y": self.y,
-            "width": self.width,
-            "height": self.height,
-            "end_x": self.x + self.width,
-            "end_y": self.y + self.height,
-            "vector2": {
-                "start": Vector2(self.x, self.y),
-                "end": Vector2(self.x + self.width, self.y + self.height,)
-            }
+            "z": self.z,
+            "rotation": self.rotation,
+            "scale": self.scale,
+            "vector3": Vector3(self.x, self.y, self.z)
         }

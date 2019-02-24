@@ -43,7 +43,6 @@ class Behaviour:
                 return name
         return None
 
-
     def addComponent(self, component, **kwargs):
         c = component()
         c.screen = self.screen

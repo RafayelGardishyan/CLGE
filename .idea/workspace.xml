@@ -4,8 +4,12 @@
     <list default="true" id="89588b01-7da5-4716-a95a-876a09d43b24" name="Default" comment="Changed default assets logic.&#10;Added new branch for &quot;Unity-like&quot; logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectionTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectionTest.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Camera.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clge/GameMath/Matrix.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/GameMath/Matrix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Behaviour.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Behaviour.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Mesh3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Mesh3D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/Behaviour/Components/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/Behaviour/Components/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clge/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/clge/utilities.py" afterDir="false" />
     </list>
     <list id="0bfbf1fd-0116-4dbe-ad9e-e17761bedb24" name="Test improvements" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +21,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/CommandLineGameEngine$keypress_detector.coverage" NAME="keypress_detector Coverage Results" MODIFIED="1517060151801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/engine" />
     <SUITE FILE_PATH="coverage/CLGE$CLGETest.coverage" NAME="CLGETest Coverage Results" MODIFIED="1526480354667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CLGE$Behaviour.coverage" NAME="Behaviour Coverage Results" MODIFIED="1535834096623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clge/Behaviour" />
+    <SUITE FILE_PATH="coverage/CLGE$Behaviour.coverage" NAME="Behaviour Coverage Results" MODIFIED="1551023305303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clge/Behaviour" />
     <SUITE FILE_PATH="coverage/CommandLineGameEngine$snake.coverage" NAME="snake Coverage Results" MODIFIED="1518273410415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CommandLineGameEngine$project_creator.coverage" NAME="project_creator Coverage Results" MODIFIED="1518371876675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clge" />
     <SUITE FILE_PATH="coverage/CLGE$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1534537990790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/clge/plugs/DefaultAssets" />
@@ -43,33 +47,37 @@
     <session id="-1183654499">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="28" />
           <entry key="project.open.time.11" value="2" />
-          <entry key="project.open.time.13" value="6" />
-          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.13" value="7" />
+          <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.15" value="2" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.17" value="3" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.33" value="1" />
+          <entry key="project.opened" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="doxyconfig" value="1" />
           <entry key="json" value="3" />
-          <entry key="py" value="49" />
+          <entry key="obj" value="1" />
+          <entry key="py" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="3" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="49" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -77,14 +85,14 @@
           <entry key="Python Console" value="75" />
           <entry key="dummy" value="14" />
           <entry key="json" value="7" />
-          <entry key="py" value="7482" />
+          <entry key="py" value="10154" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JSON" value="7" />
           <entry key="PLAIN_TEXT" value="14" />
-          <entry key="Python" value="7557" />
+          <entry key="Python" value="10229" />
         </counts>
       </usages-collector>
     </session>
@@ -92,66 +100,65 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/GameMath/__init__.py">
+        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Mesh3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="504">
+              <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+              <folding>
+                <marker date="1536406781113" expanded="true" signature="50:55" ph="..." />
+                <marker date="1536406781113" expanded="true" signature="668:902" ph="..." />
+                <marker date="1536406781113" expanded="true" signature="981:990" ph="..." />
+                <marker date="1536406781113" expanded="true" signature="1281:1327" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Vector2.py">
+        <entry file="file://$PROJECT_DIR$/cube.obj">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="63" selection-end-column="26" />
+            <state relative-caret-position="782">
+              <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+              <folding>
+                <marker date="1536408188270" expanded="true" signature="483:549" ph="..." />
+                <marker date="1536408188270" expanded="true" signature="699:848" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+              <folding>
+                <element signature="e#1#45#0" expanded="true" />
+                <marker date="1551022063526" expanded="true" signature="499:505" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clge/audio_player.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clge/GameMath/Matrix.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1535964814802" expanded="true" signature="285:325" ph="..." />
-                <marker date="1535964814802" expanded="true" signature="1065:1070" ph="..." />
-                <marker date="1535964814802" expanded="true" signature="1159:1160" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProjectionTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-                <marker date="1535964814820" expanded="true" signature="632:635" ph="..." />
-                <marker date="1535964814820" expanded="true" signature="665:670" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Camera.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Vector3.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+              <caret line="20" column="84" lean-forward="true" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -159,22 +166,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clge/drawer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
+            <state relative-caret-position="1547">
+              <caret line="102" column="30" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clge/Behaviour/Behaviour.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProjectionTest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-238">
+              <caret line="36" selection-start-line="36" selection-end-line="92" selection-end-column="13" />
               <folding>
-                <marker date="1535746963268" expanded="true" signature="4098:5240" ph="..." />
+                <element signature="e#0#50#0" expanded="true" />
+                <marker date="1551022919373" expanded="true" signature="1038:1146" ph="..." />
+                <marker date="1551022919373" expanded="true" signature="1417:1422" ph="..." />
+                <marker date="1551022919373" expanded="true" signature="1456:1463" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clge/Constants.py">
+        <entry file="file://$PROJECT_DIR$/Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1535741570552" expanded="true" signature="82:87" ph="..." />
-              </folding>
+            <state relative-caret-position="113">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -231,8 +257,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/Collider.py" />
-        <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/Behaviour.py" />
         <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/Transform2d.py" />
         <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/Collider2D.py" />
         <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/AnsiRenderer2D.py" />
@@ -252,17 +276,13 @@
         <option value="$PROJECT_DIR$/Player Component.py" />
         <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/__init__.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Components/Physiqs.py" />
-        <option value="$PROJECT_DIR$/clge/Behaviour/Behaviour.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Components/Transform2D.py" />
         <option value="$PROJECT_DIR$/clge/UserDefinedFunctionManager.py" />
         <option value="$PROJECT_DIR$/clge/plugs/DefaultAssets/PlayerController.py" />
         <option value="$PROJECT_DIR$/PlayerController.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Components/2D/__init__.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/__init__.py" />
-        <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py" />
-        <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Collider3D.py" />
-        <option value="$PROJECT_DIR$/clge/Behaviour/Components/__init__.py" />
         <option value="$PROJECT_DIR$/clge/__init__.py" />
         <option value="$PROJECT_DIR$/Test.py" />
         <option value="$PROJECT_DIR$/clge/GameMath.py" />
@@ -272,7 +292,6 @@
         <option value="$PROJECT_DIR$/clge/Behaviour/__init__.py" />
         <option value="$PROJECT_DIR$/clge/GameMath/__init__.py" />
         <option value="$PROJECT_DIR$/clge/coord_translators/system_translator.py" />
-        <option value="$PROJECT_DIR$/clge/utilities.py" />
         <option value="$PROJECT_DIR$/clge/packages.json" />
         <option value="$PROJECT_DIR$/clge/Constants.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Vector2.py" />
@@ -280,8 +299,15 @@
         <option value="$PROJECT_DIR$/clge/Behaviour/Vector3.py" />
         <option value="$PROJECT_DIR$/clge/drawer.py" />
         <option value="$PROJECT_DIR$/clge/Behaviour/Camera.py" />
-        <option value="$PROJECT_DIR$/ProjectionTest.py" />
         <option value="$PROJECT_DIR$/clge/GameMath/Matrix.py" />
+        <option value="$PROJECT_DIR$/clge/utilities.py" />
+        <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Mesh3D.py" />
+        <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py" />
+        <option value="$PROJECT_DIR$/clge/Behaviour/Components/__init__.py" />
+        <option value="$PROJECT_DIR$/clge/audio_player.py" />
+        <option value="$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py" />
+        <option value="$PROJECT_DIR$/clge/Behaviour/Behaviour.py" />
+        <option value="$PROJECT_DIR$/ProjectionTest.py" />
       </list>
     </option>
   </component>
@@ -292,10 +318,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="107" />
-    <option name="y" value="-9" />
+    <option name="x" value="105" />
+    <option name="y" value="-10" />
     <option name="width" value="2580" />
-    <option name="height" value="1183" />
+    <option name="height" value="1185" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -332,7 +358,21 @@
               <item name="CLGE" type="b2602c69:ProjectViewProjectNode" />
               <item name="CLGE" type="462c0819:PsiDirectoryNode" />
               <item name="clge" type="462c0819:PsiDirectoryNode" />
+              <item name="Behaviour" type="462c0819:PsiDirectoryNode" />
+              <item name="Components" type="462c0819:PsiDirectoryNode" />
+              <item name="ThreeDimensions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CLGE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CLGE" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
               <item name="coord_translators" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CLGE" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CLGE" type="462c0819:PsiDirectoryNode" />
+              <item name="clge" type="462c0819:PsiDirectoryNode" />
+              <item name="GameMath" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,18 +387,18 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour\Components\ThreeDimensions" />
+      <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour" />
+      <recent name="C:\Users\rgard\Github\CLGE\clge\plugs\DefaultAssets" />
+      <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour\Components" />
       <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour\Components\2D" />
       <recent name="C:\Users\rgard\Github\CLGE" />
       <recent name="C:\Users\rgard\Github\CLGE\clge" />
       <recent name="C:\Users\rgard\Github\CLGE\clge\plugs\DefaultAssets\Behaviour" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour" />
-      <recent name="C:\Users\rgard\Github\CLGE\clge\Behaviour\Components\ThreeDimensions" />
-      <recent name="C:\Users\rgard\Github\CLGE\clge\plugs\DefaultAssets" />
-      <recent name="C:\Users\rgard\PycharmProjects\CommandLineGameEngine" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -559,7 +599,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22214764" />
       <window_info id="Favorites" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
@@ -643,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/audio_player.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Snake.py" />
     <entry file="file://$PROJECT_DIR$/clge/setup.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -659,13 +692,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/Component.py" />
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/AudioPlayer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/World.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -688,13 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
           <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Behaviour.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -742,13 +761,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/TwoDimensions/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/UserDefinedFunctionManager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1020">
@@ -757,8 +769,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py" />
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py" />
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Collider3D.py" />
     <entry file="file://$PROJECT_DIR$/clge/alt_drawer.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -799,24 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clge/utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -841,20 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clge/GameMath/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clge/Behaviour/Vector2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -876,33 +858,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
+    <entry file="file://$PROJECT_DIR$/clge/utilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="52" column="57" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
+        <state relative-caret-position="419">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/AudioPlayer.py" />
+    <entry file="file://$PROJECT_DIR$/clge/GameMath/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <marker date="1535746963268" expanded="true" signature="4098:5240" ph="..." />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clge/Constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1535741570552" expanded="true" signature="82:87" ph="..." />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProjectionTest.py">
+    <entry file="file://$PROJECT_DIR$/clge/audio_player.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+        <state relative-caret-position="34">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/drawer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1547">
+          <caret line="102" column="30" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cube.obj">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Mesh3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <marker date="1535964814820" expanded="true" signature="632:635" ph="..." />
-            <marker date="1535964814820" expanded="true" signature="665:670" ph="..." />
+            <marker date="1536406781113" expanded="true" signature="50:55" ph="..." />
+            <marker date="1536406781113" expanded="true" signature="668:902" ph="..." />
+            <marker date="1536406781113" expanded="true" signature="981:990" ph="..." />
+            <marker date="1536406781113" expanded="true" signature="1281:1327" ph="..." />
           </folding>
         </state>
       </provider>
@@ -910,12 +930,48 @@
     <entry file="file://$PROJECT_DIR$/clge/GameMath/Matrix.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
+          <caret line="20" column="84" lean-forward="true" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProjectionTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="36" selection-start-line="36" selection-end-line="92" selection-end-column="13" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1535964814802" expanded="true" signature="285:325" ph="..." />
-            <marker date="1535964814802" expanded="true" signature="1065:1070" ph="..." />
-            <marker date="1535964814802" expanded="true" signature="1159:1160" ph="..." />
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1551022919373" expanded="true" signature="1038:1146" ph="..." />
+            <marker date="1551022919373" expanded="true" signature="1417:1422" ph="..." />
+            <marker date="1551022919373" expanded="true" signature="1456:1463" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Behaviour.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/Transform3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="20" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="20" />
+          <folding>
+            <marker date="1536408188270" expanded="true" signature="483:549" ph="..." />
+            <marker date="1536408188270" expanded="true" signature="699:848" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clge/Behaviour/Components/ThreeDimensions/AsciiRenderer3D.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <element signature="e#1#45#0" expanded="true" />
+            <marker date="1551022063526" expanded="true" signature="499:505" ph="..." />
           </folding>
         </state>
       </provider>

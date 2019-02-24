@@ -28,5 +28,11 @@ def sign(x):
     return 1 - (x <= 0)
 
 
+def startswith(string, letters):
+    if string[0: len(letters)] == letters:
+        return True
+    return False
+
+
 def clamp(val, _min, _max):
     return min(max(_min, val), _max)
