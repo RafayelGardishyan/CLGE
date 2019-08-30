@@ -2,7 +2,12 @@ import sys
 import subprocess
 import os
 import json
+from clge.exceptions import CLGEException
 
+if os.geteuid() == 0:
+    print("Running as root.")
+else:
+    raise CLGEException("You have to run CLGE with sudo to be able to use keyboard controls")
 
 def get_packages():
     return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
@@ -25,7 +30,6 @@ def get_platform():
 
 packages = get_packages()
 
-
 if get_platform() == "OS X":
     packages_list = packages["OS X"] + packages["Standard"]
 elif get_platform() == "Linux":
@@ -44,16 +48,15 @@ def packages_list_string():
 try:
     for package in packages_list:
         if get_platform() == "Windows":
-            subprocess.check_call(["python", '-m', 'pip', 'install', package])
+            subprocess.check_call(["python", '-m', 'pip', 'install', package, '--user'])
         else:
-            subprocess.check_call(["python3", '-m', 'pip', 'install', package])
-    print("\n"*100)
-except ImportError:
+            subprocess.check_call(["python3", '-m', 'pip', 'install', package, '--user'])
+    print("\n" * 100)
+except ImportError or subprocess.CalledProcessError:
     print("Error: No pip module. Can't do setup")
     print("Info: Please install the packages manually")
     print("Info: Package List: {}".format(packages_list_string()))
     raise SystemExit
-
 
 # def get_config_data(config_file):
 #     config = configparser.ConfigParser()

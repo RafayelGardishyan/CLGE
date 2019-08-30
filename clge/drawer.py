@@ -1,5 +1,4 @@
 import time
-from colored import fg
 
 from clge.Constants import CoordinateSystems
 from clge.utilities import sign
@@ -18,7 +17,6 @@ Screen class -> Renderer
 """
 class Screen:
     default_symbol = '#'
-    default_color = fg(255)
     beforeScreen = afterScreen = ""
     
     def __init__(self, width, height, loop=False, symbol='#', border=True):
@@ -108,31 +106,28 @@ class Screen:
     def auto_timeout_setter(self, value):
         self.auto_timeout = value
 
-    def color_setter(self, value):
-        self.default_color = fg(value)
-
     def clear_screen(self):
         sys.stdout.write("\n" * self.screen_spacing)
 
-    def add_object(self, x, y, symbol=default_symbol, color=default_color):
+    def add_object(self, x, y, symbol=default_symbol, color=0):
         xt, yt = CoordinateTranslator(x, y, self.field_height, self.field_width, self.coordinate_system)
         self.objectsList.append([round(xt), round(yt), symbol[0], color])
 
     def clear_objects_list(self):
         self.objectsList = []
 
-    def add_string(self, x, y, text, color=default_color):
+    def add_string(self, x, y, text, color=0):
         x = x
         for letter in text:
             self.add_object(x, y, letter, color)
             x += 1
 
-    def add_polygon(self, width, height, x, y, symbol=default_symbol, color=default_color):
+    def add_polygon(self, width, height, x, y, symbol=default_symbol, color=0):
         for i in range(height):
             for j in range(width):
                 self.add_object(x + j, y + i, symbol, color)
 
-    def add_line(self, x1, x2, y1, y2, symbol=default_symbol, color=default_color):
+    def add_line(self, x1, x2, y1, y2, symbol=default_symbol, color=0):
         # # Simple Line Drawing Algorithm
         # xs = min(x1, x2)
         # xe = max(x1, x2)
@@ -196,52 +191,28 @@ class Screen:
     def draw(self, objects):
         self.frame = ""
         if self.border:
-            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
-        else:
-            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
-        for i in range(self.field_height):
-            camI = i - self.camera.y
-            spacer = [" "] * self.field_width
-            if self.border:
-                draw = self.default_color + self.default_symbol + self.default_color
-            else:
-                draw = self.default_color + " " + self.default_color
-            for j in range(self.field_width):
-                camJ = j - self.camera.x
-                for obj in objects:
-                    if obj[0] == camJ and obj[1] == camI:
-                        spacer[j] = str(obj[3]) + obj[2] + str(self.default_color)
-
-            for space in spacer:
-                draw += space
-            if self.border:
-                draw += self.default_color + self.default_symbol + self.default_color
-            else:
-                draw += self.default_color + " " + self.default_color
-            self.frame += draw + "\n"
-        if self.border:
-            self.frame += self.default_color + self.default_symbol * (self.field_width + 2) + self.default_color + "\n"
-        else:
-            self.frame += self.default_color + " " * (self.field_width + 2) + self.default_color + "\n"
-
-        self.rendered_frame = self.frame
-
-    def draw_windows(self, objects):
-        self.frame = ""
-        if self.border:
             self.frame += self.default_symbol * (self.field_width + 2) + "\n"
         else:
             self.frame += " " * (self.field_width + 2) + "\n"
         for i in range(self.field_height):
+            camI = i - self.camera.y
             spacer = [" "] * self.field_width
-            draw = self.default_symbol
+            if self.border:
+                draw = self.default_symbol
+            else:
+                draw = " "
             for j in range(self.field_width):
+                camJ = j - self.camera.x
                 for obj in objects:
-                    if obj[0] == j and obj[1] == i:
+                    if obj[0] == camJ and obj[1] == camI:
                         spacer[j] = obj[2]
+
             for space in spacer:
                 draw += space
-            draw += self.default_symbol
+            if self.border:
+                draw += self.default_symbol
+            else:
+                draw += " "
             self.frame += draw + "\n"
         if self.border:
             self.frame += self.default_symbol * (self.field_width + 2) + "\n"
@@ -255,10 +226,8 @@ class Screen:
         self.FunctionManager.PreUpdate()
         self.FunctionManager.Update()
         self.setDeltatime()
-        if get_platform() == "Windows":
-            self.draw_windows(self.objectsList)
-        else:
-            self.draw(self.objectsList)
+
+        self.draw(self.objectsList)
 
         self.write(self.beforeScreen, self.afterScreen)
 

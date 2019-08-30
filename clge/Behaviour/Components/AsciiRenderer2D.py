@@ -11,7 +11,6 @@ class AsciiRenderer2D:
 
     def Update(self):
         self.character = self.screen.default_symbol
-        self.color = self.screen.default_color
         self.getPolygon()
 
     def getPolygon(self):

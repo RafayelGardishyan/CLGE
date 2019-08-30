@@ -1,5 +1,5 @@
 {
-  "Standard": ["aenum", "coverage", "keyboard", "mouse", "playsound", "colored==1.3.5", "pymunk", "multitasking"],
+  "Standard": ["aenum", "coverage", "keyboard", "mouse", "playsound", "pymunk", "multitasking"],
   "Windows": [],
   "Linux": [],
   "OS X": []
