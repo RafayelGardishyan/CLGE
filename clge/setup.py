@@ -4,10 +4,12 @@ import os
 import json
 from clge.exceptions import CLGEException
 
+
 if os.geteuid() == 0:
     print("Running as root.")
 else:
-    raise CLGEException("You have to run CLGE with sudo to be able to use keyboard controls")
+    if not sys.argv[1] == "--no-root":
+        raise CLGEException("You have to run CLGE with sudo to be able to use keyboard controls")
 
 def get_packages():
     return json.loads(open(os.path.dirname(os.path.realpath(__file__)) + "/packages.json").read())
