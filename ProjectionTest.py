@@ -15,79 +15,59 @@ scr.auto_clear_objects_list_setter(True)
 scr.change_coordinate_system(CoordinateSystems.MIDDLE_MIDDLE)
 scr.set_timeout(.05)
 
-object = Behaviour('3D Object', scr, World())
+angle = 0
 
-object.addComponent(Transform3D)
-object.addComponent(Mesh3D)
-object.addComponent(AsciiRenderer3D)
-
-object.getComponentByType('mesh').readFromObjFile('object.obj')
-object.getComponentByType('mesh').setScalingFactor(5)
+points = [
+    Vector3(-10, -10, -10),
+    Vector3(10, -10, -10),
+    Vector3(10, 10, -10),
+    Vector3(-10, 10, -10),
+    Vector3(-10, -10, 10),
+    Vector3(10, -10, 10),
+    Vector3(10, 10, 10),
+    Vector3(-10, 10, 10),
+]
 
 
 def update():
-    rotation = object.getComponentByType('transform3d').getRotation()
-    rotation = [rotation[0] + 1, rotation[1] + 1, rotation[2] + 1]
-    object.getComponentByType('transform3d').setRotation(rotation)
+    global angle
+    projected: list[Vector2] = []
+    for i in points:
+        r = Matrix.rotate_x(i, angle)
+        r = Matrix.rotate_y(r, angle)
+        r = Matrix.rotate_z(r, angle)
+        # p = Matrix.project(r, aspect, field_of_view, near_plane, far_plane)
+        p = Matrix.project(r, 100, 1.5)
+        projected.append(p)
 
+    for i in range(4):
+        scr.add_line(
+            projected[i].x * 2,
+            projected[(i+1) % 4].x * 2,
+            projected[i].y,
+            projected[(i+1) % 4].y,
+            "*"
+        )
+        scr.add_line(
+            projected[i + 4].x * 2,
+            projected[((i + 1) % 4) + 4].x * 2,
+            projected[i + 4].y,
+            projected[((i + 1) % 4) + 4].y,
+            "*"
+        )
+        scr.add_line(
+            projected[i].x * 2,
+            projected[i + 4].x * 2,
+            projected[i].y,
+            projected[i + 4].y,
+            "*"
+        )
+
+    for j in projected:
+        scr.add_object(j.x * 2, j.y, "O")
+
+    angle += .05
 
 scr.FunctionManager.registerUpdate(update)
-scr.Start()
 
-# angle = 0
-#
-# points = [
-#     Vector3(-10, -10, -10),
-#     Vector3(10, -10, -10),
-#     Vector3(10, 10, -10),
-#     Vector3(-10, 10, -10),
-#     Vector3(-10, -10, 10),
-#     Vector3(10, -10, 10),
-#     Vector3(10, 10, 10),
-#     Vector3(-10, 10, 10),
-# ]
-#
-#
-# def update():
-#     global angle
-#     projected: list[Vector2] = []
-#     for i in points:
-#         r = Matrix.rotate_x(i, angle)
-#         r = Matrix.rotate_y(r, angle)
-#         r = Matrix.rotate_z(r, angle)
-#         # p = Matrix.project(r, aspect, field_of_view, near_plane, far_plane)
-#         p = Matrix.project(r, 100, 1.5)
-#         projected.append(p)
-#
-#     for i in range(4):
-#         scr.add_line(
-#             projected[i].x * 2,
-#             projected[(i+1) % 4].x * 2,
-#             projected[i].y,
-#             projected[(i+1) % 4].y,
-#             "*"
-#         )
-#         scr.add_line(
-#             projected[i + 4].x * 2,
-#             projected[((i + 1) % 4) + 4].x * 2,
-#             projected[i + 4].y,
-#             projected[((i + 1) % 4) + 4].y,
-#             "*"
-#         )
-#         scr.add_line(
-#             projected[i].x * 2,
-#             projected[i + 4].x * 2,
-#             projected[i].y,
-#             projected[i + 4].y,
-#             "*"
-#         )
-#
-#     for j in projected:
-#         scr.add_object(j.x * 2, j.y, "O")
-#
-#     angle += .05
-#
-#
-# scr.FunctionManager.registerUpdate(update)
-#
-# scr.Start()
+scr.Start()

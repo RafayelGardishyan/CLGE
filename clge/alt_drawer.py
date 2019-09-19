@@ -28,7 +28,7 @@ class Screen(drawer.Screen):
 
         for x in objects:
             try:
-                self.frame[(x[1] * self.field_width) + x[0]] = x[3] + x[2]
+                self.frame[(x[1] * self.field_width) + x[0]] = x[2]
             except IndexError:
                 self.frame.append(x[2])
         self.render_frame()
