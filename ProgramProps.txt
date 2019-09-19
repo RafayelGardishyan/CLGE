@@ -1,0 +1,41 @@
+CLGE Program structure:
+
+- World
+	-> Objects
+	-> Children => World & Objects
+- Screen 
+	-> Objects
+	-> Settings
+		=> Width & Height
+		=> Border
+		=> Standard symbol for rendering
+		=> Rendering settings (Much)
+	-> Periodic functions:
+		* Start (Runs once, when the program starts)
+		* Update (Runs every cycle of the program)
+		* FixedUpdate (Runs with a fixed timeout)
+		* PreUpdate (Runs before Update, has the goal to prepare things for Update)
+		* LateUpdate (Runs after rendering the frame, has the same goal as FixedUpdate)
+		* Destroy (Runs when the program is terminated by the destroy function in Screen)
+
+- Object (Behaviour)
+	-> Components (change behaviour)
+	-> Children => Object
+	=> Standard components:
+		* Transform 2D/3D
+
+- Component
+	-> Always has a name
+	-> May have some of the periodic functions
+	-> Defines a bit of the behaviour of the object
+	-> May be created by the user
+
+- Classes from outside the components
+	* KeyDetector => Detects key presses when needed
+	* MouseDetector => Same principle as the KeyDetector
+	* Utils => Has some utilitary functions as clamp etc.
+	* Exceptions => Class for creating custom exceptions.
+
+- Screen types:
+	* STDScreen: Is imported by import clge.Screen. Uses fast but optimized for 2d rendering method
+	* ALTScreen: Is imported by import clge.AltScreen. Uses slow rendering for 2d but is faster for 3d
