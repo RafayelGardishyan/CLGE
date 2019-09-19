@@ -13,15 +13,8 @@
 
 ## Command Line Game Engine
 
-###### Warning: On Linux assync sound will not work
-###### Warning: On Windows the colors will not work
-CLGE is a free Game Engine created to work in Terminal, CMD and PowerShell.
-
-It is made by Rafayel Gardishyan, a 14 years old programmer who learned programming by itself.
-
-It is completelty open source but you have to notice the author (See MIT Licence).
-
-It is easy to install and easier to use.
+###### Currently the program is not passing tests, because they are not configured for the new version. Don't worry
+Command line game engine is an app allowing you to create games and animations for command line. It's currently developing and is not ready for commercial use. **Please help us develop it**
 
 
 
