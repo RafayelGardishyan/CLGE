@@ -1,9 +1,9 @@
 # CLGE
 [![Documentation](https://img.shields.io/badge/Documentation-WIKI-orange.svg)](https://github.com/RafayelGardishyan/CLGE/wiki)
-[![GitHub license](https://img.shields.io/github/license/RafayelGardishyan/CLGE.svg)](https://github.com/RafayelGardishyan/CLGE/blob/master/LICENSE)
 [![GitHub forks](https://img.shields.io/github/forks/RafayelGardishyan/CLGE.svg)](https://github.com/RafayelGardishyan/CLGE/network/members)
 [![GitHub stars](https://img.shields.io/github/stars/RafayelGardishyan/CLGE.svg)](https://github.com/RafayelGardishyan/CLGE/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/RafayelGardishyan/CLGE.svg)](https://github.com/RafayelGardishyan/CLGE/issues)
+[![GitHub license](https://img.shields.io/github/license/RafayelGardishyan/CLGE.svg)](https://github.com/RafayelGardishyan/CLGE/blob/master/LICENSE)
 
 [[docs]](https://github.com/RafayelGardishyan/CLGE/wiki)
 [[license]](https://github.com/RafayelGardishyan/CLGE/blob/master/LICENSE)
